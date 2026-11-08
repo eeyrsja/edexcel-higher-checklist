@@ -1,0 +1,669 @@
+{
+  "N1": {
+    "text": "Order positive/negative integers, decimals and fractions; use =, ≠, <, >, ≤, ≥",
+    "topics": [
+      "Decimals",
+      "Ordering Fractions, Decimals & Percentages"
+    ]
+  },
+  "N2": {
+    "text": "Four operations (formal written methods) on integers, decimals, fractions and mixed numbers, positive and negative; place value",
+    "topics": [
+      "Decimals",
+      "Adding Fractions",
+      "Multiplying Fractions",
+      "Dividing Fractions"
+    ]
+  },
+  "N3": {
+    "text": "Inverse operations, priority of operations incl. brackets, powers, roots and reciprocals",
+    "topics": [
+      "Reciprocal"
+    ]
+  },
+  "N4": {
+    "text": "Primes, factors, multiples, common factors/multiples, HCF, LCM, prime factorisation, product notation",
+    "topics": [
+      "LCM / HCF",
+      "Product of Primes"
+    ]
+  },
+  "N5": {
+    "text": "Systematic listing strategies incl. the product rule for counting",
+    "topics": [
+      "Product Rule for Counting"
+    ]
+  },
+  "N6": {
+    "text": "Positive integer powers and real roots; powers of 2, 3, 4, 5; estimate powers and roots",
+    "topics": [
+      "Indices"
+    ]
+  },
+  "N7": {
+    "text": "Calculate with roots, and with integer and fractional indices",
+    "topics": [
+      "Indices",
+      "Indices (fractional/negative)"
+    ]
+  },
+  "N8": {
+    "text": "Calculate exactly with fractions, surds and multiples of π; simplify surds; rationalise denominators",
+    "topics": [
+      "Surds"
+    ]
+  },
+  "N9": {
+    "text": "Calculate with and interpret standard form A × 10ⁿ, 1 ≤ A < 10",
+    "topics": [
+      "Standard Form"
+    ]
+  },
+  "N10": {
+    "text": "Work interchangeably with terminating decimals and fractions; recurring decimals ↔ fractions",
+    "topics": [
+      "Decimals",
+      "Recurring Decimals to Fractions"
+    ]
+  },
+  "N11": {
+    "text": "Identify and work with fractions in ratio problems",
+    "topics": [
+      "Ratio"
+    ]
+  },
+  "N12": {
+    "text": "Interpret fractions and percentages as operators",
+    "topics": [
+      "Percentages of Amounts"
+    ]
+  },
+  "N13": {
+    "text": "Use standard units of mass, length, time, money and other measures, incl. compound measures",
+    "topics": [
+      "Metric Units (area/volume)",
+      "Speed, Distance, Time",
+      "Density",
+      "Pressure"
+    ]
+  },
+  "N14": {
+    "text": "Estimate answers; check calculations using approximation and estimation, incl. answers obtained using technology",
+    "topics": [
+      "Estimation",
+      "Use of a Calculator"
+    ]
+  },
+  "N15": {
+    "text": "Round to an appropriate degree of accuracy; use inequality notation for error intervals due to truncation or rounding",
+    "topics": [
+      "Error Intervals"
+    ]
+  },
+  "N16": {
+    "text": "Apply and interpret limits of accuracy, incl. upper and lower bounds",
+    "topics": [
+      "Limits of Accuracy"
+    ]
+  },
+  "A1": {
+    "text": "Use and interpret algebraic notation (ab, 3y, a², a/b, brackets, fractional coefficients)",
+    "topics": []
+  },
+  "A2": {
+    "text": "Substitute numerical values into formulae and expressions, incl. scientific formulae",
+    "topics": [
+      "Substitution"
+    ]
+  },
+  "A3": {
+    "text": "Understand vocabulary: expressions, equations, formulae, identities, inequalities, terms, factors",
+    "topics": []
+  },
+  "A4": {
+    "text": "Simplify and manipulate algebraic expressions: collecting like terms, expanding brackets, factorising (incl. quadratics, difference of two squares), algebraic fractions, laws of indices",
+    "topics": [
+      "Collecting Like Terms",
+      "Expanding Brackets",
+      "Factorising",
+      "Factorising Quadratics",
+      "Algebraic Fractions"
+    ]
+  },
+  "A5": {
+    "text": "Use standard formulae; rearrange formulae to change the subject",
+    "topics": [
+      "Changing the Subject"
+    ]
+  },
+  "A6": {
+    "text": "Equation vs identity; argue mathematically; use algebra to support and construct arguments and proofs",
+    "topics": [
+      "Algebraic Proof"
+    ]
+  },
+  "A7": {
+    "text": "Interpret expressions as functions; inverse and composite functions (formal notation expected)",
+    "topics": [
+      "Function Notation",
+      "Composite Functions",
+      "Inverse Functions"
+    ]
+  },
+  "A8": {
+    "text": "Work with coordinates in all four quadrants",
+    "topics": []
+  },
+  "A9": {
+    "text": "Plot straight-line graphs; y = mx + c; parallel and perpendicular lines; equation through two points or a point with a gradient",
+    "topics": [
+      "Linear Graphs",
+      "Parallel or Perpendicular Lines"
+    ]
+  },
+  "A10": {
+    "text": "Identify and interpret gradients and intercepts of linear functions, graphically and algebraically",
+    "topics": [
+      "Linear Graphs"
+    ]
+  },
+  "A11": {
+    "text": "Identify roots, intercepts and turning points of quadratics graphically; deduce roots algebraically and turning points by completing the square",
+    "topics": [
+      "Quadratic Graphs",
+      "Sketching Quadratics",
+      "Completing the Square",
+      "Solving Quadratics Graphically"
+    ]
+  },
+  "A12": {
+    "text": "Recognise, sketch and interpret graphs of linear, quadratic, simple cubic, reciprocal, exponential and trigonometric functions",
+    "topics": [
+      "Linear Graphs",
+      "Quadratic Graphs",
+      "Cubic Graphs",
+      "Reciprocal Graphs",
+      "Exponential Graphs",
+      "Trigonometric Graphs"
+    ]
+  },
+  "A13": {
+    "text": "Sketch translations and reflections of a given function",
+    "topics": [
+      "Transformations of Graphs"
+    ]
+  },
+  "A14": {
+    "text": "Plot and interpret graphs (incl. reciprocal, exponential, non-standard) in real contexts, e.g. kinematics",
+    "topics": [
+      "Real-life Linear Graphs",
+      "Travel Graphs",
+      "Reciprocal Graphs",
+      "Exponential Graphs"
+    ]
+  },
+  "A15": {
+    "text": "Calculate or estimate gradients and areas under graphs (incl. non-linear); interpret for distance-time, velocity-time and financial graphs",
+    "topics": [
+      "Instantaneous Rates of Change",
+      "Average Rates of Change",
+      "Area under a Curve",
+      "Travel Graphs"
+    ]
+  },
+  "A16": {
+    "text": "Equation of a circle centred at the origin; equation of a tangent at a given point",
+    "topics": [
+      "Equation of a Circle",
+      "Equation of a Tangent"
+    ]
+  },
+  "A17": {
+    "text": "Solve linear equations in one unknown (incl. unknown on both sides); approximate solutions using a graph",
+    "topics": [
+      "Equations"
+    ]
+  },
+  "A18": {
+    "text": "Solve quadratic equations by factorising, completing the square and the quadratic formula; approximate solutions using a graph",
+    "topics": [
+      "Factorising Quadratics",
+      "Completing the Square",
+      "Quadratic Formula",
+      "Solving Quadratics Graphically"
+    ]
+  },
+  "A19": {
+    "text": "Solve two simultaneous equations (linear/linear or linear/quadratic) algebraically; approximate solutions using a graph",
+    "topics": [
+      "Simultaneous Equations",
+      "Non-linear Simultaneous Equations",
+      "Graphical Simultaneous Equations"
+    ]
+  },
+  "A20": {
+    "text": "Find approximate solutions to equations numerically using iteration",
+    "topics": [
+      "Iteration"
+    ]
+  },
+  "A21": {
+    "text": "Translate situations into algebraic expressions/formulae; derive and solve equations and interpret solutions",
+    "topics": [
+      "Equations"
+    ]
+  },
+  "A22": {
+    "text": "Solve linear inequalities (one or two variables) and quadratic inequalities; solution sets on number line, with set notation and on a graph",
+    "topics": [
+      "Inequalities",
+      "Inequalities (Regions)",
+      "Quadratic Inequalities"
+    ]
+  },
+  "A23": {
+    "text": "Generate terms of a sequence from term-to-term or position-to-term rules",
+    "topics": [
+      "Sequences (nth term)",
+      "Diagram Sequences"
+    ]
+  },
+  "A24": {
+    "text": "Recognise and use triangular, square, cube numbers, arithmetic progressions, Fibonacci, quadratic sequences and geometric progressions",
+    "topics": [
+      "Sequences (nth term)",
+      "nth term (quadratics)",
+      "Geometric Sequences",
+      "Diagram Sequences"
+    ]
+  },
+  "A25": {
+    "text": "Deduce expressions for the nth term of linear and quadratic sequences",
+    "topics": [
+      "Sequences (nth term)",
+      "nth term (quadratics)",
+      "Diagram Sequences"
+    ]
+  },
+  "R1": {
+    "text": "Change freely between related standard units and compound units (speed, rates of pay, prices, density, pressure) in numerical and algebraic contexts",
+    "topics": [
+      "Metric Units (area/volume)",
+      "Conversion Graphs",
+      "Speed, Distance, Time",
+      "Density",
+      "Pressure"
+    ]
+  },
+  "R2": {
+    "text": "Use scale factors, scale diagrams and maps",
+    "topics": []
+  },
+  "R3": {
+    "text": "Express one quantity as a fraction of another (fraction < or > 1)",
+    "topics": []
+  },
+  "R4": {
+    "text": "Use ratio notation, including reduction to simplest form",
+    "topics": [
+      "Ratio"
+    ]
+  },
+  "R5": {
+    "text": "Divide a quantity in a part:part or part:whole ratio; apply ratio to real contexts (conversion, comparison, scaling, mixing, concentrations)",
+    "topics": [
+      "Ratio",
+      "Proportion (application)",
+      "Currency"
+    ]
+  },
+  "R6": {
+    "text": "Express a multiplicative relationship between two quantities as a ratio or fraction",
+    "topics": [
+      "Ratio"
+    ]
+  },
+  "R7": {
+    "text": "Understand and use proportion as equality of ratios",
+    "topics": [
+      "Ratio"
+    ]
+  },
+  "R8": {
+    "text": "Relate ratios to fractions and to linear functions",
+    "topics": [
+      "Ratio"
+    ]
+  },
+  "R9": {
+    "text": "Percentages and percentage change as fractions/decimals, multiplicatively; percentage of an amount; percentage increase/decrease; original value problems; simple interest",
+    "topics": [
+      "Percentages of Amounts",
+      "Percentage Change",
+      "Reverse Percentages",
+      "Simple Interest"
+    ]
+  },
+  "R10": {
+    "text": "Solve problems involving direct and inverse proportion, incl. graphical and algebraic representations",
+    "topics": [
+      "Direct Proportion",
+      "Inverse Proportion",
+      "Proportional Graphs"
+    ]
+  },
+  "R11": {
+    "text": "Use compound units: speed, rates of pay, unit pricing, density, pressure",
+    "topics": [
+      "Speed, Distance, Time",
+      "Best Buys",
+      "Density",
+      "Pressure"
+    ]
+  },
+  "R12": {
+    "text": "Compare lengths, areas and volumes using ratio; links to similarity (incl. trigonometric ratios) and scale factors",
+    "topics": [
+      "Similar Shapes"
+    ]
+  },
+  "R13": {
+    "text": "X inversely proportional to Y ≡ X proportional to 1/Y; construct and interpret equations for direct and inverse proportion",
+    "topics": [
+      "Direct Proportion",
+      "Inverse Proportion"
+    ]
+  },
+  "R14": {
+    "text": "Interpret gradient of a straight line as a rate of change; recognise graphs of direct and inverse proportion",
+    "topics": [
+      "Proportional Graphs",
+      "Real-life Linear Graphs"
+    ]
+  },
+  "R15": {
+    "text": "Gradient at a point as instantaneous rate of change; average and instantaneous rates (chords and tangents) in numerical, algebraic and graphical contexts",
+    "topics": [
+      "Instantaneous Rates of Change",
+      "Average Rates of Change"
+    ]
+  },
+  "R16": {
+    "text": "Set up, solve and interpret growth and decay problems, incl. compound interest and general iterative processes",
+    "topics": [
+      "Compound Interest",
+      "Iteration"
+    ]
+  },
+  "G1": {
+    "text": "Use conventional terms and notations (points, lines, vertices, edges, planes, parallel/perpendicular, polygons...); draw diagrams from written description",
+    "topics": []
+  },
+  "G2": {
+    "text": "Ruler and compass constructions (perpendicular bisector, perpendicular from/at a point, angle bisector); construct figures and solve loci problems",
+    "topics": [
+      "Constructions",
+      "Loci"
+    ]
+  },
+  "G3": {
+    "text": "Angles at a point/straight line, vertically opposite, alternate and corresponding angles; angle sums of triangles and polygons",
+    "topics": [
+      "Angles in Parallel Lines",
+      "Angles in Polygons"
+    ]
+  },
+  "G4": {
+    "text": "Properties and definitions of special quadrilaterals (square, rectangle, parallelogram, trapezium, kite, rhombus) and triangles",
+    "topics": []
+  },
+  "G5": {
+    "text": "Use the basic congruence criteria for triangles (SSS, SAS, ASA, RHS)",
+    "topics": [
+      "Congruent Triangles"
+    ]
+  },
+  "G6": {
+    "text": "Apply angle facts, congruence, similarity and quadrilateral properties to derive results (incl. Pythagoras) and obtain simple proofs",
+    "topics": [
+      "Geometric Proof",
+      "Pythagoras"
+    ]
+  },
+  "G7": {
+    "text": "Identify, describe and construct congruent and similar shapes on coordinate axes via rotation, reflection, translation and enlargement (incl. fractional/negative scale factors)",
+    "topics": [
+      "Translations",
+      "Reflections",
+      "Rotations",
+      "Enlargements"
+    ]
+  },
+  "G8": {
+    "text": "Describe changes and invariance achieved by combinations of rotations, reflections and translations",
+    "topics": [
+      "Invariant Points"
+    ]
+  },
+  "G9": {
+    "text": "Identify and apply circle definitions and properties: centre, radius, chord, diameter, circumference, tangent, arc, sector, segment",
+    "topics": []
+  },
+  "G10": {
+    "text": "Apply and prove the standard circle theorems and use them to prove related results",
+    "topics": [
+      "Circle Theorems"
+    ]
+  },
+  "G11": {
+    "text": "Solve geometrical problems on coordinate axes",
+    "topics": [
+      "Midpoint of a Line",
+      "Distance between 2 Points"
+    ]
+  },
+  "G12": {
+    "text": "Identify properties of faces, surfaces, edges and vertices of cubes, cuboids, prisms, cylinders, pyramids, cones and spheres",
+    "topics": []
+  },
+  "G13": {
+    "text": "Construct and interpret plans and elevations of 3D shapes",
+    "topics": [
+      "Views (elevations)"
+    ]
+  },
+  "G14": {
+    "text": "Use standard units of measure and related concepts (length, area, volume/capacity, mass, time, money)",
+    "topics": [
+      "Metric Units (area/volume)"
+    ]
+  },
+  "G15": {
+    "text": "Measure line segments and angles; interpret maps and scale drawings; use of bearings",
+    "topics": [
+      "Bearings"
+    ]
+  },
+  "G16": {
+    "text": "Formulae for area of triangles, parallelograms, trapezia; volume of cuboids and right prisms (incl. cylinders)",
+    "topics": [
+      "Area of a Trapezium",
+      "Volume of a Prism",
+      "Volume of a Cylinder",
+      "Area of Compound Shapes"
+    ]
+  },
+  "G17": {
+    "text": "Circumference 2πr = πd and area πr²; perimeters; areas of circles and composite shapes; surface area and volume of spheres, pyramids, cones and composite solids",
+    "topics": [
+      "Circumference",
+      "Area of a Circle",
+      "Volume of Cone / Pyramid / Sphere",
+      "Volume of a Frustum",
+      "Surface Area of a Prism",
+      "Surface Area of Cone / Sphere",
+      "Area of Compound Shapes"
+    ]
+  },
+  "G18": {
+    "text": "Calculate arc lengths, angles and areas of sectors of circles",
+    "topics": [
+      "Arc Length",
+      "Area of a Sector"
+    ]
+  },
+  "G19": {
+    "text": "Apply congruence and similarity, incl. relationships between lengths, areas and volumes in similar figures",
+    "topics": [
+      "Similar Shapes",
+      "Congruent Triangles"
+    ]
+  },
+  "G20": {
+    "text": "Pythagoras' theorem a² + b² = c² and trigonometric ratios; right-angled and general triangles in 2D and 3D",
+    "topics": [
+      "Pythagoras",
+      "Trigonometry",
+      "3D Trig and Pythagoras"
+    ]
+  },
+  "G21": {
+    "text": "Exact values of sin θ and cos θ for 0°, 30°, 45°, 60°, 90°; of tan θ for 0°, 30°, 45°, 60°",
+    "topics": [
+      "Exact Trig Values"
+    ]
+  },
+  "G22": {
+    "text": "Sine rule a/sinA = b/sinB = c/sinC and cosine rule a² = b² + c² − 2bc cos A",
+    "topics": [
+      "Sine Rule",
+      "Cosine Rule"
+    ]
+  },
+  "G23": {
+    "text": "Area = ½ab sin C for area, sides or angles of any triangle",
+    "topics": [
+      "1/2abSinC (area of a triangle)"
+    ]
+  },
+  "G24": {
+    "text": "Describe translations as 2D vectors",
+    "topics": [
+      "Translations",
+      "Column Vectors"
+    ]
+  },
+  "G25": {
+    "text": "Add/subtract vectors, multiply by a scalar; diagrammatic and column representations; use vectors to construct geometric arguments and proofs",
+    "topics": [
+      "Vectors",
+      "Column Vectors"
+    ]
+  },
+  "P1": {
+    "text": "Record, describe and analyse frequency of outcomes using tables and frequency trees",
+    "topics": [
+      "Frequency Trees"
+    ]
+  },
+  "P2": {
+    "text": "Apply randomness, fairness and equally likely events to calculate expected outcomes",
+    "topics": [
+      "Probability"
+    ]
+  },
+  "P3": {
+    "text": "Relate relative expected frequencies to theoretical probability; the 0-1 probability scale",
+    "topics": [
+      "Probability",
+      "Relative Frequency"
+    ]
+  },
+  "P4": {
+    "text": "Probabilities of an exhaustive set of outcomes/mutually exclusive events sum to one",
+    "topics": [
+      "Probability"
+    ]
+  },
+  "P5": {
+    "text": "Empirical unbiased samples tend towards theoretical probability distributions with increasing sample size",
+    "topics": [
+      "Samples",
+      "Relative Frequency"
+    ]
+  },
+  "P6": {
+    "text": "Enumerate sets and combinations systematically using tables, grids, Venn diagrams and tree diagrams",
+    "topics": [
+      "Venn Diagrams",
+      "Tree Diagrams",
+      "Two-way Tables"
+    ]
+  },
+  "P7": {
+    "text": "Construct theoretical possibility spaces for single and combined experiments; calculate theoretical probabilities",
+    "topics": [
+      "Probability",
+      "Relative Frequency"
+    ]
+  },
+  "P8": {
+    "text": "Probability of independent and dependent combined events, incl. tree diagrams; underlying assumptions",
+    "topics": [
+      "Tree Diagrams"
+    ]
+  },
+  "P9": {
+    "text": "Calculate and interpret conditional probabilities using two-way tables, tree diagrams and Venn diagrams",
+    "topics": [
+      "Conditional Probability",
+      "Venn Diagrams",
+      "Two-way Tables"
+    ]
+  },
+  "S1": {
+    "text": "Infer properties of populations/distributions from a sample; know the limitations of sampling. Higher-tier guidance includes capture–recapture.",
+    "topics": [
+      "Samples",
+      "Capture-Recapture"
+    ]
+  },
+  "S2": {
+    "text": "Interpret and construct tables, charts and diagrams: frequency tables, bar charts, pie charts, pictograms, time series graphs",
+    "topics": [
+      "Two-way Tables",
+      "Pie Charts",
+      "Frequency Polygons"
+    ]
+  },
+  "S3": {
+    "text": "Construct and interpret diagrams for grouped discrete and continuous data: histograms (equal/unequal intervals) and cumulative frequency graphs",
+    "topics": [
+      "Histograms",
+      "Cumulative Frequency"
+    ]
+  },
+  "S4": {
+    "text": "Interpret, analyse and compare distributions: graphical representation incl. box plots; measures of central tendency (median, mean, mode, modal class) and spread (range, outliers, quartiles, IQR)",
+    "topics": [
+      "Box Plots",
+      "Quartiles",
+      "Estimated Mean",
+      "Combined Mean",
+      "Median (frequency table)",
+      "Modal Class (frequency table)",
+      "Stem-and-Leaf",
+      "Averages & Range"
+    ]
+  },
+  "S5": {
+    "text": "Apply statistics to describe a population",
+    "topics": []
+  },
+  "S6": {
+    "text": "Use and interpret scatter graphs; correlation (not causation); lines of best fit; interpolation/extrapolation and their dangers",
+    "topics": [
+      "Scatter Graphs"
+    ]
+  }
+}
