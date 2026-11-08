@@ -16,6 +16,7 @@ CORBETT_SEARCH = "https://corbettmaths.com/?s="
 SECTIONS = {
     'Number': [
         ('Adding Fractions', ['133']),
+        ('One Quantity as a Fraction of Another', ['136']),
         ('Multiplying Fractions', ['142']),
         ('Dividing Fractions', ['134']),
         ('Reciprocal', ['145']),
@@ -48,6 +49,8 @@ SECTIONS = {
         ('Error Intervals', ['377', '280']),
     ],
     'Algebra': [
+        ('Algebraic Notation', ['19']),
+        ('Algebra Vocabulary', ['367a']),
         ('Collecting Like Terms', ['9']),
         ('Expanding Brackets', ['13', '14', '15']),
         ('Factorising', ['117']),
@@ -62,6 +65,7 @@ SECTIONS = {
         ('Inequalities', ['177', '178', '179']),
         ('Inequalities (Regions)', ['182']),
         ('Quadratic Inequalities', ['378']),
+        ('Coordinates in Four Quadrants', ['84']),
         ('Linear Graphs', ['191', '186', '189', '194']),
         ('Midpoint of a Line', ['87']),
         ('Distance between 2 Points', ['185']),
@@ -72,13 +76,18 @@ SECTIONS = {
         ('Graphical Simultaneous Equations', ['297']),
     ],
     'Geometry & Measures': [
+        ('Geometry Notation & Diagrams', ['397', '28']),
+        ('Properties of Triangles & Quadrilaterals', ['327', '2']),
         ('Angles in Parallel Lines', ['25', '39']),
+        ('Scale Drawings & Maps', ['283']),
         ('Bearings', ['26', '27']),
         ('Angles in Polygons', ['32']),
         ('Constructions', ['78', '72', '79', '80', '70']),
         ('Loci', ['75', '76', '77']),
+        ('Properties of 3D Shapes', ['3', '5']),
         ('Views (elevations)', ['354']),
         ('Area of a Trapezium', ['48']),
+        ('Parts of a Circle', ['61']),
         ('Circumference', ['60']),
         ('Area of a Circle', ['40']),
         ('Arc Length', ['58']),
@@ -133,6 +142,7 @@ SECTIONS = {
         ('Probability', ['250']),
         ('Relative Frequency', ['248', '250']),
         ('Samples', ['281a']),
+        ('Using Statistics to Describe a Population', ['57c']),
         ('Capture-Recapture', ['391']),
         ('Tree Diagrams', ['252']),
         ('Conditional Probability', ['247', '249']),
@@ -316,10 +326,8 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
 }
 .hero-title{display:flex;align-items:center;gap:14px}
 .hero-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
-.kicker,.eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
-.kicker{color:#33685f;margin:0 0 3px}
+.eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
 .hero h1{font-size:clamp(25px,3.4vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0;font-weight:750}
-.sub{color:#465e66;font-size:14px;margin:10px 0 0}
 .hero-progress{padding-left:22px;border-left:1px solid #cbdedb}
 .prog-label{color:#30565a;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;margin:0 0 7px}
 .prog-track{height:6px;background:#c8dddb;border-radius:9px;overflow:hidden}
@@ -434,7 +442,7 @@ footer code{font-size:10px}
 }
 @media print{.video-dock{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-@media print{body{background:#fff;font-size:11px}.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero .sub{color:#333}.hero-progress{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
+@media print{body{background:#fff;font-size:11px}.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero-progress{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
 """
 
 EDEXCEL_TEMPLATE = """<!DOCTYPE html>
@@ -442,21 +450,15 @@ EDEXCEL_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edexcel GCSE Higher Checklist</title>
+<title>Edexcel Higher GCSE Maths</title>
 <style>/*__CSS__*/</style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <div>
-      <div class="hero-title">
-        <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
-        <div>
-          <p class="kicker">GCSE revision checklist</p>
-          <h1>Edexcel Higher Maths</h1>
-        </div>
-      </div>
-      <p class="sub">Open Study for videos and questions. Tick a topic when you’re ready.</p>
+    <div class="hero-title">
+      <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+      <h1>Edexcel Higher GCSE Maths</h1>
     </div>
     <div class="hero-progress">
       <p class="prog-label" id="progText">0 of __N_TOPICS__ topics complete</p>
@@ -829,7 +831,7 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
             for n in extras
         )
         gap_box = (
-            f'<div class="cov-box gapbox"><h3>In the spec but not on the CorbettMaths checklist'
+            f'<div class="cov-box gapbox"><h3>In the spec but missing from the checklist'
             f' ({len(gaps)})</h3><ul>{"".join(gap_items)}</ul></div>' if gaps else ""
         )
         extra_box = (
@@ -852,19 +854,23 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
                     f'<li class="gap"><b>{sid}</b><span>{esc(info["text"])}<br>'
                     f'<em class="gaptag">no matching checklist topic</em></span></li>'
                 )
+        coverage_issues = (
+            f'<div class="cov-grid">{gap_box}{extra_box}</div>' if gaps or extras else ""
+        )
+        coverage_counts = f'{len(spec_map) - len(gaps)}/{len(spec_map)} statements mapped'
+        if gaps:
+            coverage_counts += f' &middot; {len(gaps)} missing'
+        if extras:
+            coverage_counts += f' &middot; {len(extras)} unmatched topics'
         coverage_html = (
             f'<section class="sec coverage" id="speccoverage">'
-            f'<div class="sec-head"><h2>Edexcel spec coverage &amp; gaps</h2>'
-            f'<span class="sec-meta">{len(spec_map) - len(gaps)}/{len(spec_map)} statements'
-            f' mapped &middot; {len(gaps)} gaps &middot; {len(extras)} extras</span></div>'
+            f'<div class="sec-head"><h2>Edexcel specification coverage</h2>'
+            f'<span class="sec-meta">{coverage_counts}</span></div>'
             f'<p class="cov-note">Topics above are mapped against the '
             f'<a href="{SPEC_PDF_URL}" target="_blank" rel="noopener">Pearson Edexcel GCSE (9&ndash;1)'
             f' Mathematics specification</a> &mdash; Higher tier content, pages 24&ndash;32 '
             f'(statements N1&ndash;N16, A1&ndash;A25, R1&ndash;R16, G1&ndash;G25, P1&ndash;P9, S1&ndash;S6).</p>'
-            f'<div class="cov-grid">'
-            f'{gap_box}'
-            f'{extra_box}'
-            f'</div>'
+            f'{coverage_issues}'
             f'<details class="cov-details"><summary>Show all {len(spec_map)} spec statements'
             f' and the topics they map to</summary>'
             f'<ul class="speclist">{"".join(spec_rows)}</ul></details>'

@@ -108,7 +108,9 @@
   },
   "A1": {
     "text": "Use and interpret algebraic notation (ab, 3y, a², a/b, brackets, fractional coefficients)",
-    "topics": []
+    "topics": [
+      "Algebraic Notation"
+    ]
   },
   "A2": {
     "text": "Substitute numerical values into formulae and expressions, incl. scientific formulae",
@@ -118,7 +120,9 @@
   },
   "A3": {
     "text": "Understand vocabulary: expressions, equations, formulae, identities, inequalities, terms, factors",
-    "topics": []
+    "topics": [
+      "Algebra Vocabulary"
+    ]
   },
   "A4": {
     "text": "Simplify and manipulate algebraic expressions: collecting like terms, expanding brackets, factorising (incl. quadratics, difference of two squares), algebraic fractions, laws of indices",
@@ -152,7 +156,9 @@
   },
   "A8": {
     "text": "Work with coordinates in all four quadrants",
-    "topics": []
+    "topics": [
+      "Coordinates in Four Quadrants"
+    ]
   },
   "A9": {
     "text": "Plot straight-line graphs; y = mx + c; parallel and perpendicular lines; equation through two points or a point with a gradient",
@@ -297,11 +303,15 @@
   },
   "R2": {
     "text": "Use scale factors, scale diagrams and maps",
-    "topics": []
+    "topics": [
+      "Scale Drawings & Maps"
+    ]
   },
   "R3": {
     "text": "Express one quantity as a fraction of another (fraction < or > 1)",
-    "topics": []
+    "topics": [
+      "One Quantity as a Fraction of Another"
+    ]
   },
   "R4": {
     "text": "Use ratio notation, including reduction to simplest form",
@@ -397,7 +407,9 @@
   },
   "G1": {
     "text": "Use conventional terms and notations (points, lines, vertices, edges, planes, parallel/perpendicular, polygons...); draw diagrams from written description",
-    "topics": []
+    "topics": [
+      "Geometry Notation & Diagrams"
+    ]
   },
   "G2": {
     "text": "Ruler and compass constructions (perpendicular bisector, perpendicular from/at a point, angle bisector); construct figures and solve loci problems",
@@ -415,7 +427,9 @@
   },
   "G4": {
     "text": "Properties and definitions of special quadrilaterals (square, rectangle, parallelogram, trapezium, kite, rhombus) and triangles",
-    "topics": []
+    "topics": [
+      "Properties of Triangles & Quadrilaterals"
+    ]
   },
   "G5": {
     "text": "Use the basic congruence criteria for triangles (SSS, SAS, ASA, RHS)",
@@ -447,7 +461,9 @@
   },
   "G9": {
     "text": "Identify and apply circle definitions and properties: centre, radius, chord, diameter, circumference, tangent, arc, sector, segment",
-    "topics": []
+    "topics": [
+      "Parts of a Circle"
+    ]
   },
   "G10": {
     "text": "Apply and prove the standard circle theorems and use them to prove related results",
@@ -464,7 +480,9 @@
   },
   "G12": {
     "text": "Identify properties of faces, surfaces, edges and vertices of cubes, cuboids, prisms, cylinders, pyramids, cones and spheres",
-    "topics": []
+    "topics": [
+      "Properties of 3D Shapes"
+    ]
   },
   "G13": {
     "text": "Construct and interpret plans and elevations of 3D shapes",
@@ -658,7 +676,9 @@
   },
   "S5": {
     "text": "Apply statistics to describe a population",
-    "topics": []
+    "topics": [
+      "Using Statistics to Describe a Population"
+    ]
   },
   "S6": {
     "text": "Use and interpret scatter graphs; correlation (not causation); lines of best fit; interpolation/extrapolation and their dangers",

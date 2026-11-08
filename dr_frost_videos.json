@@ -514,37 +514,37 @@
       {"skill": "440a", "name": "Calculating successive values", "id": "t66W7F7bWYU", "practice_id": 5894},
       {"skill": "441c", "name": "Approximating a solution by iteration", "id": "y9MjygYPJ2c"}
     ],
-    "A1": [
+    "Algebraic Notation": [
       {"skill": "191", "name": "Multiplying algebraic terms", "id": "QhWFFoxCTqI", "practice_id": 4},
       {"skill": "192", "name": "Dividing algebraic terms", "id": "thSfyYxJJIE"}
     ],
-    "A3": [
+    "Algebra Vocabulary": [
       {"skill": "190a", "name": "Distinguishing terms, expressions, equations and formulae", "id": "GwoT1OtF-uE", "practice_id": 5177}
     ],
-    "A8": [
+    "Coordinates in Four Quadrants": [
       {"skill": "152b", "name": "Reading coordinates in four quadrants", "id": "SLrOZztRZ7U", "practice_id": 856},
       {"skill": "152c", "name": "Plotting points in four quadrants", "id": "bqcOczY924k", "practice_id": 845}
     ],
-    "R2": [
+    "Scale Drawings & Maps": [
       {"skill": "283", "name": "Scale drawings and maps", "id": "6H_h_YrLf-M", "practice_id": 132}
     ],
-    "R3": [
+    "One Quantity as a Fraction of Another": [
       {"skill": "226a", "name": "Expressing a ratio as a fraction", "id": "v4AQawJLAyQ", "practice_id": 5254}
     ],
-    "G1": [
+    "Geometry Notation & Diagrams": [
       {"skill": "179a", "name": "Reading angle notation", "id": "z4ECz7yqH1U", "practice_id": 1384},
       {"skill": "179c", "name": "Notation for parallel and perpendicular lines", "id": "z_Hx4q15qTQ"}
     ],
-    "G4": [
+    "Properties of Triangles & Quadrilaterals": [
       {"skill": "77", "name": "Types of triangles and quadrilaterals", "id": "S1D65Nxm8d8", "practice_id": 111}
     ],
-    "G9": [
+    "Parts of a Circle": [
       {"skill": "317a", "name": "Naming parts of a circle", "id": "bvIV_kuvPd8", "practice_id": 5524}
     ],
-    "G12": [
+    "Properties of 3D Shapes": [
       {"skill": "142a", "name": "Recognising prisms and cylinders", "id": "QO3q_0gHRaw", "practice_id": 5061}
     ],
-    "S5": [
+    "Using Statistics to Describe a Population": [
       {"skill": "207h", "name": "Comparing data sets with median and range", "id": "SQ79_jTLzO0", "practice_id": 1916}
     ]
   }
