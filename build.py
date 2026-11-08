@@ -303,27 +303,28 @@ a{color:var(--teal)}
 button,input{font:inherit}
 button,a,input,summary{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:3px solid #079b8d;outline-offset:4px}
-.masthead{background:#fff;border-bottom:1px solid var(--line)}
-.masthead-inner{max-width:1440px;margin:auto;padding:20px 36px;display:flex;align-items:center;gap:13px}
-.brand-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
-.brand{font-weight:750;font-size:16px;letter-spacing:-.4px}
-.brand span{color:var(--muted);font-weight:400;margin-left:10px;padding-left:13px;border-left:1px solid var(--line)}
-.board-badge{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid #cce3de;background:#eff8f5;color:#26665a;border-radius:6px;padding:5px 10px}
-.wrap{max-width:1440px;padding:30px 36px 48px;margin:auto}
-.hero{background:#182f3c;color:#fff;border-radius:16px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:36px;padding:32px 36px}
-.kicker,.eyebrow{font-size:10px;letter-spacing:.14em;font-weight:750;text-transform:uppercase}
-.kicker{color:#9cd7cb}
-.hero h1{font-size:clamp(26px,3vw,36px);line-height:1.2;letter-spacing:-1px;margin:10px 0 12px;font-weight:750}
-.sub{color:#c3d1d7;font-size:14px;max-width:570px;margin:0}
-.statrow{display:flex;flex-wrap:wrap;gap:7px 22px;margin-top:22px;color:#bacbd2;font-size:12px}
-.stat b{color:#fff;font-weight:700}
-.progress-card{align-self:center;padding:22px 24px;border:1px solid #47606b;border-radius:12px;background:#223d49}
-.prog-heading{display:flex;align-items:center;justify-content:space-between;color:#d0e1e4;font-size:12px}
-.progress-percent{font-size:28px;line-height:1;color:#a3e8ce;letter-spacing:-1px;font-weight:700}
-.prog-track{height:6px;background:#48616a;border-radius:9px;overflow:hidden;margin:18px 0 10px}
-.prog-fill{height:100%;width:0;background:#8bdfbd;border-radius:9px;transition:width .25s}
-.prog-label{font-size:11px;color:#c3d1d7}
-.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;margin-top:30px;align-items:start}
+.wrap{max-width:1440px;padding:24px 36px 48px;margin:auto}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(175px,230px);
+  align-items:center;
+  gap:20px 32px;
+  padding:24px 28px;
+  border:1px solid #cfdfdc;
+  border-radius:16px;
+  background:linear-gradient(115deg,#fbfdfb,#e9f5f1 70%,#e7f1f8);
+}
+.hero-title{display:flex;align-items:center;gap:14px}
+.hero-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
+.kicker,.eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
+.kicker{color:#33685f;margin:0 0 3px}
+.hero h1{font-size:clamp(25px,3.4vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0;font-weight:750}
+.sub{color:#465e66;font-size:14px;margin:10px 0 0}
+.hero-progress{padding-left:22px;border-left:1px solid #cbdedb}
+.prog-label{color:#30565a;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;margin:0 0 7px}
+.prog-track{height:6px;background:#c8dddb;border-radius:9px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:#087f74;border-radius:9px;transition:width .25s}
+.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;margin-top:24px;align-items:start}
 .sidebar{position:sticky;top:26px;max-height:calc(100vh - 52px);overflow:auto;padding:6px 1px}
 .eyebrow{color:var(--muted);margin:0 0 13px}
 .jump{display:flex;flex-direction:column;gap:6px}
@@ -422,12 +423,18 @@ main{min-width:0}
 .sl-links a{display:inline-block;margin:4px 12px 0 0}.gaptag{color:#946b2f}
 footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:10px;line-height:1.8}
 footer code{font-size:10px}
-@media(max-width:1100px){.wrap{padding:24px}.masthead-inner{padding:18px 24px}.workspace{grid-template-columns:175px minmax(0,1fr);gap:22px}.hero{grid-template-columns:1fr 245px;padding:28px;gap:24px}}
-@media(max-width:760px){html{scroll-padding-top:145px}.wrap{padding:18px 16px 32px}.masthead-inner{padding:15px 16px}.brand{font-size:14px}.brand span{display:none}.board-badge{font-size:9px}.hero{grid-template-columns:1fr;padding:24px;gap:24px}.hero h1{font-size:29px}.progress-card{padding:16px 20px}.prog-track{margin:13px 0 8px}.workspace{display:flex;flex-direction:column;gap:14px;margin-top:20px}.sidebar{position:static;max-height:none;width:100%;padding:0;overflow:visible}.sidebar>.eyebrow,.sidebar-resources,.save-note{display:none}.jump{flex-direction:row;flex-wrap:wrap;gap:5px}.jump a{display:flex;padding:7px 10px;font-size:11px;background:#fff;border-color:var(--line);gap:7px}.nav-count{display:none}main{width:100%}.toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}.search{flex-basis:100%}.search kbd{display:none}.btn{padding:8px 11px}.tools{width:100%}.list-intro{margin-top:20px}.list-intro h2{font-size:18px}.sec-head{align-items:baseline;flex-wrap:wrap;gap:5px}.sec-head h2{font-size:16px}.sec-meta{font-size:10px}.topic{padding:0 12px;column-gap:10px;scroll-margin-top:150px}.study-body{padding:10px}.study-group{padding:10px}.coverage .sec-meta{margin-left:18px;text-align:left}.prog-label{font-size:11px}}
+@media(max-width:1100px){.wrap{padding:24px}.workspace{grid-template-columns:175px minmax(0,1fr);gap:22px}}
+@media(max-width:760px){html{scroll-padding-top:145px}.wrap{padding:18px 16px 32px}.hero{padding:18px 20px;column-gap:20px}.hero-progress{padding-left:16px}.workspace{display:flex;flex-direction:column;gap:14px;margin-top:20px}.sidebar{position:static;max-height:none;width:100%;padding:0;overflow:visible}.sidebar>.eyebrow,.sidebar-resources,.save-note{display:none}.jump{flex-direction:row;flex-wrap:wrap;gap:5px}.jump a{display:flex;padding:7px 10px;font-size:11px;background:#fff;border-color:var(--line);gap:7px}.nav-count{display:none}main{width:100%}.toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}.search{flex-basis:100%}.search kbd{display:none}.btn{padding:8px 11px}.tools{width:100%}.list-intro{margin-top:20px}.list-intro h2{font-size:18px}.sec-head{align-items:baseline;flex-wrap:wrap;gap:5px}.sec-head h2{font-size:16px}.sec-meta{font-size:10px}.topic{padding:0 12px;column-gap:10px;scroll-margin-top:150px}.study-body{padding:10px}.study-group{padding:10px}.coverage .sec-meta{margin-left:18px;text-align:left}}
 @media(max-width:760px){.sidebar .sidebar-resources{display:block;margin:12px 0 0;padding:8px 0 0}.sidebar-resources a{font-size:11px}}
+@media(max-width:620px){
+  .hero{grid-template-columns:1fr;gap:12px;padding:16px}
+  .hero-title{gap:10px}
+  .hero-logo{width:29px;height:29px}
+  .hero-progress{padding:10px 0 0;border-left:0;border-top:1px solid #cbdedb}
+}
 @media print{.video-dock{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-@media print{body{background:#fff;font-size:11px}.masthead,.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero .sub,.statrow,.stat b{color:#333}.progress-card{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
+@media print{body{background:#fff;font-size:11px}.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero .sub{color:#333}.hero-progress{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
 """
 
 EDEXCEL_TEMPLATE = """<!DOCTYPE html>
@@ -439,27 +446,21 @@ EDEXCEL_TEMPLATE = """<!DOCTYPE html>
 <style>/*__CSS__*/</style>
 </head>
 <body>
-<header class="masthead"><div class="masthead-inner">
-  <img class="brand-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
-  <div class="brand">Maths revision<span>Your topic-by-topic workspace</span></div>
-  <div class="board-badge">Edexcel · Higher tier</div>
-</div></header>
 <div class="wrap">
   <header class="hero">
     <div>
-      <div class="kicker">GCSE Mathematics / Revision checklist</div>
-      <h1>Edexcel Higher Checklist</h1>
-      <p class="sub">Open Study next to a topic to see its videos and questions. Tick the topic when you’re ready.</p>
-      <div class="statrow">
-        <span class="stat"><b>__N_TOPICS__</b> topics</span>
-        <span class="stat"><b>__N_LINKED__</b> with worksheets</span>
-        <span class="stat"><b>__N_WATCH__</b> with videos</span>
+      <div class="hero-title">
+        <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+        <div>
+          <p class="kicker">GCSE revision checklist</p>
+          <h1>Edexcel Higher Maths</h1>
+        </div>
       </div>
+      <p class="sub">Open Study for videos and questions. Tick a topic when you’re ready.</p>
     </div>
-    <div class="progress-card">
-      <div class="prog-heading"><span>Your revision progress</span><strong class="progress-percent" id="progPercent">0%</strong></div>
-      <div class="prog-track" role="progressbar" aria-label="Topics completed" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="prog-fill" id="progFill"></div></div>
-      <div class="prog-label" id="progText">0 of __N_TOPICS__ topics completed</div>
+    <div class="hero-progress">
+      <p class="prog-label" id="progText">0 of __N_TOPICS__ topics complete</p>
+      <div class="prog-track" role="progressbar" aria-label="Revision progress" aria-valuemin="0" aria-valuemax="__N_TOPICS__" aria-valuenow="0"><div class="prog-fill" id="progFill"></div></div>
     </div>
   </header>
   <div class="workspace">
@@ -534,15 +535,11 @@ function apply(li) {
 
 function refresh() {
   const done = topics.filter(t => t.classList.contains('done')).length;
-  const pct = topics.length ? Math.round(done / topics.length * 100) : 0;
+  const progress = document.querySelector('.prog-track');
   document.getElementById('progText').textContent =
-    done + ' of ' + topics.length + ' topics completed (' + pct + '%)';
-  document.getElementById('progFill').style.width = pct + '%';
-  document.querySelectorAll('section.sec').forEach(sec => {
-    const n = sec.querySelectorAll('li.topic.done').length;
-    const el = sec.querySelector('.sec-done');
-    if (el) el.textContent = n ? n + ' done' : '';
-  });
+    done + ' of ' + topics.length + ' topics complete';
+  document.getElementById('progFill').style.width = (done / topics.length * 100) + '%';
+  progress.setAttribute('aria-valuenow', done);
 }
 
 topics.forEach(li => {
@@ -615,11 +612,6 @@ function updateWorkspace() {
     const completed = sec.querySelectorAll('li.topic.done').length;
     sec.querySelector('.sec-done').textContent = completed ? ' · ' + completed + ' done' : '';
   });
-  const pct = Math.round(topics.filter(t => t.classList.contains('done')).length / topics.length * 100);
-  document.getElementById('progText').textContent =
-    topics.filter(t => t.classList.contains('done')).length + ' of ' + topics.length + ' topics completed';
-  document.getElementById('progPercent').textContent = pct + '%';
-  document.querySelector('[role="progressbar"]').setAttribute('aria-valuenow', pct);
   document.getElementById('hideDone').setAttribute('aria-pressed', hideDone);
 }
 document.getElementById('q').addEventListener('input', updateWorkspace);
@@ -724,7 +716,7 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
 
     sections_html, jump_html = [], []
     all_topic_names = []
-    n_topics = n_linked = n_watch = 0
+    n_topics = n_watch = 0
 
     for section, topics in SECTIONS.items():
         items = []
@@ -780,7 +772,6 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
             resources = unique + papers_by_topic.get(name, [])
             if resources:
                 sec_linked += 1
-                n_linked += 1
                 pills = build_link_pills(resources)
             elif name in VIDEO_ONLY:
                 label = "Watch on CorbettMaths"
@@ -897,8 +888,6 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
         .replace("__VIDEO_SOURCE__", esc(video_source))
         .replace("__JUMP__", "".join(jump_html))
         .replace("__N_TOPICS__", str(n_topics))
-        .replace("__N_LINKED__", str(n_linked))
-        .replace("__N_WATCH__", str(n_watch))
         .replace("__PDF_URL__", CHECKLIST_URL)
     )
 
