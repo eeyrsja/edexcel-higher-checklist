@@ -166,5 +166,47 @@
       "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-November-Higher-Paper-3.pdf",
       "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-November-Higher-Paper-3-Mark-Scheme.pdf"
     }
+  },
+  "June 2018": {
+    "1": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-1-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-1.pdf"
+    },
+    "2": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-2-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-2.pdf"
+    },
+    "3": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-3-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2018-June-Higher-Paper-3.pdf"
+    }
+  },
+  "November 2017": {
+    "1": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-1-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-1.pdf"
+    },
+    "2": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-2-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-2.pdf"
+    },
+    "3": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-3-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-November-Higher-Paper-3.pdf"
+    }
+  },
+  "June 2017": {
+    "1": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-1-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-1.pdf"
+    },
+    "2": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-2-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-2.pdf"
+    },
+    "3": {
+      "Mark scheme": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-3-Mark-Scheme.pdf",
+      "Question paper": "https://www.operationmaths.co.uk/pdfs/gcse-edexcel-higher/GCSE-Edexcel-2017-June-Higher-Paper-3.pdf"
+    }
   }
 }
