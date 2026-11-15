@@ -174,6 +174,24 @@ footer code{font-size:10px}
 .marking-notes{margin:12px 0;color:var(--ink)}
 .marking-notes summary{cursor:pointer;font-weight:650}
 .marking-notes li{margin:7px 0}
+.question-layout{display:grid;gap:14px;align-items:start}
+.question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.question-reader{min-width:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f6}
+.question-reader summary{padding:8px 10px;color:var(--teal);cursor:pointer;font-weight:650}
+.question-reader iframe{display:block;width:100%;height:clamp(340px,63dvh,650px);border:0;border-top:1px solid var(--line)}
+@media(max-width:700px){
+  .question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr)}
+  .question-reader iframe{height:clamp(260px,45dvh,480px)}
+}
+.reader-in-pane{scroll-padding-top:120px}
+.reader-in-pane .wrap{padding:10px 12px}
+.reader-in-pane .hero,.reader-in-pane nav{display:none}
+.reader-in-pane .hub main{margin-top:0}
+.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-in-pane .reader-controls{gap:6px 10px}
+.reader-in-pane .reader-controls label{flex-basis:135px}
+.reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
+.reader-in-pane .reading-copy{font-size:16px}
 .question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
 .reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
 .reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
@@ -197,163 +215,273 @@ footer code{font-size:10px}
       <div><h1>Macbeth</h1><p>William Shakespeare · Section A · 34 marks</p></div>
     </div>
   </header>
-<nav aria-label="Navigation"><a href="./">All subjects</a><a href="english.html">English Literature</a><a href="#plot">Plot</a><a href="#topics">Topics</a><a href="#questions">Exam questions</a></nav>
+<nav aria-label="Navigation"><a href="./">All subjects</a><a href="english.html">English Literature</a><a href="#questions">Exam questions</a><a href="#plot">Plot</a><a href="#topics">Topics</a></nav>
   <main>
       <div class="actions">
         <a href="macbeth-text.html">Read and search the full text</a>
         <a href="https://www.physicsandmathstutor.com/english-revision/gcse-aqa/macbeth/" target="_blank" rel="noopener">PMT revision notes ↗</a>
         <a href="https://www.bbc.co.uk/bitesize/guides/zwgdnbk/revision/1" target="_blank" rel="noopener">BBC guided essay ↗</a>
       </div>
-      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to practise and reveal marking guidance. Tasks are reworded and the guidance is written for this site. The original AQA documents are linked on each card.</p><div class="questions"><details class="question" id="exam-2025">
+      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to read the passage alongside it or reveal thinking prompts. Tasks are reworded and the prompts draw on AQA’s marking criteria. The original AQA documents are linked on each card.</p><div class="questions"><details class="question" id="exam-2025">
       <summary>June 2025 · Macbeth’s ambition</summary>
-      <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How ambitious is Macbeth, and what limits does he initially place on his ambition?</div>
-      <p>Macbeth is alone, weighing the reasons to spare Duncan against his desire for the crown. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-7">Read Act 1, Scene 7 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Make a judgement about how far ambition drives Macbeth here. Trace how his pursuit of power changes once he is king.</li><li><strong>AO2</strong> · Explain how the soliloquy gives the audience access to his competing motives. Consider the image of ambition overleaping its goal.</li><li><strong>AO3</strong> · Connect his duties as kinsman, subject and host to what makes regicide a betrayal.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How ambitious is Macbeth, and what limits does he initially place on his ambition?</div>
+          <p>Macbeth is alone, weighing the reasons to spare Duncan against his desire for the crown. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · Macbeth can list good reasons to spare Duncan. What does he want badly enough to set those reasons aside? Does he want the same thing once he has the crown?</li><li><strong>Writer’s choices</strong> · What does the audience learn from hearing him alone? What might the image of a jump that goes too far suggest about how well he understands his own ambition?</li><li><strong>Context and ideas</strong> · He is Duncan’s host as well as his subject. How does that double obligation change the way you judge his choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 7 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-7"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202025%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202025%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2024">
       <summary>June 2024 · Lady Macbeth’s strength</summary>
-      <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth show strength, and how does the play complicate that impression?</div>
-      <p>Macbeth has called off the murder. Lady Macbeth challenges his resolve and tries to make him change his mind. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-7">Read Act 1, Scene 7 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Distinguish her control of this conversation from her ability to cope later. Consider the banquet and sleepwalking scenes.</li><li><strong>AO2</strong> · Discuss how questioning and the shocking image of the infant give her leverage in the dialogue, then compare her broken speech later.</li><li><strong>AO3</strong> · Explain how her appeal to courage and manhood draws on expectations she can exploit.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth show strength, and how does the play complicate that impression?</div>
+          <p>Macbeth has called off the murder. Lady Macbeth challenges his resolve and tries to make him change his mind. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · What kind of strength does Lady Macbeth show when Macbeth hesitates? Would you call it the same kind of strength she needs in the sleepwalking scene?</li><li><strong>Writer’s choices</strong> · Where do her questions stop inviting an answer and start putting pressure on Macbeth? Why might Shakespeare give her such a disturbing image of motherhood?</li><li><strong>Context and ideas</strong> · What does she assume Macbeth wants to prove about being a man? What gives that argument its force?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 7 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-7"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-QP-JUN24_PDF" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-MS-JUN24_PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2023">
       <summary>June 2023 · How Macbeth changes</summary>
-      <p>Act 5, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How does Macbeth change over the course of the play?</div>
-      <p>At Dunsinane, Macbeth addresses the dangers around him and reflects on what he has lost. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-5-scene-3">Read Act 5, Scene 3 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Connect his late isolation with the respect he earns as a soldier and the choices he makes as king.</li><li><strong>AO2</strong> · Consider how the contrast between forceful commands and private reflection exposes the gap between his authority and his insecurity.</li><li><strong>AO3</strong> · Explain how the difference between loyalty earned and obedience enforced shapes the play’s view of kingship.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 5, Scene 3 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How does Macbeth change over the course of the play?</div>
+          <p>At Dunsinane, Macbeth addresses the dangers around him and reflects on what he has lost. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · If you met Macbeth only at Dunsinane, what would surprise you about his reputation at the beginning? Which earlier decision explains the change most convincingly?</li><li><strong>Writer’s choices</strong> · Listen for the shift between Macbeth giving commands and speaking about his losses. What can he still control, and what has slipped away?</li><li><strong>Context and ideas</strong> · Who stays loyal to Macbeth at the end? What might that tell us about the kind of kingship Shakespeare sets beside his?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 5, Scene 3 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-5-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-5-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-87021-QP-JUN23.PDF" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-87021-MS-JUN23.PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2022">
       <summary>June 2022 · Macbeth’s fears</summary>
-      <p>Act 3, Scene 1 · 8702/2, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>What does Macbeth fear, and how do those fears influence what he does?</div>
-      <p>Now king, Macbeth thinks about Banquo and the prophecy that Banquo’s descendants will rule. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-3-scene-1">Read Act 3, Scene 1 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Distinguish Macbeth’s fear of Banquo himself from his fear that the crown will bring him no lasting legacy.</li><li><strong>AO2</strong> · Use the soliloquy and its images of barrenness to show how Macbeth connects power with insecurity. Compare the banquet.</li><li><strong>AO3</strong> · Consider why succession matters to Macbeth and how the temptation to secure it feeds further violence.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 3, Scene 1 · 8702/2, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>What does Macbeth fear, and how do those fears influence what he does?</div>
+          <p>Now king, Macbeth thinks about Banquo and the prophecy that Banquo’s descendants will rule. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · Macbeth has the crown. Why does Banquo still matter to him? Is he more afraid of losing power now or of leaving it to someone else’s family?</li><li><strong>Writer’s choices</strong> · Why might Macbeth picture his crown and sceptre as incapable of producing anything? How does that private fear compare with what the banquet guests see?</li><li><strong>Context and ideas</strong> · What would a secure succession mean for a king? How does trying to secure it make Macbeth’s rule less secure?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 3, Scene 1 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-3-scene-1"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-3-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202022%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202022%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2021">
       <summary>November 2021 · Macbeth and Lady Macbeth’s relationship</summary>
-      <p>Act 2, Scene 2 · 8702/2, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How does Shakespeare develop Macbeth and Lady Macbeth’s relationship?</div>
-      <p>Immediately after Duncan’s murder, the couple respond differently to the blood, the daggers and the threat of discovery. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-2-scene-2">Read Act 2, Scene 2 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Compare how they depend on each other after the murder with Macbeth keeping later plans from his wife.</li><li><strong>AO2</strong> · Analyse the rapid exchange of lines and their different responses to blood. Compare their language when they are apart.</li><li><strong>AO3</strong> · Use expectations about marriage or courage to explain what is striking about who takes charge.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 2, Scene 2 · 8702/2, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare develop Macbeth and Lady Macbeth’s relationship?</div>
+          <p>Immediately after Duncan’s murder, the couple respond differently to the blood, the daggers and the threat of discovery. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · Who needs whom in this scene? How might your answer change by the time Macbeth arranges Banquo’s murder?</li><li><strong>Writer’s choices</strong> · Notice how quickly they answer each other after Duncan’s murder. Where do their reactions to the blood suggest that they are already experiencing the crime differently?</li><li><strong>Context and ideas</strong> · Who takes charge here, and what assumptions about marriage or courage might that overturn?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 2, Scene 2 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-2-scene-2"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-2-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202021%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202021%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2020">
       <summary>November 2020 · How Lady Macbeth changes</summary>
-      <p>Act 5, Scene 1 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth change as the consequences of Duncan’s murder unfold?</div>
-      <p>A doctor and gentlewoman watch Lady Macbeth sleepwalk and relive episodes from the murders. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-5-scene-1">Read Act 5, Scene 1 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Weigh change against continuity. Compare her earlier effort to suppress remorse with what comes out in her sleep.</li><li><strong>AO2</strong> · Explain the effect of broken prose, repetition and the recurring image of blood in this scene.</li><li><strong>AO3</strong> · Consider how the doctor’s response connects her distress to questions of conscience and spiritual guilt.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 5, Scene 1 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth change as the consequences of Duncan’s murder unfold?</div>
+          <p>A doctor and gentlewoman watch Lady Macbeth sleepwalk and relive episodes from the murders. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · What feels new about Lady Macbeth in this scene? Is there anything the earlier Lady Macbeth was already afraid might happen?</li><li><strong>Writer’s choices</strong> · What can the audience hear in her fragments and repetitions that she kept out of her earlier speech? What has changed about the image of blood?</li><li><strong>Context and ideas</strong> · Why might the doctor think ordinary medicine cannot help her? What does his response leave open about the source of her distress?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 5, Scene 1 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-5-scene-1"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-5-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202020%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202020%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2019">
       <summary>June 2019 · Macbeth as a violent character</summary>
-      <p>Act 1, Scene 2 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How far does Shakespeare present Macbeth as a violent man?</div>
-      <p>The Captain reports Macbeth’s fighting against Duncan’s enemies. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-2">Read Act 1, Scene 2 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Distinguish violence praised as service to Scotland from violence Macbeth later uses for private ends.</li><li><strong>AO2</strong> · Explain how the Captain’s vivid descriptions shape our first impression before Macbeth appears. Compare the attack on Macduff’s family.</li><li><strong>AO3</strong> · Connect the change in how violence is judged to loyalty, order and the abuse of power.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 2 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How far does Shakespeare present Macbeth as a violent man?</div>
+          <p>The Captain reports Macbeth’s fighting against Duncan’s enemies. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · Why is Duncan pleased to hear about Macbeth’s violence? At what point in the play would you stop admiring it?</li><li><strong>Writer’s choices</strong> · What picture does the Captain’s language create before Macbeth has spoken a word? How might an audience hear that language differently after the attack on Macduff’s family?</li><li><strong>Context and ideas</strong> · Who benefits from Macbeth’s violence at each point? How does that affect whether the play treats it as service or abuse?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 2 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-2"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202019%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202019%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2018">
       <summary>June 2018 · Attitudes to the supernatural</summary>
-      <p>Act 1, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
-      <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-3">Read Act 1, Scene 3 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Contrast Macbeth’s attraction to what the witches promise with Banquo’s suspicion. Follow how each responds to later uncertainty.</li><li><strong>AO2</strong> · Compare Banquo’s warning with Macbeth’s asides. Explain what the audience learns about Macbeth that Banquo cannot hear.</li><li><strong>AO3</strong> · Use beliefs about witchcraft and temptation to illuminate the characters’ choices.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 3 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
+          <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 3 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202018%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202018%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2017">
       <summary>June 2017 · Ambition</summary>
-      <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How does Shakespeare show ambition shaping Macbeth and Lady Macbeth’s choices?</div>
-      <p>Lady Macbeth reads Macbeth’s letter and considers whether he has the resolve to act on the witches’ prediction. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-5">Read Act 1, Scene 5 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Explain how Lady Macbeth interprets the prophecy and Macbeth’s character, then trace how ambition changes their priorities.</li><li><strong>AO2</strong> · Discuss how the letter and soliloquy reveal different voices. Explore imagery of kindness and cruelty.</li><li><strong>AO3</strong> · Connect ambition to the danger of abandoning duties to a ruler, and to expectations of courage.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare show ambition shaping Macbeth and Lady Macbeth’s choices?</div>
+          <p>Lady Macbeth reads Macbeth’s letter and considers whether he has the resolve to act on the witches’ prediction. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · What does Lady Macbeth see in her husband that she thinks will obstruct their ambition? Does the audience have to share her judgement of him?</li><li><strong>Writer’s choices</strong> · How does her response to the letter reshape Macbeth’s story? What do the images of kindness and cruelty tell you about the way she thinks power is won?</li><li><strong>Context and ideas</strong> · Which duties would the couple need to set aside to get what they want? How might those duties change the audience’s view of their ambition?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 5 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-5"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202017%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202017%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-specimen">
       <summary>AQA specimen · set 1 · Lady Macbeth’s power</summary>
-      <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How does Shakespeare give Lady Macbeth power in this speech and across the play?</div>
-      <p>Before Duncan arrives, Lady Macbeth calls on spirits to prepare her for what she plans. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-5">Read Act 1, Scene 5 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Develop a view of what kind of power she seeks and compare it with her influence in the murder plot and her position later.</li><li><strong>AO2</strong> · Explain how imperatives, bodily imagery or darkness shape the effect of the speech.</li><li><strong>AO3</strong> · Consider how the speech challenges expectations about femininity and draws on ideas about the supernatural.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare give Lady Macbeth power in this speech and across the play?</div>
+          <p>Before Duncan arrives, Lady Macbeth calls on spirits to prepare her for what she plans. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · What can Lady Macbeth actually do at this point, and what power is she asking for? Where later in the play would you test the difference?</li><li><strong>Writer’s choices</strong> · What do the commands, bodily images or darkness make you imagine? Do they make her sound powerful, dependent on outside forces, or both?</li><li><strong>Context and ideas</strong> · Why might a character in her position believe she has to reject qualities associated with femininity to get what she wants?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 5 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-5"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/Specimen%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://filestore.aqa.org.uk/resources/english/AQA-87021-SMS.PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-specimen-2022">
       <summary>AQA specimen · 2022 format · Attitudes to the supernatural</summary>
-      <p>Act 1, Scene 3 · 8702/2, Question 1 · 34 marks</p>
-      <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
-      <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="macbeth-text.html#act-1-scene-3">Read Act 1, Scene 3 on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul><li><strong>AO1</strong> · Contrast Macbeth’s attraction to what the witches promise with Banquo’s suspicion. Follow how each responds to later uncertainty.</li><li><strong>AO2</strong> · Compare Banquo’s warning with Macbeth’s asides. Explain what the audience learns about Macbeth that Banquo cannot hear.</li><li><strong>AO3</strong> · Use beliefs about witchcraft and temptation to illuminate the characters’ choices.</li><li><strong>AO4</strong> · Check spelling and punctuation. Vary sentence structure for clarity.</li></ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>Act 1, Scene 3 · 8702/2, Question 1 · 34 marks</p>
+          <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
+          <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read Act 1, Scene 3 in the text pane</summary>
+          <iframe title="Macbeth full text" loading="lazy"
+                  data-src="macbeth-text.html?pane=1#act-1-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/Specimen%20%282022%29%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/Specimen%20%282022%29%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
@@ -426,6 +554,13 @@ function showLinkedQuestion() {
 }
 addEventListener('hashchange', showLinkedQuestion);
 showLinkedQuestion();
+
+for (const pane of document.querySelectorAll('.question-reader')) {
+  pane.addEventListener('toggle', () => {
+    const reader = pane.querySelector('iframe');
+    if (pane.open && !reader.hasAttribute('src')) reader.src = reader.dataset.src;
+  });
+}
 </script>
 </body>
 </html>

@@ -37,6 +37,24 @@ CSS = """
 .marking-notes{margin:12px 0;color:var(--ink)}
 .marking-notes summary{cursor:pointer;font-weight:650}
 .marking-notes li{margin:7px 0}
+.question-layout{display:grid;gap:14px;align-items:start}
+.question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.question-reader{min-width:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f6}
+.question-reader summary{padding:8px 10px;color:var(--teal);cursor:pointer;font-weight:650}
+.question-reader iframe{display:block;width:100%;height:clamp(340px,63dvh,650px);border:0;border-top:1px solid var(--line)}
+@media(max-width:700px){
+  .question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr)}
+  .question-reader iframe{height:clamp(260px,45dvh,480px)}
+}
+.reader-in-pane{scroll-padding-top:120px}
+.reader-in-pane .wrap{padding:10px 12px}
+.reader-in-pane .hero,.reader-in-pane nav{display:none}
+.reader-in-pane .hub main{margin-top:0}
+.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-in-pane .reader-controls{gap:6px 10px}
+.reader-in-pane .reader-controls label{flex-basis:135px}
+.reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
+.reader-in-pane .reading-copy{font-size:16px}
 .question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
 .reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
 .reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
@@ -109,21 +127,33 @@ def question_card(exam, text):
     component, paper, scheme = paper_links(year, text)
     number = "1" if is_play else "5" if component == "8702/1N" else "11"
     prompt, scene, ao1, ao2, ao3 = PRACTICE[text]["2018" if year == "specimen-2022" else year]
-    assessment = [("AO1", ao1), ("AO2", ao2), ("AO3", ao3)]
+    assessment = [("Your interpretation", ao1), ("Writer’s choices", ao2), ("Context and ideas", ao3)]
     if is_play:
-        assessment.append(("AO4", "Check spelling and punctuation. Vary sentence structure for clarity."))
+        assessment.append(("Expression", "Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?"))
     notes = "".join(f"<li><strong>{ao}</strong> · {escape(note)}</li>" for ao, note in assessment)
     passage = "Walton’s continuation" if not is_play and year in {"2018", "specimen-2022"} else location
+    anchor = escape(reading_anchor(passage))
+    reader = f"{text}-text.html"
     return f"""<details class="question" id="exam-{year}">
       <summary>{escape(series)} · {escape(title)}</summary>
-      <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
-      <div class="practice"><strong>Practice task</strong><br>{escape(prompt)}</div>
-      <p>{escape(scene)} Use this passage and evidence from elsewhere in the work.</p>
-      <p><a href="{text}-text.html#{escape(reading_anchor(passage))}">Read {escape(passage)} on this site</a></p>
-      <details class="marking-notes">
-        <summary>Show marking guidance</summary>
-        <ul>{notes}</ul>
-      </details>
+      <div class="question-layout">
+        <div>
+          <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
+          <div class="practice"><strong>Practice task</strong><br>{escape(prompt)}</div>
+          <p>{escape(scene)} Use this passage and evidence from elsewhere in the work.</p>
+          <details class="marking-notes">
+            <summary>Thinking prompts</summary>
+            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+            <ul>{notes}</ul>
+          </details>
+        </div>
+        <details class="question-reader">
+          <summary>Read {escape(passage)} in the text pane</summary>
+          <iframe title="{escape(TEXTS[text]['title'])} full text" loading="lazy"
+                  data-src="{reader}?pane=1#{anchor}"></iframe>
+          <noscript><p><a href="{reader}#{anchor}" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+        </details>
+      </div>
       <div class="actions references">
         {external("Original question paper", paper)}
         {external("Official mark scheme", scheme)}
@@ -149,7 +179,7 @@ def build_reader(slug, text):
                         f'<h2>{escape(title)}</h2><div class="reading-copy">{"".join(blocks)}</div></section>')
 
     body = f"""
-      <div class="panel">
+      <div class="panel reader-panel">
         <div class="reader-controls">
           <label>Find a word or phrase <input type="search" id="text-search"></label>
           <label>Jump to a section <select id="text-jump"><option value="">Choose a section</option>{options}</select></label>
@@ -191,7 +221,7 @@ def build_text(slug, text):
         {external("PMT revision notes", PMT_NOTES + slug + "/")}
         {external("BBC guided essay", text["guided"])}
       </div>
-      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to practise and reveal marking guidance. Tasks are reworded and the guidance is written for this site. The original AQA documents are linked on each card.</p><div class="questions">{questions}</div></section>
+      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to read the passage alongside it or reveal thinking prompts. Tasks are reworded and the prompts draw on AQA’s marking criteria. The original AQA documents are linked on each card.</p><div class="questions">{questions}</div></section>
       <section id="plot"><h2>Plot at a glance</h2><ol class="plot">{plot}</ol></section>
       <section id="topics"><h2>Revise by topic</h2>{"".join(topics)}
         <details class="panel"><summary>Check your answer</summary><ul>{checklist}</ul></details>
@@ -199,8 +229,8 @@ def build_text(slug, text):
 """
     page(
         f"{slug}.html", text["title"], f'{text["author"]} · {text["section"]}',
-        (("All subjects", "./"), ("English Literature", "english.html"), ("Plot", "#plot"),
-         ("Topics", "#topics"), ("Exam questions", "#questions")), body,
+        (("All subjects", "./"), ("English Literature", "english.html"), ("Exam questions", "#questions"),
+         ("Plot", "#plot"), ("Topics", "#topics")), body,
         """<script>
 function showLinkedQuestion() {
   const question = document.getElementById(location.hash.slice(1));
@@ -208,6 +238,13 @@ function showLinkedQuestion() {
 }
 addEventListener('hashchange', showLinkedQuestion);
 showLinkedQuestion();
+
+for (const pane of document.querySelectorAll('.question-reader')) {
+  pane.addEventListener('toggle', () => {
+    const reader = pane.querySelector('iframe');
+    if (pane.open && !reader.hasAttribute('src')) reader.src = reader.dataset.src;
+  });
+}
 </script>""",
     )
 
