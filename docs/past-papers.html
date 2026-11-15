@@ -26,7 +26,8 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
   background:linear-gradient(115deg,#fbfdfb,#e9f5f1 70%,#e7f1f8);
 }
 .hero-title{display:flex;align-items:center;gap:14px}
-.hero-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
+.hero-logo{position:relative;display:block;width:40px;aspect-ratio:911/714;overflow:hidden;flex:none}
+.hero-logo img{position:absolute;left:-34.25%;top:-24.23%;width:168.61%;height:auto}
 .eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
 .hero h1{font-size:clamp(25px,3.4vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0;font-weight:750}
 .hero-progress{padding-left:22px;border-left:1px solid #cbdedb}
@@ -139,7 +140,7 @@ footer code{font-size:10px}
 @media(max-width:620px){
   .hero{grid-template-columns:1fr;gap:12px;padding:16px}
   .hero-title{gap:10px}
-  .hero-logo{width:29px;height:29px}
+  .hero-logo{width:34px}
   .hero-progress{padding:10px 0 0;border-left:0;border-top:1px solid #cbdedb}
 }
 @media print{.video-dock{display:none}}
@@ -165,7 +166,7 @@ footer code{font-size:10px}
 <div class="wrap">
   <header class="hero">
     <div class="hero-title">
-      <img class="hero-logo" src="sjalogo.png?v=2" width="36" height="36" alt="SJA monogram">
+      <span class="hero-logo"><img src="sjalogo.png?v=2" width="1536" height="1024" alt="Graduation cap and book"></span>
       <h1>Past papers</h1>
     </div>
     <a href="maths.html">← Maths checklist</a>
