@@ -1,11 +1,13 @@
 """Build the subject index and AQA English Literature pages."""
 
+import json
 from html import escape
+from urllib.parse import quote
 
 from build import EDEXCEL_CSS, ROOT, main as build_maths
 from build_past_papers import build_past_papers
 from english_practice import PRACTICE
-from english_reader import SOURCES, read_sections, reading_anchor
+from english_reader import SOURCES, locate_extract, read_sections, reading_anchor, reading_blocks
 from english_data import AQA, EXAMS, PMT_NOTES, TEXTS, paper_links
 
 CSS = """
@@ -32,6 +34,22 @@ CSS = """
 .practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
 .plot{margin:0;padding-left:22px}
 .plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+html.reader-in-pane{scroll-padding-top:145px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
@@ -50,7 +68,9 @@ CSS = """
 .reader-in-pane .wrap{padding:10px 12px}
 .reader-in-pane .hero,.reader-in-pane nav{display:none}
 .reader-in-pane .hub main{margin-top:0}
-.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.reader-in-pane .reader-panel{padding:8px}
 .reader-in-pane .reader-controls{gap:6px 10px}
 .reader-in-pane .reader-controls label{flex-basis:135px}
 .reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
@@ -120,27 +140,56 @@ def page(filename, title, subtitle, navigation, body, script=""):
     (ROOT / "docs" / filename).write_text(html, encoding="utf-8")
 
 
+EXAM_CONTENT = json.loads((ROOT / "english_exam_content.json").read_text(encoding="utf-8"))
+
+
+def exam_passage(exam, text):
+    if text == "macbeth":
+        return exam[2][1]
+    return "Walton’s continuation" if exam[1] in {"2018", "specimen-2022"} else exam[3][1]
+
+
+def exam_question_markup(lines):
+    lead = []
+    bullets = []
+    for line in lines:
+        if line.startswith("•"):
+            bullets.append(f"<li>{escape(line[1:].lstrip())}</li>")
+        else:
+            lead.append(f"<p>{escape(line)}</p>")
+    return "".join(lead) + f'<ul>{"".join(bullets)}</ul>'
+
+
 def question_card(exam, text):
     series, year, macbeth, frankenstein = exam
     is_play = text == "macbeth"
     title, location = macbeth if is_play else frankenstein
     component, paper, scheme = paper_links(year, text)
     number = "1" if is_play else "5" if component == "8702/1N" else "11"
-    prompt, scene, ao1, ao2, ao3 = PRACTICE[text]["2018" if year == "specimen-2022" else year]
+    _, _, ao1, ao2, ao3 = PRACTICE[text]["2018" if year == "specimen-2022" else year]
     assessment = [("Your interpretation", ao1), ("Writer’s choices", ao2), ("Context and ideas", ao3)]
     if is_play:
         assessment.append(("Expression", "Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?"))
     notes = "".join(f"<li><strong>{ao}</strong> · {escape(note)}</li>" for ao, note in assessment)
-    passage = "Walton’s continuation" if not is_play and year in {"2018", "specimen-2022"} else location
-    anchor = escape(reading_anchor(passage))
+    passage = exam_passage(exam, text)
+    anchor = quote(reading_anchor(passage))
     reader = f"{text}-text.html"
+    content = EXAM_CONTENT[text][year]
+    question = exam_question_markup(content["question"])
+    extract_text = escape(content["extract"])
+    if is_play:
+        extract = f"<pre>{extract_text}</pre>"
+    else:
+        extract = "".join(f"<p>{paragraph}</p>" for paragraph in extract_text.split("\n\n"))
     return f"""<details class="question" id="exam-{year}">
       <summary>{escape(series)} · {escape(title)}</summary>
       <div class="question-layout">
         <div>
           <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
-          <div class="practice"><strong>Practice task</strong><br>{escape(prompt)}</div>
-          <p>{escape(scene)} Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice">{question}</div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract">{extract}</blockquote>
+          <p><a href="{reader}?exam={year}#{anchor}">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -150,8 +199,8 @@ def question_card(exam, text):
         <details class="question-reader">
           <summary>Read {escape(passage)} in the text pane</summary>
           <iframe title="{escape(TEXTS[text]['title'])} full text" loading="lazy"
-                  data-src="{reader}?pane=1#{anchor}"></iframe>
-          <noscript><p><a href="{reader}#{anchor}" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="{reader}?pane=1&amp;exam={year}#{anchor}"></iframe>
+          <noscript><p><a href="{reader}?exam={year}#{anchor}" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -165,18 +214,29 @@ def build_reader(slug, text):
     sections = read_sections(ROOT / "texts" / f"{slug}.txt")
     options = "".join(f'<option value="{escape(anchor)}">{escape(title)}</option>'
                       for anchor, title, _ in sections)
+    blocks_by_section = {anchor: reading_blocks(slug, content) for anchor, _, content in sections}
+    ranges = {}
+    for exam in EXAMS:
+        year = exam[1]
+        anchor = reading_anchor(exam_passage(exam, slug))
+        extract = EXAM_CONTENT[slug][year]["extract"]
+        ranges[year] = [
+            [f"{anchor}-passage-{index + 1}", start, end]
+            for index, start, end in locate_extract(blocks_by_section[anchor], extract)
+        ]
     contents = []
-    for anchor, title, content in sections:
-        blocks = []
-        for block in content.split("\n\n"):
-            if not block.strip():
-                continue
-            if slug == "macbeth":
-                blocks.append(f"<pre>{escape(block.strip())}</pre>")
-            else:
-                blocks.append(f"<p>{escape(' '.join(block.split()))}</p>")
-        contents.append(f'<section class="reading-section" id="{escape(anchor)}">'
-                        f'<h2>{escape(title)}</h2><div class="reading-copy">{"".join(blocks)}</div></section>')
+    tag = "pre" if slug == "macbeth" else "p"
+    for anchor, title, _ in sections:
+        blocks = [
+            f'<{tag} id="{escape(anchor)}-passage-{i}">{escape(block)}</{tag}>'
+            for i, block in enumerate(blocks_by_section[anchor], 1)
+        ]
+        contents.append(
+            f'<section class="reading-section" id="{escape(anchor)}">'
+            f'<div class="reader-section-head"><h2>{escape(title)}</h2>'
+            f'<button type="button" class="bookmark-toggle" aria-pressed="false">Bookmark {escape(title)}</button></div>'
+            f'<div class="reading-copy">{"".join(blocks)}</div></section>'
+        )
 
     body = f"""
       <div class="panel reader-panel">
@@ -184,6 +244,13 @@ def build_reader(slug, text):
           <label>Find a word or phrase <input type="search" id="text-search"></label>
           <label>Jump to a section <select id="text-jump"><option value="">Choose a section</option>{options}</select></label>
         </div>
+        <div class="reader-tools">
+          <button type="button" id="save-highlight">Highlight selection</button>
+          <button type="button" id="clear-highlight">Remove selected highlight</button>
+        </div>
+        <p id="annotation-status" role="status"></p>
+        <p id="exam-highlight-label" hidden>Blue marks the exam extract. Yellow marks your own highlights.</p>
+        <details><summary>Bookmarks</summary><ul id="saved-bookmarks"></ul></details>
         <p id="text-search-status" role="status"></p>
         <ol class="text-results" id="text-results"></ol>
       </div>
@@ -192,7 +259,7 @@ def build_reader(slug, text):
     script = (ROOT / "reader.js").read_text(encoding="utf-8")
     page(f"{slug}-text.html", f'{text["title"]} · Full text', text["author"],
          (("All subjects", "./"), ("Back to revision", f"{slug}.html"),
-          ("Exam questions", f"{slug}.html#questions")), body, f"<script>{script}</script>")
+          ("Exam questions", f"{slug}.html#questions")), body, f'<script type="application/json" id="exam-ranges">{json.dumps(ranges)}</script><script>{script}</script>')
 
 
 def build_text(slug, text):
@@ -215,13 +282,15 @@ def build_text(slug, text):
         checks += ("Check your spelling, punctuation and sentence clarity for AO4.",)
     checklist = "".join(f"<li>{check}</li>" for check in checks)
     questions = "".join(question_card(exam, slug) for exam in EXAMS)
+    exam_index = "".join(f'<li><a href="#exam-{year}">{escape(series)}</a></li>'
+                         for series, year, _, _ in EXAMS)
     body = f"""
       <div class="actions">
         <a href="{slug}-text.html">Read and search the full text</a>
         {external("PMT revision notes", PMT_NOTES + slug + "/")}
         {external("BBC guided essay", text["guided"])}
       </div>
-      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to read the passage alongside it or reveal thinking prompts. Tasks are reworded and the prompts draw on AQA’s marking criteria. The original AQA documents are linked on each card.</p><div class="questions">{questions}</div></section>
+      <section id="questions"><h2>Past and specimen questions</h2><ul class="exam-index" aria-label="Jump to an exam series">{exam_index}</ul><div class="questions">{questions}</div></section>
       <section id="plot"><h2>Plot at a glance</h2><ol class="plot">{plot}</ol></section>
       <section id="topics"><h2>Revise by topic</h2>{"".join(topics)}
         <details class="panel"><summary>Check your answer</summary><ul>{checklist}</ul></details>

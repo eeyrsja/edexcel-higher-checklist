@@ -169,6 +169,22 @@ footer code{font-size:10px}
 .practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
 .plot{margin:0;padding-left:22px}
 .plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+html.reader-in-pane{scroll-padding-top:145px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
@@ -187,7 +203,9 @@ footer code{font-size:10px}
 .reader-in-pane .wrap{padding:10px 12px}
 .reader-in-pane .hero,.reader-in-pane nav{display:none}
 .reader-in-pane .hub main{margin-top:0}
-.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.reader-in-pane .reader-panel{padding:8px}
 .reader-in-pane .reader-controls{gap:6px 10px}
 .reader-in-pane .reader-controls label{flex-basis:135px}
 .reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
@@ -222,13 +240,15 @@ footer code{font-size:10px}
         <a href="https://www.physicsandmathstutor.com/english-revision/gcse-aqa/frankenstein/" target="_blank" rel="noopener">PMT revision notes ↗</a>
         <a href="https://www.bbc.co.uk/bitesize/guides/zxpydmn/revision/1" target="_blank" rel="noopener">BBC guided essay ↗</a>
       </div>
-      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to read the passage alongside it or reveal thinking prompts. Tasks are reworded and the prompts draw on AQA’s marking criteria. The original AQA documents are linked on each card.</p><div class="questions"><details class="question" id="exam-2025">
+      <section id="questions"><h2>Past and specimen questions</h2><ul class="exam-index" aria-label="Jump to an exam series"><li><a href="#exam-2025">June 2025</a></li><li><a href="#exam-2024">June 2024</a></li><li><a href="#exam-2023">June 2023</a></li><li><a href="#exam-2022">June 2022</a></li><li><a href="#exam-2021">November 2021</a></li><li><a href="#exam-2020">November 2020</a></li><li><a href="#exam-2019">June 2019</a></li><li><a href="#exam-2018">June 2018</a></li><li><a href="#exam-2017">June 2017</a></li><li><a href="#exam-specimen">AQA specimen · set 1</a></li><li><a href="#exam-specimen-2022">AQA specimen · 2022 format</a></li></ul><div class="questions"><details class="question" id="exam-2025">
       <summary>June 2025 · The importance of family</summary>
       <div class="question-layout">
         <div>
           <p>Chapter 1 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shelley show why family matters in the novel?</div>
-          <p>Victor looks back on his family and childhood at the beginning of his account. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents the importance of family in Frankenstein.</p><p>Write about:</p><ul><li>how Shelley presents the importance of family in this extract</li><li>how Shelley presents the importance of family in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>There was a considerable difference between the ages of my parents, but this circumstance seemed to unite them only closer in bonds of devoted affection. There was a sense of justice in my father’s upright mind, which rendered it necessary that he should approve highly to love strongly. Perhaps during former years he had suffered from the late-discovered unworthiness of one beloved, and so was disposed to set a greater value on tried worth. There was a show of gratitude and worship in his attachment to my mother, differing wholly from the doating fondness of age, for it was inspired by reverence for her virtues, and a desire to be the means of, in some degree, recompensing her for the sorrows she had endured, but which gave inexpressible grace to his behaviour to her. Everything was made to yield to her wishes and her convenience. He strove to shelter her, as a fair exotic is sheltered by the gardener, from every rougher wind, and to surround her with all that could tend to excite pleasurable emotion in her soft and benevolent mind. Her health, and even the tranquillity of her hitherto constant spirit, had been shaken by what she had gone through. During the two years that had elapsed previous to their marriage my father had gradually relinquished all his public functions; and immediately after their union they sought the pleasant climate of Italy, and the change of scene and interest attendant on a tour through that land of wonders, as a restorative for her weakened frame.</p><p>From Italy they visited Germany and France. I, their eldest child, was born in Naples, and as an infant accompanied them in their rambles. I remained for several years their only child. Much as they were attached to each other, they seemed to draw inexhaustible stores of affection from a very mine of love to bestow them upon me. My mother’s tender caresses and my father’s smile of benevolent pleasure while regarding me, are my first recollections. I was their plaything and their idol, and something better – their child, the innocent and helpless creature bestowed on them by Heaven, whom to bring up to good, and whose future lot it was in their hands to direct to happiness or misery, according as they fulfilled their duties towards me. With this deep consciousness of what they owed towards the being to which they had given life, added to the active spirit of tenderness that animated both, it may be imagined that while during every hour of my infant life I received a lesson of patience, of charity, and of self-control, I was so guided by a silken cord that all seemed but one train of enjoyment to me.</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2025#chapter-1">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -238,8 +258,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 1 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-1"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2025#chapter-1"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2025#chapter-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -251,8 +271,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 4 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>What does Victor’s pursuit of scientific discovery do to him and to those around him?</div>
-          <p>Victor describes his isolation and the increasingly disturbing work that leads to the creature’s creation. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents the effects of Frankenstein’s scientific ambitions on himself and others.</p><p>Write about:</p><ul><li>how Shelley presents Frankenstein in this extract</li><li>how Shelley presents the effects of Frankenstein’s scientific ambitions on himself and others in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>No one can conceive the variety of feelings which bore me onwards, like a hurricane, in the first enthusiasm of success. Life and death appeared to me ideal bounds, which I should first break through, and pour a torrent of light into our dark world. A new species would bless me as its creator and source; many happy and excellent natures would owe their being to me. No father could claim the gratitude of his child so completely as I should deserve theirs. Pursuing these reflections, I thought, that if I could bestow animation upon lifeless matter, I might in process of time (although I now found it impossible) renew life where death had apparently devoted the body to corruption.</p><p>These thoughts supported my spirits, while I pursued my undertaking with unremitting ardour. My cheek had grown pale with study, and my person had become emaciated with confinement. Sometimes, on the very brink of certainty, I failed; yet still I clung to the hope which the next day or the next hour might realise. One secret which I alone possessed was the hope to which I had dedicated myself; and the moon gazed on my midnight labours, while, with unrelaxed and breathless eagerness, I pursued nature to her hiding-places. Who shall conceive the horrors of my secret toil, as I dabbled among the unhallowed damps of the grave, or tortured the living animal to animate the lifeless clay? My limbs now tremble and my eyes swim with the remembrance; but then a resistless, and almost frantic, impulse urged me forward; I seemed to have lost all soul or sensation but for this one pursuit. It was indeed but a passing trance that only made me feel with renewed acuteness so soon as, the unnatural stimulus ceasing to operate, I had returned to my old habits. I collected bones from charnel-houses; and disturbed, with profane fingers, the tremendous secrets of the human frame. In a solitary chamber, or rather cell, at the top of the house, and separated from all the other apartments by a gallery and staircase, I kept my workshop of filthy creation: my eye-balls were starting from their sockets in attending to the details of my employment. The dissecting room and the slaughterhouse furnished many of my materials; and often did my human nature turn with loathing from my occupation, whilst, still urged on by an eagerness which perpetually increased, I brought my work near to a conclusion.</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2024#chapter-4">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -262,21 +284,23 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 4 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-4"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-4" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2024#chapter-4"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2024#chapter-4" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
-        <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-QP-JUN24_PDF" target="_blank" rel="noopener">Original question paper ↗</a>
-        <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-MS-JUN24_PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
+        <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202024%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
+        <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202024%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2023">
       <summary>June 2023 · Loneliness and isolation</summary>
       <div class="question-layout">
         <div>
           <p>Chapter 17 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does being isolated affect the creature and other characters?</div>
-          <p>The creature argues that a companion would relieve his misery and change how he behaves. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents the effects of loneliness and isolation in Frankenstein.</p><p>Write about:</p><ul><li>how Shelley presents the effects of loneliness and isolation in this extract</li><li>how Shelley presents the effects of loneliness and isolation in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>‘You must create a female for me, with whom I can live in the interchange of those sympathies necessary for my being. This you alone can do; and I demand it of you as a right which you must not refuse to concede.’</p><p>The latter part of his tale had kindled anew in me the anger that had died away while he narrated his peaceful life among the cottagers, and, as he said this, I could no longer suppress the rage that burned within me.</p><p>‘I do refuse it,’ I replied; ‘and no torture shall ever extort a consent from me. You may render me the most miserable of men, but you shall never make me base in my own eyes. Shall I create another like yourself, whose joint wickedness might desolate the world! Begone! I have answered you; you may torture me, but I will never consent.’</p><p>‘You are in the wrong,’ replied the fiend; ‘and, instead of threatening, I am content to reason with you. I am malicious because I am miserable. Am I not shunned and hated by all mankind? You, my creator, would tear me to pieces, and triumph; remember that, and tell me why I should pity man more than he pities me? You would not call it murder if you could precipitate me into one of those ice-rifts, and destroy my frame, the work of your own hands. Shall I respect man when he contemns me? Let him live with me in the interchange of kindness; and, instead of injury, I would bestow every benefit upon him with tears of gratitude at his acceptance. But that cannot be; the human senses are insurmountable barriers to our union. Yet mine shall not be the submission of abject slavery. I will revenge my injuries: if I cannot inspire love, I will cause fear; and chiefly towards you my arch-enemy, because my creator, do I swear inextinguishable hatred. Have a care: I will work at your destruction, nor finish until I desolate your heart, so that you shall curse the hour of your birth.’</p><p>A fiendish rage animated him as he said this; his face was wrinkled into contortions too horrible for human eyes to behold; but presently he calmed himself and proceeded.</p><p>‘I intended to reason. This passion is detrimental to me; for you do not reflect that you are the cause of its excess. If any being felt emotions of benevolence towards me, I should return them a hundred and a hundred fold; for that one creature’s sake, I would make peace with the whole kind! But I now indulge in dreams of bliss that cannot be realised. What I ask of you is reasonable and moderate; I demand a creature of another sex, but as hideous as myself; the gratification is small, but it is all that I can receive, and it shall content me. It is true we shall be monsters, cut off from all the world; but on that account we shall be more attached to one another. Our lives will not be happy, but they will be harmless, and free from the misery I now feel. Oh! my creator, make me happy; let me feel gratitude towards you for one benefit! Let me see that I excite the sympathy of some existing thing; do not deny me my request!’</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2023#chapter-17">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -286,8 +310,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 17 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-17"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-17" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2023#chapter-17"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2023#chapter-17" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -299,8 +323,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 10 · 8702/1N, Question 5 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shelley develop the relationship between Victor and the creature?</div>
-          <p>Victor encounters the creature on the glacier. Each insists that the other owes him something. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents the relationship between Frankenstein and the monster.</p><p>Write about:</p><ul><li>how Shelley presents the relationship between Frankenstein and the monster in this extract</li><li>how Shelley presents the relationship between Frankenstein and the monster in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>As I said this, I suddenly beheld the figure of a man, at some distance, advancing towards me with superhuman speed. He bounded over the crevices in the ice, among which I had walked with caution; his stature, also, as he approached, seemed to exceed that of man. I was troubled: a mist came over my eyes, and I felt a faintness seize me; but I was quickly restored by the cold gale of the mountains. I perceived, as the shape came nearer (sight tremendous and abhorred!) that it was the wretch whom I had created. I trembled with rage and horror, resolving to wait his approach, and then close with him in mortal combat. He approached; his countenance bespoke bitter anguish, combined with disdain and malignity, while its unearthly ugliness rendered it almost too horrible for human eyes. But I scarcely observed this; rage and hatred had at first deprived me of utterance, and I recovered only to overwhelm him with words expressive of furious detestation and contempt.</p><p>‘Devil,’ I exclaimed, ‘do you dare approach me? and do not you fear the fierce vengeance of my arm wreaked on your miserable head? Begone, vile insect! or rather, stay, that I may trample you to dust! and, oh! that I could, with the extinction of your miserable existence, restore those victims whom you have so diabolically murdered!’</p><p>‘I expected this reception,’ said the dæmon. ‘All men hate the wretched; how, then, must I be hated, who am miserable beyond all living things! Yet you, my creator, detest and spurn me, thy creature, to whom thou art bound by ties only dissoluble by the annihilation of one of us. You purpose to kill me. How dare you sport thus with life? Do your duty towards me, and I will do mine towards you and the rest of mankind. If you will comply with my conditions, I will leave them and you at peace; but if you refuse, I will glut the maw of death, until it be satiated with the blood of your remaining friends.’</p><p>‘Abhorred monster! fiend that thou art! the tortures of hell are too mild a vengeance for thy crimes. Wretched devil! you reproach me with your creation; come on, then, that I may extinguish the spark which I so negligently bestowed.’</p><p>My rage was without bounds; I sprang on him, impelled by all the feelings which can arm one being against the existence of another.</p><p>He easily eluded me, and said –</p><p>‘Be calm! I entreat you to hear me, before you give vent to your hatred on my devoted head. Have I not suffered enough that you seek to increase my misery?’</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2022#chapter-10">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -310,8 +336,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 10 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-10"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-10" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2022#chapter-10"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2022#chapter-10" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -323,8 +349,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Letter 4 · 8702/1N, Question 5 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Victor bring his suffering on himself?</div>
-          <p>Walton describes taking aboard an exhausted Victor, who is still intent on his pursuit. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how far Shelley presents Victor Frankenstein as a victim of his own actions.</p><p>Write about:</p><ul><li>how Shelley presents Victor Frankenstein in this extract</li><li>how far Shelley presents Victor Frankenstein as a victim of his own actions in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>On perceiving me, the stranger addressed me in English, although with a foreign accent. ‘Before I come on board your vessel,’ said he, ‘will you have the kindness to inform me whither you are bound?’</p><p>You may conceive my astonishment on hearing such a question addressed to me from a man on the brink of destruction, and to whom I should have supposed that my vessel would have been a resource which he would not have exchanged for the most precious wealth the earth can afford. I replied, however, that we were on a voyage of discovery towards the northern pole.</p><p>Upon hearing this he appeared satisfied, and consented to come on board. Good God! Margaret, if you had seen the man who thus capitulated for his safety, your surprise would have been boundless. His limbs were nearly frozen, and his body dreadfully emaciated by fatigue and suffering. I never saw a man in so wretched a condition. We attempted to carry him into the cabin; but as soon as he had quitted the fresh air, he fainted. We accordingly brought him back to the deck, and restored him to animation by rubbing him with brandy, and forcing him to swallow a small quantity. As soon as he showed signs of life we wrapped him up in blankets, and placed him near the chimney of the kitchen stove. By slow degrees he recovered, and ate a little soup, which restored him wonderfully.</p><p>Two days passed in this manner before he was able to speak; and I often feared that his sufferings had deprived him of understanding. When he had in some measure recovered, I removed him to my own cabin, and attended on him as much as my duty would permit. I never saw a more interesting creature: his eyes have generally an expression of wildness, and even madness; but there are moments when, if anyone performs an act of kindness towards him, or does him any the most trifling service, his whole countenance is lighted up, as it were, with a beam of benevolence and sweetness that I never saw equalled. But he is generally melancholy and despairing; and sometimes he gnashes his teeth, as if impatient of the weight of woes that oppresses him.</p><p>When my guest was a little recovered, I had great trouble to keep off the men, who wished to ask him a thousand questions; but I would not allow him to be tormented by their idle curiosity, in a state of body and mind whose restoration evidently depended upon entire repose. Once, however, the lieutenant asked, Why he had come so far upon the ice in so strange a vehicle?</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2021#letter-4">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -334,8 +362,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Letter 4 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#letter-4"></iframe>
-          <noscript><p><a href="frankenstein-text.html#letter-4" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2021#letter-4"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2021#letter-4" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -347,8 +375,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 23 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shelley show what grief and loss do to people?</div>
-          <p>Victor recounts the aftermath of Elizabeth’s death. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents grief and loss.</p><p>Write about:</p><ul><li>how Shelley presents Frankenstein’s grief in this extract</li><li>how Shelley presents grief and loss in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>I passed an hour in this state of mind, when suddenly I reflected how fearful the combat which I momentarily expected would be to my wife, and I earnestly entreated her to retire, resolving not to join her until I had obtained some knowledge as to the situation of my enemy.</p><p>She left me, and I continued some time walking up and down the passages of the house, and inspecting every corner that might afford a retreat to my adversary. But I discovered no trace of him, and was beginning to conjecture that some fortunate chance had intervened to prevent the execution of his menaces, when suddenly I heard a shrill and dreadful scream. It came from the room into which Elizabeth had retired. As I heard it, the whole truth rushed into my mind, my arms dropped, the motion of every muscle and fibre was suspended; I could feel the blood trickling in my veins and tingling in the extremities of my limbs. This state lasted but for an instant; the scream was repeated, and I rushed into the room.</p><p>Great God! why did I not then expire! Why am I here to relate the destruction of the best hope and the purest creature of earth? She was there, lifeless and inanimate, thrown across the bed, her head hanging down, and her pale and distorted features half covered by her hair. Everywhere I turn I see the same figure – her bloodless arms and relaxed form flung by the murderer on its bridal bier. Could I behold this and live? Alas! life is obstinate and clings closest where it is most hated. For a moment only did I lose recollection; I fell senseless on the ground.</p><p>When I recovered I found myself surrounded by the people of the inn; their countenances expressed a breathless terror: but the horror of others appeared only as a mockery, a shadow of the feelings that oppressed me. I escaped from them to the room where lay the body of Elizabeth, my love, my wife, so lately living, so dear, so worthy. She had been moved from the posture in which I had first beheld her; and now, as she lay, her head upon her arm, and a handkerchief thrown across her face and neck, I might have supposed her asleep. I rushed towards her, and embraced her with ardour; but the deadly languor and coldness of the limbs told me that what I now held in my arms had ceased to be the Elizabeth whom I had loved and cherished. The murderous mark of the fiend’s grasp was on her neck, and the breath had ceased to issue from her lips.</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2020#chapter-23">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -358,8 +388,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 23 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-23"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-23" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2020#chapter-23"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2020#chapter-23" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -371,8 +401,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 15 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does other people’s treatment shape the creature?</div>
-          <p>Hoping to be heard without being judged by sight, the creature approaches the blind De Lacey. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how Shelley presents the ways the monster is affected by how others treat him.</p><p>Write about:</p><ul><li>how Shelley presents the monster in this extract</li><li>how Shelley presents the ways the monster is affected by how others treat him in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>‘ “How can I thank you, my best and only benefactor? From your lips first have I heard the voice of kindness directed towards me; I shall be for ever grateful; and your present humanity assures me of success with those friends whom I am on the point of meeting.”</p><p>‘ “May I know the names and residence of those friends?”</p><p>‘I paused. This, I thought, was the moment of decision, which was to rob me of, or bestow happiness on me for ever. I struggled vainly for firmness sufficient to answer him, but the effort destroyed all my remaining strength; I sank on the chair, and sobbed aloud. At that moment I heard the steps of my younger protectors. I had not a moment to lose; but, seizing the hand of the old man, I cried, “Now is the time! − save and protect me! You and your family are the friends whom I seek. Do not you desert me in the hour of trial!”</p><p>‘ “Great God!” exclaimed the old man, “who are you?”</p><p>‘At that instant the cottage door was opened, and Felix, Safie, and Agatha entered. Who can describe their horror and consternation on beholding me? Agatha fainted; and Safie, unable to attend to her friend, rushed out of the cottage. Felix darted forward, and with supernatural force tore me from his father, to whose knees I clung: in a transport of fury, he dashed me to the ground and struck me violently with a stick. I could have torn him limb from limb, as the lion rends the antelope. But my heart sunk within me as with bitter sickness, and I refrained. I saw him on the point of repeating his blow, when, overcome by pain and anguish, I quitted the cottage and in the general tumult escaped unperceived to my hovel.</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2019#chapter-15">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -382,8 +414,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 15 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-15"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-15" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2019#chapter-15"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2019#chapter-15" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -395,8 +427,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 24 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Shelley invite the reader to pity the creature?</div>
-          <p>The creature speaks to Walton after Victor’s death and reflects on the harm he has caused. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how far Shelley presents the monster as a victim to be pitied.</p><p>Write about:</p><ul><li>how Shelley presents the monster in this extract</li><li>how far Shelley presents the monster as a victim to be pitied in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>‘But it is true that I am a wretch. I have murdered the lovely and the helpless; I have strangled the innocent as they slept, and grasped to death his throat who never injured me or any other living thing. I have devoted my creator, the select specimen of all that is worthy of love and admiration among men, to misery; I have pursued him even to that irremediable ruin. There he lies, white and cold in death. You hate me; but your abhorrence cannot equal that with which I regard myself; I look on the hands which executed the deed; I think on the heart in which the imagination of it was conceived, and long for the moment when these hands will meet my eyes, when that imagination will haunt my thoughts no more.</p><p>‘Fear not that I shall be the instrument of future mischief. My work is nearly complete. Neither yours nor any man’s death is needed to consummate the series of my being, and accomplish that which must be done but it requires my own. Do not think that I shall be slow to perform this sacrifice. I shall quit your vessel on the ice-raft which brought me thither, and shall seek the most northern extremity of the globe; I shall collect my funeral pile and consume to ashes this miserable frame, that its remains may afford no light to any curious and unhallowed wretch who would create such another as I have been. I shall die. I shall no longer feel the agonies which now consume me, or be the prey of feelings unsatisfied, yet unquenched. He is dead who called me into being; and when I shall be no more the very remembrance of us both will speedily vanish. I shall no longer see the sun or stars, or feel the winds play on my cheeks. Light, feeling, and sense will pass away; and in this condition must I find my happiness. Some years ago, when the images which this world affords first opened upon me, when I felt the cheering warmth of summer, and heard the rustling of the leaves and the warbling of the birds, and these were all to me, I should have wept to die; now it is my only consolation. Polluted by crimes, and torn by the bitterest remorse, where can I find rest but in death?</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2018#walton%E2%80%99s-continuation">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -406,8 +440,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Walton’s continuation in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#walton’s-continuation"></iframe>
-          <noscript><p><a href="frankenstein-text.html#walton’s-continuation" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2018#walton%E2%80%99s-continuation"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2018#walton%E2%80%99s-continuation" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -419,8 +453,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 20 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Shelley present the creature as evil?</div>
-          <p>Victor destroys the unfinished companion, and the creature confronts him. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how far Shelley presents the monster as an evil character.</p><p>Write about:</p><ul><li>how far Shelley presents the monster as evil in this extract</li><li>how far Shelley presents the monster as evil in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>The monster saw my determination in my face, and gnashed his teeth in the impotence of anger. &quot;Shall each man,&quot; cried he, &quot;find a wife for his bosom, and each beast have his mate, and I be alone? I had feelings of affection, and they were requited by detestation and scorn. Man! you may hate; but beware! your hours will pass in dread and misery, and soon the bolt will fall which must ravish from you your happiness for ever. Are you to be happy while I grovel in the intensity of my wretchedness? You can blast my other passions; but revenge remains—revenge, henceforth dearer than light or food! I may die; but first you, my tyrant and tormentor, shall curse the sun that gazes on your misery. Beware; for I am fearless, and therefore powerful. I will watch with the wiliness of a snake, that I may sting with its venom. Man, you shall repent of the injuries you inflict.&quot; &quot;Devil, cease; and do not poison the air with these sounds of malice. I have declared my resolution to you, and I am no coward to bend beneath words. Leave me; I am inexorable.&quot; &quot;It is well. I go; but remember, I shall be with you on your wedding-night.&quot; I started forward, and exclaimed. &quot;Villain! before you sign my death-warrant, be sure that you are yourself safe.&quot; I would have seized him; but he eluded me, and quitted the house with precipitation. In a few moments I saw him in his boat, which shot across the waters with an arrowy swiftness, and was soon lost amidst the waves.</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=2017#chapter-20">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -430,8 +466,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 20 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-20"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-20" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=2017#chapter-20"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=2017#chapter-20" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -443,8 +479,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 15 · 8702/1, Question 11 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>What does Shelley suggest about the need to be loved and accepted?</div>
-          <p>The creature seeks understanding from De Lacey after watching the family from a hiding place. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, write about how Shelley presents the importance of love and acceptance to society.</p><p>Write about:</p><ul><li>how Shelley presents the monster’s need to be loved and accepted in this extract</li><li>how Shelley presents the importance of love and acceptance to society in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>Their happiness was not decreased by the absence of summer. They loved, and sympathised with one another; and their joys, depending on each other, were not interrupted by the casualties that took place around them. The more I saw of them, the greater became my desire to claim their protection and kindness; my heart yearned to be known and loved by these amiable creatures: to see their sweet looks directed towards me with affection was the utmost limit of my ambition. I dared not think that they would turn them from me with disdain and horror. The poor that stopped at their door were never driven away. I asked, it is true, for greater treasures than a little food or rest: I required kindness and sympathy; but I did not believe myself utterly unworthy of it.</p><p>The winter advanced, and an entire revolution of the seasons had taken place since I awoke into life. My attention, at this time, was solely directed towards my plan of introducing myself into the cottage of my protectors. I revolved many projects; but that on which I finally fixed was, to enter the dwelling when the blind old man should be alone. I had sagacity enough to discover that the unnatural hideousness of my person was the chief object of horror with those who had formerly beheld me. My voice, although harsh, had nothing terrible in it; I thought, therefore, that if, in the absence of his children, I could gain the good-will and mediation of the old De Lacey, I might, by his means, be tolerated by my younger protectors.’</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=specimen#chapter-15">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -454,8 +492,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Chapter 15 in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#chapter-15"></iframe>
-          <noscript><p><a href="frankenstein-text.html#chapter-15" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=specimen#chapter-15"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=specimen#chapter-15" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -467,8 +505,10 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Chapter 24 · 8702/1N, Question 5 · 30 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Shelley invite the reader to pity the creature?</div>
-          <p>The creature speaks to Walton after Victor’s death and reflects on the harm he has caused. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this extract, explore how far Shelley presents the monster as a victim to be pitied.</p><p>Write about:</p><ul><li>how Shelley presents the monster in this extract</li><li>how far Shelley presents the monster as a victim to be pitied in the novel as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><p>‘But it is true that I am a wretch. I have murdered the lovely and the helpless; I have strangled the innocent as they slept, and grasped to death his throat who never injured me or any other living thing. I have devoted my creator, the select specimen of all that is worthy of love and admiration among men, to misery; I have pursued him even to that irremediable ruin. There he lies, white and cold in death. You hate me; but your abhorrence cannot equal that with which I regard myself; I look on the hands which executed the deed; I think on the heart in which the imagination of it was conceived, and long for the moment when these hands will meet my eyes, when that imagination will haunt my thoughts no more.</p><p>‘Fear not that I shall be the instrument of future mischief. My work is nearly complete. Neither yours nor any man’s death is needed to consummate the series of my being, and accomplish that which must be done but it requires my own. Do not think that I shall be slow to perform this sacrifice. I shall quit your vessel on the ice-raft which brought me thither, and shall seek the most northern extremity of the globe; I shall collect my funeral pile and consume to ashes this miserable frame, that its remains may afford no light to any curious and unhallowed wretch who would create such another as I have been. I shall die. I shall no longer feel the agonies which now consume me, or be the prey of feelings unsatisfied, yet unquenched. He is dead who called me into being; and when I shall be no more the very remembrance of us both will speedily vanish. I shall no longer see the sun or stars, or feel the winds play on my cheeks. Light, feeling, and sense will pass away; and in this condition must I find my happiness. Some years ago, when the images which this world affords first opened upon me, when I felt the cheering warmth of summer, and heard the rustling of the leaves and the warbling of the birds, and these were all to me, I should have wept to die; now it is my only consolation. Polluted by crimes, and torn by the bitterest remorse, where can I find rest but in death?</p></blockquote>
+          <p><a href="frankenstein-text.html?exam=specimen-2022#walton%E2%80%99s-continuation">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -478,8 +518,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Walton’s continuation in the text pane</summary>
           <iframe title="Frankenstein full text" loading="lazy"
-                  data-src="frankenstein-text.html?pane=1#walton’s-continuation"></iframe>
-          <noscript><p><a href="frankenstein-text.html#walton’s-continuation" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="frankenstein-text.html?pane=1&amp;exam=specimen-2022#walton%E2%80%99s-continuation"></iframe>
+          <noscript><p><a href="frankenstein-text.html?exam=specimen-2022#walton%E2%80%99s-continuation" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">

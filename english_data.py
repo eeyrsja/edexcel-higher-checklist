@@ -84,9 +84,6 @@ def paper_links(year, text):
         )
     if year == "specimen":
         return "8702/1", f"{PMT}/Paper-1/QP/Specimen%20QP.pdf", "https://filestore.aqa.org.uk/resources/english/AQA-87021-SMS.PDF"
-    if year == "2024":
-        url = f"{AQA}/files/sample-papers-and-mark-schemes.2024.June.AQA-87021"
-        return "8702/1", f"{url}-QP-JUN24_PDF", f"{url}-MS-JUN24_PDF"
     if year == "2023":
         url = "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-87021"
         return "8702/1", f"{url}-QP-JUN23.PDF", f"{url}-MS-JUN23.PDF"

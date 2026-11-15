@@ -169,6 +169,22 @@ footer code{font-size:10px}
 .practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
 .plot{margin:0;padding-left:22px}
 .plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+html.reader-in-pane{scroll-padding-top:145px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
@@ -187,7 +203,9 @@ footer code{font-size:10px}
 .reader-in-pane .wrap{padding:10px 12px}
 .reader-in-pane .hero,.reader-in-pane nav{display:none}
 .reader-in-pane .hub main{margin-top:0}
-.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.reader-in-pane .reader-panel{padding:8px}
 .reader-in-pane .reader-controls{gap:6px 10px}
 .reader-in-pane .reader-controls label{flex-basis:135px}
 .reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
@@ -247,7 +265,7 @@ footer code{font-size:10px}
             </div></div><div class="question"><h3>June 2024</h3><div class="actions">
               <a href="macbeth.html#exam-2024">Macbeth · Q1</a>
               <a href="frankenstein.html#exam-2024">Frankenstein · Q11</a>
-              <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-QP-JUN24_PDF" target="_blank" rel="noopener">Question paper ↗</a> <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-MS-JUN24_PDF" target="_blank" rel="noopener">Mark scheme ↗</a>
+              <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202024%20QP.pdf" target="_blank" rel="noopener">Question paper ↗</a> <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202024%20MS.pdf" target="_blank" rel="noopener">Mark scheme ↗</a>
             </div></div><div class="question"><h3>June 2023</h3><div class="actions">
               <a href="macbeth.html#exam-2023">Macbeth · Q1</a>
               <a href="frankenstein.html#exam-2023">Frankenstein · Q11</a>

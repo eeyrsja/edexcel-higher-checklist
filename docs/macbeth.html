@@ -169,6 +169,22 @@ footer code{font-size:10px}
 .practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
 .plot{margin:0;padding-left:22px}
 .plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+html.reader-in-pane{scroll-padding-top:145px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
@@ -187,7 +203,9 @@ footer code{font-size:10px}
 .reader-in-pane .wrap{padding:10px 12px}
 .reader-in-pane .hero,.reader-in-pane nav{display:none}
 .reader-in-pane .hub main{margin-top:0}
-.reader-in-pane .reader-panel{position:sticky;top:0;z-index:1;padding:8px}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.reader-in-pane .reader-panel{padding:8px}
 .reader-in-pane .reader-controls{gap:6px 10px}
 .reader-in-pane .reader-controls label{flex-basis:135px}
 .reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
@@ -222,13 +240,42 @@ footer code{font-size:10px}
         <a href="https://www.physicsandmathstutor.com/english-revision/gcse-aqa/macbeth/" target="_blank" rel="noopener">PMT revision notes ↗</a>
         <a href="https://www.bbc.co.uk/bitesize/guides/zwgdnbk/revision/1" target="_blank" rel="noopener">BBC guided essay ↗</a>
       </div>
-      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to read the passage alongside it or reveal thinking prompts. Tasks are reworded and the prompts draw on AQA’s marking criteria. The original AQA documents are linked on each card.</p><div class="questions"><details class="question" id="exam-2025">
+      <section id="questions"><h2>Past and specimen questions</h2><ul class="exam-index" aria-label="Jump to an exam series"><li><a href="#exam-2025">June 2025</a></li><li><a href="#exam-2024">June 2024</a></li><li><a href="#exam-2023">June 2023</a></li><li><a href="#exam-2022">June 2022</a></li><li><a href="#exam-2021">November 2021</a></li><li><a href="#exam-2020">November 2020</a></li><li><a href="#exam-2019">June 2019</a></li><li><a href="#exam-2018">June 2018</a></li><li><a href="#exam-2017">June 2017</a></li><li><a href="#exam-specimen">AQA specimen · set 1</a></li><li><a href="#exam-specimen-2022">AQA specimen · 2022 format</a></li></ul><div class="questions"><details class="question" id="exam-2025">
       <summary>June 2025 · Macbeth’s ambition</summary>
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How ambitious is Macbeth, and what limits does he initially place on his ambition?</div>
-          <p>Macbeth is alone, weighing the reasons to spare Duncan against his desire for the crown. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as an ambitious character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Macbeth as an ambitious character in this speech</li><li>how far Shakespeare presents Macbeth as an ambitious character in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>MACBETH If it were done when ’tis done, then ’twere well
+It were done quickly. If th’assassination
+Could trammel up the consequence and catch
+With his surcease, success, that but this blow
+Might be the be-all and the end-all – here,
+But here, upon this bank and shoal of time,
+We’d jump the life to come. But in these cases,
+We still have judgement here that we but teach
+Bloody instructions, which being taught, return
+To plague th’inventor. This even-handed justice
+Commends th’ingredience of our poisoned chalice
+To our own lips. He’s here in double trust:
+First, as I am his kinsman and his subject,
+Strong both against the deed; then, as his host,
+Who should against his murderer shut the door,
+Not bear the knife myself. Besides, this Duncan
+Hath borne his faculties so meek, hath been
+So clear in his great office, that his virtues
+Will plead like angels, trumpet-tongued against
+The deep damnation of his taking-off.
+And pity, like a naked newborn babe
+Striding the blast, or heaven’s cherubin horsed
+Upon the sightless couriers of the air,
+Shall blow the horrid deed in every eye,
+That tears shall drown the wind. I have no spur
+To prick the sides of my intent, but only
+Vaulting ambition which o’erleaps itself
+And falls on th’other –</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2025#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -238,8 +285,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 7 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-7"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2025#act-1-scene-7"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2025#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -251,8 +298,40 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth show strength, and how does the play complicate that impression?</div>
-          <p>Macbeth has called off the murder. Lady Macbeth challenges his resolve and tries to make him change his mind. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Lady Macbeth as a strong female character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Lady Macbeth as a strong female character in this conversation</li><li>how far Shakespeare presents Lady Macbeth as a strong female character in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>LADY MACBETH Was the hope drunk
+Wherein you dressed yourself? Hath it slept since?
+And wakes it now to look so green and pale
+At what it did so freely? From this time,
+Such I account thy love. Art thou afeard
+To be the same in thine own act and valour,
+As thou art in desire? Wouldst thou have that
+Which thou esteem’st the ornament of life,
+And live a coward in thine own esteem,
+Letting I dare not wait upon I would,
+Like the poor cat i’th’adage?
+MACBETH Prithee, peace.
+I dare do all that may become a man;
+Who dares do more is none.
+LADY MACBETH What beast was’t then
+That made you break this enterprise to me?
+When you durst do it, then you were a man.
+And to be more than what you were, you would
+Be so much more the man. Nor time, nor place
+Did then adhere, and yet you would make both.
+They have made themselves and that their fitness now
+Does unmake you. I have given suck and know
+How tender ’tis to love the babe that milks me:
+I would, while it was smiling in my face,
+Have plucked my nipple from his boneless gums
+And dashed the brains out, had I so sworn
+As you have done to this.
+MACBETH If we should fail?
+LADY MACBETH We fail?
+But screw your courage to the sticking-place,
+And we’ll not fail.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2024#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -262,21 +341,54 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 7 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-7"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2024#act-1-scene-7"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2024#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
-        <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-QP-JUN24_PDF" target="_blank" rel="noopener">Original question paper ↗</a>
-        <a href="https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-87021-MS-JUN24_PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
+        <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202024%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
+        <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202024%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2023">
       <summary>June 2023 · How Macbeth changes</summary>
       <div class="question-layout">
         <div>
           <p>Act 5, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Macbeth change over the course of the play?</div>
-          <p>At Dunsinane, Macbeth addresses the dangers around him and reflects on what he has lost. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Macbeth as a male character who changes during the play.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this conversation</li><li>how far Shakespeare presents Macbeth as a male character who changes in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>MACBETH Seyton! – I am sick at heart,
+When I behold – Seyton, I say! – this push
+Will cheer me ever or disseat me now.
+I have lived long enough. My way of life
+Is fall’n into the sere, the yellow leaf,
+And that which should accompany old age,
+As honour, love, obedience, troops of friends,
+I must not look to have; but in their stead,
+Curses, not loud but deep, mouth-honour, breath
+Which the poor heart would fain deny, and dare not.
+Seyton!
+Enter SEYTON
+SEYTON What’s your gracious pleasure?
+MACBETH What news more?
+SEYTON All is confirmed, my lord, which was reported.
+MACBETH I’ll fight till from my bones my flesh be hacked.
+Give me my armour.
+SEYTON ’Tis not needed yet.
+MACBETH I’ll put it on;
+Send out more horses; skirr the country round.
+Hang those that talk of fear. Give me mine armour.
+How does your patient, doctor?
+DOCTOR Not so sick, my lord,
+As she is troubled with thick-coming fancies
+That keep her from her rest.
+MACBETH Cure her of that.
+Canst thou not minister to a mind diseased,
+Pluck from the memory a rooted sorrow,
+Raze out the written troubles of the brain,
+And with some sweet oblivious antidote
+Cleanse the stuffed bosom of that perilous stuff
+Which weighs upon the heart?</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2023#act-5-scene-3">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -286,8 +398,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 5, Scene 3 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-5-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-5-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2023#act-5-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2023#act-5-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -299,8 +411,35 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 3, Scene 1 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>What does Macbeth fear, and how do those fears influence what he does?</div>
-          <p>Now king, Macbeth thinks about Banquo and the prophecy that Banquo’s descendants will rule. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this speech, explore how Shakespeare presents Macbeth’s fears.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth’s fears in this speech</li><li>how Shakespeare presents Macbeth’s fears in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>MACBETH
+To be thus is nothing,
+But to be safely thus. Our fears in Banquo
+Stick deep, and in his royalty of nature
+Reigns that which would be feared. ’Tis much he dares,
+And to that dauntless temper of his mind,
+He hath a wisdom that doth guide his valour
+To act in safety. There is none but he,
+Whose being I do fear; and under him
+My genius is rebuked, as it is said
+Mark Antony’s was by Caesar. He chid the sisters
+When first they put the name of king upon me
+And bade them speak to him. Then prophet-like,
+They hailed him father to a line of kings.
+Upon my head they placed a fruitless crown
+And put a barren sceptre in my gripe,
+Thence to be wrenched with an unlineal hand,
+No son of mine succeeding. If’t be so,
+For Banquo’s issue have I filed my mind;
+For them, the gracious Duncan have I murdered,
+Put rancours in the vessel of my peace
+Only for them, and mine eternal jewel
+Given to the common enemy of man,
+To make them kings, the seeds of Banquo kings.
+Rather than so, come Fate into the list,
+And champion me to th’utterance. Who’s there?</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2022#act-3-scene-1">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -310,8 +449,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 3, Scene 1 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-3-scene-1"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-3-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2022#act-3-scene-1"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2022#act-3-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -323,8 +462,35 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 2, Scene 2 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare develop Macbeth and Lady Macbeth’s relationship?</div>
-          <p>Immediately after Duncan’s murder, the couple respond differently to the blood, the daggers and the threat of discovery. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this conversation, explore how Shakespeare presents the relationship between Macbeth and Lady Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents their relationship in this extract</li><li>how Shakespeare presents the relationship between Macbeth and Lady Macbeth in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>MACBETH Methought I heard a voice cry, ‘Sleep no more:
+Macbeth does murder sleep’, the innocent sleep,
+Sleep that knits up the ravelled sleeve of care,
+The death of each day’s life, sore labour’s bath,
+Balm of hurt minds, great nature’s second course,
+Chief nourisher in life’s feast.
+LADY MACBETH What do you mean?
+MACBETH Still it cried, ‘Sleep no more’ to all the house;
+‘Glamis hath murdered sleep’, and therefore Cawdor
+Shall sleep no more: Macbeth shall sleep no more.
+LADY MACBETH Who was it, that thus cried? Why, worthy thane,
+You do unbend your noble strength to think
+So brain-sickly of things. Go get some water
+And wash this filthy witness from your hand.
+Why did you bring these daggers from the place?
+They must lie there. Go carry them and smear
+The sleepy grooms with blood.
+MACBETH I’ll go no more.
+I am afraid to think what I have done;
+Look on’t again, I dare not.
+LADY MACBETH Infirm of purpose!
+Give me the daggers. The sleeping and the dead
+Are but as pictures; ’tis the eye of childhood
+That fears a painted devil. If he do bleed,
+I’ll gild the faces of the grooms withal,
+For it must seem their guilt.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2021#act-2-scene-2">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -334,8 +500,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 2, Scene 2 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-2-scene-2"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-2-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2021#act-2-scene-2"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2021#act-2-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -347,8 +513,38 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 5, Scene 1 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Lady Macbeth change as the consequences of Duncan’s murder unfold?</div>
-          <p>A doctor and gentlewoman watch Lady Macbeth sleepwalk and relive episodes from the murders. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>‘Lady Macbeth is a female character who changes during the play.’</p><p>Starting with this moment in the play, explore how far you agree with this view.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this extract</li><li>how far Shakespeare presents Lady Macbeth as a female character who changes in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>LADY MACBETH Out, damned spot! Out, I say! One, two. Why
+then ’tis time to do’t. Hell is murky. Fie, my lord, fie, a soldier,
+and afeard? What need we fear who knows it, when none can
+call our power to account? Yet who would have thought the old
+man to have had so much blood in him?
+DOCTOR Do you mark that?
+LADY MACBETH The Thane of Fife had a wife. Where is she
+now? What, will these hands ne’er be clean? No more o’that,
+my Lord, no more o’that. You mar all with this starting.
+DOCTOR Go to, go to; you have known what you should not.
+GENTLEWOMAN She has spoke what she should not, I am sure of
+that. Heaven knows what she has known.
+LADY MACBETH Here’s the smell of the blood still; all the perfumes
+of Arabia will not sweeten this little hand. O, O, O.
+DOCTOR What a sigh is there! The heart is sorely charged.
+GENTLEWOMAN I would not have such a heart in my bosom for
+the dignity of the whole body.
+DOCTOR Well, well, well –
+GENTLEWOMAN Pray God it be, sir.
+DOCTOR This disease is beyond my practice; yet I have known
+those which have walked in their sleep who have died holily in
+their beds.
+LADY MACBETH Wash your hands, put on your night-gown, look
+not so pale. I tell you yet again, Banquo’s buried; he cannot
+come out on’s grave.
+DOCTOR Even so?
+LADY MACBETH To bed, to bed; there’s knocking at the gate.
+Come, come, come, come, give me your hand; what’s done
+cannot be undone. To bed, to bed, to bed.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2020#act-5-scene-1">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -358,8 +554,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 5, Scene 1 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-5-scene-1"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-5-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2020#act-5-scene-1"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2020#act-5-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -371,8 +567,27 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 2 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How far does Shakespeare present Macbeth as a violent man?</div>
-          <p>The Captain reports Macbeth’s fighting against Duncan’s enemies. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as a violent character.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this extract</li><li>how far Shakespeare presents Macbeth as a violent character in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>CAPTAIN
+Doubtful it stood,
+As two spent swimmers that do cling together
+And choke their art. The merciless Macdonald –
+Worthy to be a rebel, for to that
+The multiplying villainies of nature
+Do swarm upon him – from the Western Isles
+Of kerns and galloglasses is supplied,
+And Fortune on his damnèd quarrel smiling,
+Showed like a rebel’s whore. But all’s too weak,
+For brave Macbeth – well he deserves that name –
+Disdaining Fortune, with his brandished steel,
+Which smoked with bloody execution,
+Like Valour’s minion carved out his passage
+Till he faced the slave,
+Which ne’er shook hands, nor bade farewell to him,
+Till he unseamed him from the nave to th’chaps
+And fixed his head upon our battlements.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2019#act-1-scene-2">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -382,8 +597,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 2 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-2"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2019#act-1-scene-2"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2019#act-1-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -395,8 +610,33 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
-          <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>BANQUO
+But ’tis strange,
+And oftentimes, to win us to our harm,
+The instruments of darkness tell us truths;
+Win us with honest trifles, to betray’s
+In deepest consequence. –
+Cousins, a word, I pray you.
+MACBETH [Aside]
+Two truths are told,
+As happy prologues to the swelling act
+Of the imperial theme. – I thank you, gentlemen. –
+This supernatural soliciting
+Cannot be ill, cannot be good. If ill,
+Why hath it given me earnest of success,
+Commencing in a truth? I am Thane of Cawdor.
+If good, why do I yield to that suggestion,
+Whose horrid image doth unfix my hair
+And make my seated heart knock at my ribs
+Against the use of nature? Present fears
+Are less than horrible imaginings.
+My thought, whose murder yet is but fantastical,
+Shakes so my single state of man that function
+Is smothered in surmise, and nothing is,
+But what is not.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2018#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -406,8 +646,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 3 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2018#act-1-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2018#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -419,8 +659,26 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare show ambition shaping Macbeth and Lady Macbeth’s choices?</div>
-          <p>Lady Macbeth reads Macbeth’s letter and considers whether he has the resolve to act on the witches’ prediction. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this speech, explore how Shakespeare presents ambition in Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents ambition in this speech</li><li>how Shakespeare presents ambition in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>LADY MACBETH
+Glamis thou art, and Cawdor, and shalt be
+What thou art promised; yet do I fear thy nature,
+It is too full o’th’milk of human kindness
+To catch the nearest way. Thou wouldst be great,
+5 Art not without ambition, but without
+The illness should attend it. What thou wouldst highly,
+That wouldst thou holily; wouldst not play false,
+And yet wouldst wrongly win. Thou’dst have, great Glamis,
+That which cries, ‘Thus thou must do’ if thou have it;
+10 And that which rather thou dost fear to do,
+Than wishest should be undone. Hie thee hither,
+That I may pour my spirits in thine ear
+And chastise with the valour of my tongue
+All that impedes thee from the golden round,
+15 Which fate and metaphysical aid doth seem
+To have thee crowned withal.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=2017#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -430,8 +688,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 5 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-5"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=2017#act-1-scene-5"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=2017#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -443,8 +701,26 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How does Shakespeare give Lady Macbeth power in this speech and across the play?</div>
-          <p>Before Duncan arrives, Lady Macbeth calls on spirits to prepare her for what she plans. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this speech, explain how far you think Shakespeare presents Lady Macbeth as a powerful woman.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this speech</li><li>how Shakespeare presents Lady Macbeth in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>The raven himself is hoarse
+That croaks the fatal entrance of Duncan
+Under my battlements. Come, you spirits
+That tend on mortal thoughts, unsex me here,
+And fill me from the crown to the toe topfull
+Of direst cruelty; make thick my blood,
+Stop up th’access and passage to remorse
+That no compunctious visitings of nature
+Shake my fell purpose nor keep peace between
+Th’effect and it. Come to my woman&#x27;s breasts,
+And take my milk for gall, you murd’ring ministers,
+Wherever in your sightless substances
+You wait on nature&#x27;s mischief. Come, thick night,
+And pall thee in the dunnest smoke of hell,
+That my keen knife see not the wound it makes
+Nor heaven peep through the blanket of the dark,
+To cry ‘Hold, hold!’</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=specimen#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -454,8 +730,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 5 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-5"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=specimen#act-1-scene-5"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=specimen#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
@@ -467,8 +743,33 @@ footer code{font-size:10px}
       <div class="question-layout">
         <div>
           <p>Act 1, Scene 3 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><strong>Practice task</strong><br>How do Macbeth and Banquo respond to the supernatural, and how do their responses develop?</div>
-          <p>News that Macbeth has become Thane of Cawdor seems to confirm part of the witches’ prophecy. Use this passage and evidence from elsewhere in the work.</p>
+          <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
+          <h3>Exam extract</h3>
+          <blockquote class="exam-extract"><pre>BANQUO
+But ’tis strange,
+And oftentimes, to win us to our harm,
+The instruments of darkness tell us truths;
+Win us with honest trifles, to betray’s
+In deepest consequence. –
+Cousins, a word, I pray you.
+MACBETH [Aside]
+Two truths are told,
+As happy prologues to the swelling act
+Of the imperial theme. – I thank you, gentlemen. –
+This supernatural soliciting
+Cannot be ill, cannot be good. If ill,
+Why hath it given me earnest of success,
+Commencing in a truth? I am Thane of Cawdor.
+If good, why do I yield to that suggestion,
+Whose horrid image doth unfix my hair
+And make my seated heart knock at my ribs
+Against the use of nature? Present fears
+Are less than horrible imaginings.
+My thought, whose murder yet is but fantastical,
+Shakes so my single state of man that function
+Is smothered in surmise, and nothing is,
+But what is not.</pre></blockquote>
+          <p><a href="macbeth-text.html?exam=specimen-2022#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
           <details class="marking-notes">
             <summary>Thinking prompts</summary>
             <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
@@ -478,8 +779,8 @@ footer code{font-size:10px}
         <details class="question-reader">
           <summary>Read Act 1, Scene 3 in the text pane</summary>
           <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1#act-1-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
+                  data-src="macbeth-text.html?pane=1&amp;exam=specimen-2022#act-1-scene-3"></iframe>
+          <noscript><p><a href="macbeth-text.html?exam=specimen-2022#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
         </details>
       </div>
       <div class="actions references">
