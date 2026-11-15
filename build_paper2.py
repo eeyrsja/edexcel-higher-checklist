@@ -10,6 +10,7 @@ from english_paper2 import (
     SERIES, SPEC, paper2_sources,
 )
 
+EXAM_QUESTIONS = json.loads((ROOT / "paper2_exam_questions.json").read_text(encoding="utf-8"))
 PDF_PAGES = json.loads((ROOT / "paper2_pdf_pages.json").read_text(encoding="utf-8"))
 POEM_TEXTS = json.loads((ROOT / "paper2_poems.json").read_text(encoding="utf-8"))
 
@@ -23,13 +24,13 @@ openLinkedDetails();
 </script>"""
 
 
-def exam_cards(render_body, poetry, external):
+def exam_cards(render_body, poetry, external, question_markup):
     cards = []
     for year, series in SERIES:
         component, paper, mark_scheme = paper2_sources(year, poetry)
         subject = "poetry" if poetry else "inspector"
         qp_page, ms_page = PDF_PAGES[year][subject]
-        title, body = render_body(year, component)
+        title, body = render_body(year, component, question_markup)
         cards.append(f"""<details class="question" id="exam-{year}">
           <summary>{escape(series)} · {escape(title)}</summary>
 {body.rstrip()}
@@ -51,29 +52,29 @@ def thinking_prompt(prompt, argument):
     </details>"""
 
 
-def inspector_body(year, component):
+def inspector_body(year, component, question_markup):
     questions = []
-    for number, ((topic, task, prompt), argument) in enumerate(
+    marks = "[30 marks] · AO4 [4 marks]" if component == "2" else "[30 marks]"
+    for number, ((topic, _, prompt), argument) in enumerate(
         zip(INSPECTOR[year], INSPECTOR_ARGUMENTS[year], strict=True), 1
     ):
         questions.append(f"""<section>
           <h3>Question {number:02d} · {escape(topic)}</h3>
-          <p class="practice">{escape(task)}</p>
+          <div class="practice">{question_markup(EXAM_QUESTIONS[year]["inspector"][number - 1])}<p><strong>{marks}</strong></p></div>
           {thinking_prompt(prompt, argument)}
         </section>""")
-    marks = "30 marks + 4 for accuracy and expression" if component == "2" else "30 marks"
     return " or ".join(question[0] for question in INSPECTOR[year]), (
-        f"<p>8702/{component} · Choose one question · {marks}</p>" + "".join(questions)
+        f"<p>8702/{component} · Choose one question</p>" + "".join(questions)
     )
 
 
-def poetry_body(year, component):
+def poetry_body(year, component, question_markup):
     named, focus, partner, prompt = POETRY[year]
     poem, other = POEMS[named][0], POEMS[partner][0]
     number = "25" if component == "2" else "01"
     return f"{poem} · {focus}", f"""
-      <p>8702/{component} · Question {number} · 30 marks</p>
-      <p class="practice">Using <em>{escape(poem)}</em> and one other poem from Love and Relationships, compare how the poets explore {escape(focus)}.</p>
+      <p>8702/{component} · Question {number}</p>
+      <div class="practice">{question_markup(EXAM_QUESTIONS[year]["poetry"])}<p><strong>[30 marks]</strong></p></div>
       <div class="actions">
         <a href="#poem-{named}">Read {escape(poem)}</a>
         <a href="#poem-{partner}">Possible comparison · {escape(other)}</a>
@@ -81,7 +82,7 @@ def poetry_body(year, component):
       {thinking_prompt(prompt, POETRY_ARGUMENTS[year])}"""
 
 
-def build_paper2(page, external):
+def build_paper2(page, external, question_markup):
     navigation = (("All subjects", "./"), ("English Literature", "english.html"))
     specification = external("AQA set texts and anthology", SPEC + "/subject-content/modern-texts-and-poetry")
     page("an-inspector-calls.html", "An Inspector Calls", "J. B. Priestley · AQA Paper 2, Section A",
@@ -93,8 +94,8 @@ def build_paper2(page, external):
       </div>
       <section id="questions">
         <h2>Past and specimen questions</h2>
-        <p>Choose one whole-play essay. The paper gives you two options without a printed extract. The tasks below are summaries. The PDF links go to the original questions and marking criteria.</p>
-        {exam_cards(inspector_body, False, external)}
+        <p>Choose one whole-play essay. The paper gives you two options without a printed extract.</p>
+        {exam_cards(inspector_body, False, external, question_markup)}
       </section>
       <section id="acts">
         <h2>Read the play by act</h2>
@@ -124,8 +125,8 @@ def build_paper2(page, external):
       </div>
       <section id="questions">
         <h2>Past and specimen questions</h2>
-        <p>AQA prints one named poem. Compare it with another poem from this cluster, using what you remember. The tasks below are summaries. For the exact wording, use the question paper link.</p>
-        {exam_cards(poetry_body, True, external)}
+        <p>AQA prints one named poem. Compare it with another poem from this cluster, using what you remember.</p>
+        {exam_cards(poetry_body, True, external, question_markup)}
       </section>
       <section id="poems">
         <h2>All 15 poems</h2>

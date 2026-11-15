@@ -139,7 +139,7 @@ def exam_question_markup(lines):
             bullets.append(f"<li>{escape(line[1:].lstrip())}</li>")
         else:
             lead.append(f"<p>{escape(line)}</p>")
-    return "".join(lead) + f'<ul>{"".join(bullets)}</ul>'
+    return "".join(lead) + (f'<ul>{"".join(bullets)}</ul>' if bullets else "")
 
 
 def question_card(exam, text):
@@ -165,8 +165,8 @@ def question_card(exam, text):
         extract = "".join(f"<p>{paragraph}</p>" for paragraph in extract_text.split("\n\n"))
     return f"""<details class="question" id="exam-{year}">
       <summary>{escape(series)} · {escape(title)}</summary>
-      <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
-      <div class="practice">{question}</div>
+      <p>{escape(location)} · {component}, Question {number}</p>
+      <div class="practice">{question}<p><strong>[30 marks]</strong>{ " · AO4 [4 marks]" if is_play else ""}</p></div>
       <h3>Exam extract</h3>
       <blockquote class="exam-extract">{extract}</blockquote>
       <p><a href="{reader}?exam={year}#{anchor}">Jump to the highlighted passage in the full text</a></p>
@@ -401,5 +401,5 @@ if __name__ == "__main__":
     build_past_papers()
     build_home()
     build_english()
-    build_paper2(page, external)
+    build_paper2(page, external, exam_question_markup)
     build_break()
