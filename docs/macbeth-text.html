@@ -183,33 +183,14 @@ footer code{font-size:10px}
 #saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
 .exam-match,.reading-section{scroll-margin-top:50px}
 html:has(.reader-panel){scroll-padding-top:185px}
-html.reader-in-pane{scroll-padding-top:145px}
 @media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
 .marking-notes summary{cursor:pointer;font-weight:650}
 .marking-notes li{margin:7px 0}
-.question-layout{display:grid;gap:14px;align-items:start}
-.question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
-.question-reader{min-width:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f6}
-.question-reader summary{padding:8px 10px;color:var(--teal);cursor:pointer;font-weight:650}
-.question-reader iframe{display:block;width:100%;height:clamp(340px,63dvh,650px);border:0;border-top:1px solid var(--line)}
-@media(max-width:700px){
-  .question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr)}
-  .question-reader iframe{height:clamp(260px,45dvh,480px)}
-}
-.reader-in-pane{scroll-padding-top:120px}
-.reader-in-pane .wrap{padding:10px 12px}
-.reader-in-pane .hero,.reader-in-pane nav{display:none}
-.reader-in-pane .hub main{margin-top:0}
 .reader-panel{position:sticky;top:0;z-index:1}
 .reader-panel .text-results{max-height:125px;overflow:auto}
-.reader-in-pane .reader-panel{padding:8px}
-.reader-in-pane .reader-controls{gap:6px 10px}
-.reader-in-pane .reader-controls label{flex-basis:135px}
-.reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
-.reader-in-pane .reading-copy{font-size:16px}
 .question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
 .reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
 .reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
@@ -2585,11 +2566,7 @@ So thanks to all at once, and to each one,
 Whom we invite to see us crown’d at Scone.</pre><pre id="act-5-scene-8-passage-32">[_Flourish. Exeunt._]</pre></div></section>
       <footer>Source · <a href="https://www.gutenberg.org/ebooks/1533" target="_blank" rel="noopener">Project Gutenberg ↗</a></footer></main>
 </div>
-<script type="application/json" id="exam-ranges">{"2025": [["act-1-scene-7-passage-3", 0, 1250]], "2024": [["act-1-scene-7-passage-10", 0, 454], ["act-1-scene-7-passage-11", 0, 89], ["act-1-scene-7-passage-12", 0, 562], ["act-1-scene-7-passage-13", 0, 27], ["act-1-scene-7-passage-14", 0, 87]], "2023": [["act-5-scene-3-passage-13", 0, 431], ["act-5-scene-3-passage-14", 0, 13], ["act-5-scene-3-passage-15", 0, 38], ["act-5-scene-3-passage-16", 0, 24], ["act-5-scene-3-passage-17", 0, 54], ["act-5-scene-3-passage-18", 0, 77], ["act-5-scene-3-passage-19", 0, 28], ["act-5-scene-3-passage-20", 0, 154], ["act-5-scene-3-passage-21", 0, 104], ["act-5-scene-3-passage-22", 0, 269]], "2022": [["act-3-scene-1-passage-25", 0, 1047]], "2021": [["act-2-scene-2-passage-24", 0, 285], ["act-2-scene-2-passage-25", 0, 31], ["act-2-scene-2-passage-26", 0, 160], ["act-2-scene-2-passage-27", 0, 318], ["act-2-scene-2-passage-28", 0, 92], ["act-2-scene-2-passage-29", 0, 241]], "2020": [["act-5-scene-1-passage-19", 0, 285], ["act-5-scene-1-passage-20", 0, 25], ["act-5-scene-1-passage-21", 0, 175], ["act-5-scene-1-passage-22", 0, 57], ["act-5-scene-1-passage-23", 0, 99], ["act-5-scene-1-passage-24", 0, 124], ["act-5-scene-1-passage-25", 0, 58], ["act-5-scene-1-passage-26", 0, 89], ["act-5-scene-1-passage-27", 0, 25], ["act-5-scene-1-passage-28", 0, 33], ["act-5-scene-1-passage-29", 0, 136], ["act-5-scene-1-passage-30", 0, 141], ["act-5-scene-1-passage-31", 0, 16], ["act-5-scene-1-passage-32", 0, 155]], "2019": [["act-1-scene-2-passage-5", 9, 707]], "2018": [["act-1-scene-3-passage-48", 96, 289], ["act-1-scene-3-passage-49", 0, 645]], "2017": [["act-1-scene-5-passage-4", 0, 733]], "specimen": [["act-1-scene-5-passage-12", 0, 718]], "specimen-2022": [["act-1-scene-3-passage-48", 96, 289], ["act-1-scene-3-passage-49", 0, 645]]}</script><script>if (new URLSearchParams(location.search).get('pane') === '1') {
-  document.documentElement.classList.add('reader-in-pane');
-}
-
-const search = document.querySelector('#text-search');
+<script type="application/json" id="exam-ranges">{"2025": [["act-1-scene-7-passage-3", 0, 1250]], "2024": [["act-1-scene-7-passage-10", 0, 454], ["act-1-scene-7-passage-11", 0, 89], ["act-1-scene-7-passage-12", 0, 562], ["act-1-scene-7-passage-13", 0, 27], ["act-1-scene-7-passage-14", 0, 87]], "2023": [["act-5-scene-3-passage-13", 0, 431], ["act-5-scene-3-passage-14", 0, 13], ["act-5-scene-3-passage-15", 0, 38], ["act-5-scene-3-passage-16", 0, 24], ["act-5-scene-3-passage-17", 0, 54], ["act-5-scene-3-passage-18", 0, 77], ["act-5-scene-3-passage-19", 0, 28], ["act-5-scene-3-passage-20", 0, 154], ["act-5-scene-3-passage-21", 0, 104], ["act-5-scene-3-passage-22", 0, 269]], "2022": [["act-3-scene-1-passage-25", 0, 1047]], "2021": [["act-2-scene-2-passage-24", 0, 285], ["act-2-scene-2-passage-25", 0, 31], ["act-2-scene-2-passage-26", 0, 160], ["act-2-scene-2-passage-27", 0, 318], ["act-2-scene-2-passage-28", 0, 92], ["act-2-scene-2-passage-29", 0, 241]], "2020": [["act-5-scene-1-passage-19", 0, 285], ["act-5-scene-1-passage-20", 0, 25], ["act-5-scene-1-passage-21", 0, 175], ["act-5-scene-1-passage-22", 0, 57], ["act-5-scene-1-passage-23", 0, 99], ["act-5-scene-1-passage-24", 0, 124], ["act-5-scene-1-passage-25", 0, 58], ["act-5-scene-1-passage-26", 0, 89], ["act-5-scene-1-passage-27", 0, 25], ["act-5-scene-1-passage-28", 0, 33], ["act-5-scene-1-passage-29", 0, 136], ["act-5-scene-1-passage-30", 0, 141], ["act-5-scene-1-passage-31", 0, 16], ["act-5-scene-1-passage-32", 0, 155]], "2019": [["act-1-scene-2-passage-5", 9, 707]], "2018": [["act-1-scene-3-passage-48", 96, 289], ["act-1-scene-3-passage-49", 0, 645]], "2017": [["act-1-scene-5-passage-4", 0, 733]], "specimen": [["act-1-scene-5-passage-12", 0, 718]], "specimen-2022": [["act-1-scene-3-passage-48", 96, 289], ["act-1-scene-3-passage-49", 0, 645]]}</script><script>const search = document.querySelector('#text-search');
 const results = document.querySelector('#text-results');
 const status = document.querySelector('#text-search-status');
 const sections = [...document.querySelectorAll('.reading-section')];

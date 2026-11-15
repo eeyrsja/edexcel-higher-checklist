@@ -1,7 +1,3 @@
-if (new URLSearchParams(location.search).get('pane') === '1') {
-  document.documentElement.classList.add('reader-in-pane');
-}
-
 const search = document.querySelector('#text-search');
 const results = document.querySelector('#text-results');
 const status = document.querySelector('#text-search-status');

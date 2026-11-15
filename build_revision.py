@@ -48,33 +48,14 @@ CSS = """
 #saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
 .exam-match,.reading-section{scroll-margin-top:50px}
 html:has(.reader-panel){scroll-padding-top:185px}
-html.reader-in-pane{scroll-padding-top:145px}
 @media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
 .marking-notes summary{cursor:pointer;font-weight:650}
 .marking-notes li{margin:7px 0}
-.question-layout{display:grid;gap:14px;align-items:start}
-.question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
-.question-reader{min-width:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f6}
-.question-reader summary{padding:8px 10px;color:var(--teal);cursor:pointer;font-weight:650}
-.question-reader iframe{display:block;width:100%;height:clamp(340px,63dvh,650px);border:0;border-top:1px solid var(--line)}
-@media(max-width:700px){
-  .question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr)}
-  .question-reader iframe{height:clamp(260px,45dvh,480px)}
-}
-.reader-in-pane{scroll-padding-top:120px}
-.reader-in-pane .wrap{padding:10px 12px}
-.reader-in-pane .hero,.reader-in-pane nav{display:none}
-.reader-in-pane .hub main{margin-top:0}
 .reader-panel{position:sticky;top:0;z-index:1}
 .reader-panel .text-results{max-height:125px;overflow:auto}
-.reader-in-pane .reader-panel{padding:8px}
-.reader-in-pane .reader-controls{gap:6px 10px}
-.reader-in-pane .reader-controls label{flex-basis:135px}
-.reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
-.reader-in-pane .reading-copy{font-size:16px}
 .question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
 .reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
 .reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
@@ -183,26 +164,16 @@ def question_card(exam, text):
         extract = "".join(f"<p>{paragraph}</p>" for paragraph in extract_text.split("\n\n"))
     return f"""<details class="question" id="exam-{year}">
       <summary>{escape(series)} · {escape(title)}</summary>
-      <div class="question-layout">
-        <div>
-          <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
-          <div class="practice">{question}</div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract">{extract}</blockquote>
-          <p><a href="{reader}?exam={year}#{anchor}">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul>{notes}</ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read {escape(passage)} in the text pane</summary>
-          <iframe title="{escape(TEXTS[text]['title'])} full text" loading="lazy"
-                  data-src="{reader}?pane=1&amp;exam={year}#{anchor}"></iframe>
-          <noscript><p><a href="{reader}?exam={year}#{anchor}" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
+      <div class="practice">{question}</div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract">{extract}</blockquote>
+      <p><a href="{reader}?exam={year}#{anchor}">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul>{notes}</ul>
+      </details>
       <div class="actions references">
         {external("Original question paper", paper)}
         {external("Official mark scheme", scheme)}
@@ -307,13 +278,6 @@ function showLinkedQuestion() {
 }
 addEventListener('hashchange', showLinkedQuestion);
 showLinkedQuestion();
-
-for (const pane of document.querySelectorAll('.question-reader')) {
-  pane.addEventListener('toggle', () => {
-    const reader = pane.querySelector('iframe');
-    if (pane.open && !reader.hasAttribute('src')) reader.src = reader.dataset.src;
-  });
-}
 </script>""",
     )
 

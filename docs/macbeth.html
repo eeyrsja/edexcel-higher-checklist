@@ -183,33 +183,14 @@ footer code{font-size:10px}
 #saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
 .exam-match,.reading-section{scroll-margin-top:50px}
 html:has(.reader-panel){scroll-padding-top:185px}
-html.reader-in-pane{scroll-padding-top:145px}
 @media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
 .question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
 .question[open]>summary{margin-bottom:8px}
 .marking-notes{margin:12px 0;color:var(--ink)}
 .marking-notes summary{cursor:pointer;font-weight:650}
 .marking-notes li{margin:7px 0}
-.question-layout{display:grid;gap:14px;align-items:start}
-.question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
-.question-reader{min-width:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f6}
-.question-reader summary{padding:8px 10px;color:var(--teal);cursor:pointer;font-weight:650}
-.question-reader iframe{display:block;width:100%;height:clamp(340px,63dvh,650px);border:0;border-top:1px solid var(--line)}
-@media(max-width:700px){
-  .question-layout:has(.question-reader[open]){grid-template-columns:minmax(0,1fr)}
-  .question-reader iframe{height:clamp(260px,45dvh,480px)}
-}
-.reader-in-pane{scroll-padding-top:120px}
-.reader-in-pane .wrap{padding:10px 12px}
-.reader-in-pane .hero,.reader-in-pane nav{display:none}
-.reader-in-pane .hub main{margin-top:0}
 .reader-panel{position:sticky;top:0;z-index:1}
 .reader-panel .text-results{max-height:125px;overflow:auto}
-.reader-in-pane .reader-panel{padding:8px}
-.reader-in-pane .reader-controls{gap:6px 10px}
-.reader-in-pane .reader-controls label{flex-basis:135px}
-.reader-in-pane .text-results{max-height:100px;overflow:auto;margin-bottom:0}
-.reader-in-pane .reading-copy{font-size:16px}
 .question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
 .reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
 .reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
@@ -242,12 +223,10 @@ html.reader-in-pane{scroll-padding-top:145px}
       </div>
       <section id="questions"><h2>Past and specimen questions</h2><ul class="exam-index" aria-label="Jump to an exam series"><li><a href="#exam-2025">June 2025</a></li><li><a href="#exam-2024">June 2024</a></li><li><a href="#exam-2023">June 2023</a></li><li><a href="#exam-2022">June 2022</a></li><li><a href="#exam-2021">November 2021</a></li><li><a href="#exam-2020">November 2020</a></li><li><a href="#exam-2019">June 2019</a></li><li><a href="#exam-2018">June 2018</a></li><li><a href="#exam-2017">June 2017</a></li><li><a href="#exam-specimen">AQA specimen · set 1</a></li><li><a href="#exam-specimen-2022">AQA specimen · 2022 format</a></li></ul><div class="questions"><details class="question" id="exam-2025">
       <summary>June 2025 · Macbeth’s ambition</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as an ambitious character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Macbeth as an ambitious character in this speech</li><li>how far Shakespeare presents Macbeth as an ambitious character in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>MACBETH If it were done when ’tis done, then ’twere well
+      <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as an ambitious character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Macbeth as an ambitious character in this speech</li><li>how far Shakespeare presents Macbeth as an ambitious character in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>MACBETH If it were done when ’tis done, then ’twere well
 It were done quickly. If th’assassination
 Could trammel up the consequence and catch
 With his surcease, success, that but this blow
@@ -275,32 +254,22 @@ That tears shall drown the wind. I have no spur
 To prick the sides of my intent, but only
 Vaulting ambition which o’erleaps itself
 And falls on th’other –</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2025#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · Macbeth can list good reasons to spare Duncan. What does he want badly enough to set those reasons aside? Does he want the same thing once he has the crown?</li><li><strong>Writer’s choices</strong> · What does the audience learn from hearing him alone? What might the image of a jump that goes too far suggest about how well he understands his own ambition?</li><li><strong>Context and ideas</strong> · He is Duncan’s host as well as his subject. How does that double obligation change the way you judge his choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 7 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2025#act-1-scene-7"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2025#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2025#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · Macbeth can list good reasons to spare Duncan. What does he want badly enough to set those reasons aside? Does he want the same thing once he has the crown?</li><li><strong>Writer’s choices</strong> · What does the audience learn from hearing him alone? What might the image of a jump that goes too far suggest about how well he understands his own ambition?</li><li><strong>Context and ideas</strong> · He is Duncan’s host as well as his subject. How does that double obligation change the way you judge his choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202025%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202025%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2024">
       <summary>June 2024 · Lady Macbeth’s strength</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Lady Macbeth as a strong female character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Lady Macbeth as a strong female character in this conversation</li><li>how far Shakespeare presents Lady Macbeth as a strong female character in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>LADY MACBETH Was the hope drunk
+      <p>Act 1, Scene 7 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Lady Macbeth as a strong female character.</p><p>Write about:</p><ul><li>how far Shakespeare presents Lady Macbeth as a strong female character in this conversation</li><li>how far Shakespeare presents Lady Macbeth as a strong female character in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>LADY MACBETH Was the hope drunk
 Wherein you dressed yourself? Hath it slept since?
 And wakes it now to look so green and pale
 At what it did so freely? From this time,
@@ -331,32 +300,22 @@ MACBETH If we should fail?
 LADY MACBETH We fail?
 But screw your courage to the sticking-place,
 And we’ll not fail.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2024#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · What kind of strength does Lady Macbeth show when Macbeth hesitates? Would you call it the same kind of strength she needs in the sleepwalking scene?</li><li><strong>Writer’s choices</strong> · Where do her questions stop inviting an answer and start putting pressure on Macbeth? Why might Shakespeare give her such a disturbing image of motherhood?</li><li><strong>Context and ideas</strong> · What does she assume Macbeth wants to prove about being a man? What gives that argument its force?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 7 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2024#act-1-scene-7"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2024#act-1-scene-7" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2024#act-1-scene-7">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · What kind of strength does Lady Macbeth show when Macbeth hesitates? Would you call it the same kind of strength she needs in the sleepwalking scene?</li><li><strong>Writer’s choices</strong> · Where do her questions stop inviting an answer and start putting pressure on Macbeth? Why might Shakespeare give her such a disturbing image of motherhood?</li><li><strong>Context and ideas</strong> · What does she assume Macbeth wants to prove about being a man? What gives that argument its force?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202024%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202024%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2023">
       <summary>June 2023 · How Macbeth changes</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 5, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Macbeth as a male character who changes during the play.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this conversation</li><li>how far Shakespeare presents Macbeth as a male character who changes in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>MACBETH Seyton! – I am sick at heart,
+      <p>Act 5, Scene 3 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this conversation, explore how far Shakespeare presents Macbeth as a male character who changes during the play.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this conversation</li><li>how far Shakespeare presents Macbeth as a male character who changes in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>MACBETH Seyton! – I am sick at heart,
 When I behold – Seyton, I say! – this push
 Will cheer me ever or disseat me now.
 I have lived long enough. My way of life
@@ -388,32 +347,22 @@ Raze out the written troubles of the brain,
 And with some sweet oblivious antidote
 Cleanse the stuffed bosom of that perilous stuff
 Which weighs upon the heart?</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2023#act-5-scene-3">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · If you met Macbeth only at Dunsinane, what would surprise you about his reputation at the beginning? Which earlier decision explains the change most convincingly?</li><li><strong>Writer’s choices</strong> · Listen for the shift between Macbeth giving commands and speaking about his losses. What can he still control, and what has slipped away?</li><li><strong>Context and ideas</strong> · Who stays loyal to Macbeth at the end? What might that tell us about the kind of kingship Shakespeare sets beside his?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 5, Scene 3 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2023#act-5-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2023#act-5-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2023#act-5-scene-3">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · If you met Macbeth only at Dunsinane, what would surprise you about his reputation at the beginning? Which earlier decision explains the change most convincingly?</li><li><strong>Writer’s choices</strong> · Listen for the shift between Macbeth giving commands and speaking about his losses. What can he still control, and what has slipped away?</li><li><strong>Context and ideas</strong> · Who stays loyal to Macbeth at the end? What might that tell us about the kind of kingship Shakespeare sets beside his?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-87021-QP-JUN23.PDF" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2023/june/AQA-87021-MS-JUN23.PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2022">
       <summary>June 2022 · Macbeth’s fears</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 3, Scene 1 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this speech, explore how Shakespeare presents Macbeth’s fears.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth’s fears in this speech</li><li>how Shakespeare presents Macbeth’s fears in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>MACBETH
+      <p>Act 3, Scene 1 · 8702/2, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this speech, explore how Shakespeare presents Macbeth’s fears.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth’s fears in this speech</li><li>how Shakespeare presents Macbeth’s fears in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>MACBETH
 To be thus is nothing,
 But to be safely thus. Our fears in Banquo
 Stick deep, and in his royalty of nature
@@ -439,32 +388,22 @@ Given to the common enemy of man,
 To make them kings, the seeds of Banquo kings.
 Rather than so, come Fate into the list,
 And champion me to th’utterance. Who’s there?</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2022#act-3-scene-1">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · Macbeth has the crown. Why does Banquo still matter to him? Is he more afraid of losing power now or of leaving it to someone else’s family?</li><li><strong>Writer’s choices</strong> · Why might Macbeth picture his crown and sceptre as incapable of producing anything? How does that private fear compare with what the banquet guests see?</li><li><strong>Context and ideas</strong> · What would a secure succession mean for a king? How does trying to secure it make Macbeth’s rule less secure?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 3, Scene 1 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2022#act-3-scene-1"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2022#act-3-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2022#act-3-scene-1">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · Macbeth has the crown. Why does Banquo still matter to him? Is he more afraid of losing power now or of leaving it to someone else’s family?</li><li><strong>Writer’s choices</strong> · Why might Macbeth picture his crown and sceptre as incapable of producing anything? How does that private fear compare with what the banquet guests see?</li><li><strong>Context and ideas</strong> · What would a secure succession mean for a king? How does trying to secure it make Macbeth’s rule less secure?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202022%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202022%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2021">
       <summary>November 2021 · Macbeth and Lady Macbeth’s relationship</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 2, Scene 2 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this conversation, explore how Shakespeare presents the relationship between Macbeth and Lady Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents their relationship in this extract</li><li>how Shakespeare presents the relationship between Macbeth and Lady Macbeth in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>MACBETH Methought I heard a voice cry, ‘Sleep no more:
+      <p>Act 2, Scene 2 · 8702/2, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this conversation, explore how Shakespeare presents the relationship between Macbeth and Lady Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents their relationship in this extract</li><li>how Shakespeare presents the relationship between Macbeth and Lady Macbeth in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>MACBETH Methought I heard a voice cry, ‘Sleep no more:
 Macbeth does murder sleep’, the innocent sleep,
 Sleep that knits up the ravelled sleeve of care,
 The death of each day’s life, sore labour’s bath,
@@ -490,32 +429,22 @@ Are but as pictures; ’tis the eye of childhood
 That fears a painted devil. If he do bleed,
 I’ll gild the faces of the grooms withal,
 For it must seem their guilt.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2021#act-2-scene-2">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · Who needs whom in this scene? How might your answer change by the time Macbeth arranges Banquo’s murder?</li><li><strong>Writer’s choices</strong> · Notice how quickly they answer each other after Duncan’s murder. Where do their reactions to the blood suggest that they are already experiencing the crime differently?</li><li><strong>Context and ideas</strong> · Who takes charge here, and what assumptions about marriage or courage might that overturn?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 2, Scene 2 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2021#act-2-scene-2"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2021#act-2-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2021#act-2-scene-2">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · Who needs whom in this scene? How might your answer change by the time Macbeth arranges Banquo’s murder?</li><li><strong>Writer’s choices</strong> · Notice how quickly they answer each other after Duncan’s murder. Where do their reactions to the blood suggest that they are already experiencing the crime differently?</li><li><strong>Context and ideas</strong> · Who takes charge here, and what assumptions about marriage or courage might that overturn?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202021%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202021%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2020">
       <summary>November 2020 · How Lady Macbeth changes</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 5, Scene 1 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>‘Lady Macbeth is a female character who changes during the play.’</p><p>Starting with this moment in the play, explore how far you agree with this view.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this extract</li><li>how far Shakespeare presents Lady Macbeth as a female character who changes in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>LADY MACBETH Out, damned spot! Out, I say! One, two. Why
+      <p>Act 5, Scene 1 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>‘Lady Macbeth is a female character who changes during the play.’</p><p>Starting with this moment in the play, explore how far you agree with this view.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this extract</li><li>how far Shakespeare presents Lady Macbeth as a female character who changes in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>LADY MACBETH Out, damned spot! Out, I say! One, two. Why
 then ’tis time to do’t. Hell is murky. Fie, my lord, fie, a soldier,
 and afeard? What need we fear who knows it, when none can
 call our power to account? Yet who would have thought the old
@@ -544,32 +473,22 @@ DOCTOR Even so?
 LADY MACBETH To bed, to bed; there’s knocking at the gate.
 Come, come, come, come, give me your hand; what’s done
 cannot be undone. To bed, to bed, to bed.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2020#act-5-scene-1">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · What feels new about Lady Macbeth in this scene? Is there anything the earlier Lady Macbeth was already afraid might happen?</li><li><strong>Writer’s choices</strong> · What can the audience hear in her fragments and repetitions that she kept out of her earlier speech? What has changed about the image of blood?</li><li><strong>Context and ideas</strong> · Why might the doctor think ordinary medicine cannot help her? What does his response leave open about the source of her distress?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 5, Scene 1 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2020#act-5-scene-1"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2020#act-5-scene-1" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2020#act-5-scene-1">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · What feels new about Lady Macbeth in this scene? Is there anything the earlier Lady Macbeth was already afraid might happen?</li><li><strong>Writer’s choices</strong> · What can the audience hear in her fragments and repetitions that she kept out of her earlier speech? What has changed about the image of blood?</li><li><strong>Context and ideas</strong> · Why might the doctor think ordinary medicine cannot help her? What does his response leave open about the source of her distress?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202020%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202020%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2019">
       <summary>June 2019 · Macbeth as a violent character</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 2 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as a violent character.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this extract</li><li>how far Shakespeare presents Macbeth as a violent character in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>CAPTAIN
+      <p>Act 1, Scene 2 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this speech, explore how far Shakespeare presents Macbeth as a violent character.</p><p>Write about:</p><ul><li>how Shakespeare presents Macbeth in this extract</li><li>how far Shakespeare presents Macbeth as a violent character in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>CAPTAIN
 Doubtful it stood,
 As two spent swimmers that do cling together
 And choke their art. The merciless Macdonald –
@@ -587,32 +506,22 @@ Till he faced the slave,
 Which ne’er shook hands, nor bade farewell to him,
 Till he unseamed him from the nave to th’chaps
 And fixed his head upon our battlements.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2019#act-1-scene-2">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · Why is Duncan pleased to hear about Macbeth’s violence? At what point in the play would you stop admiring it?</li><li><strong>Writer’s choices</strong> · What picture does the Captain’s language create before Macbeth has spoken a word? How might an audience hear that language differently after the attack on Macduff’s family?</li><li><strong>Context and ideas</strong> · Who benefits from Macbeth’s violence at each point? How does that affect whether the play treats it as service or abuse?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 2 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2019#act-1-scene-2"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2019#act-1-scene-2" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2019#act-1-scene-2">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · Why is Duncan pleased to hear about Macbeth’s violence? At what point in the play would you stop admiring it?</li><li><strong>Writer’s choices</strong> · What picture does the Captain’s language create before Macbeth has spoken a word? How might an audience hear that language differently after the attack on Macduff’s family?</li><li><strong>Context and ideas</strong> · Who benefits from Macbeth’s violence at each point? How does that affect whether the play treats it as service or abuse?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202019%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202019%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2018">
       <summary>June 2018 · Attitudes to the supernatural</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 3 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>BANQUO
+      <p>Act 1, Scene 3 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>BANQUO
 But ’tis strange,
 And oftentimes, to win us to our harm,
 The instruments of darkness tell us truths;
@@ -636,32 +545,22 @@ My thought, whose murder yet is but fantastical,
 Shakes so my single state of man that function
 Is smothered in surmise, and nothing is,
 But what is not.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2018#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 3 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2018#act-1-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2018#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2018#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202018%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202018%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-2017">
       <summary>June 2017 · Ambition</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this speech, explore how Shakespeare presents ambition in Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents ambition in this speech</li><li>how Shakespeare presents ambition in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>LADY MACBETH
+      <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this speech, explore how Shakespeare presents ambition in Macbeth.</p><p>Write about:</p><ul><li>how Shakespeare presents ambition in this speech</li><li>how Shakespeare presents ambition in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>LADY MACBETH
 Glamis thou art, and Cawdor, and shalt be
 What thou art promised; yet do I fear thy nature,
 It is too full o’th’milk of human kindness
@@ -678,32 +577,22 @@ And chastise with the valour of my tongue
 All that impedes thee from the golden round,
 15 Which fate and metaphysical aid doth seem
 To have thee crowned withal.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=2017#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · What does Lady Macbeth see in her husband that she thinks will obstruct their ambition? Does the audience have to share her judgement of him?</li><li><strong>Writer’s choices</strong> · How does her response to the letter reshape Macbeth’s story? What do the images of kindness and cruelty tell you about the way she thinks power is won?</li><li><strong>Context and ideas</strong> · Which duties would the couple need to set aside to get what they want? How might those duties change the audience’s view of their ambition?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 5 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=2017#act-1-scene-5"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=2017#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=2017#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · What does Lady Macbeth see in her husband that she thinks will obstruct their ambition? Does the audience have to share her judgement of him?</li><li><strong>Writer’s choices</strong> · How does her response to the letter reshape Macbeth’s story? What do the images of kindness and cruelty tell you about the way she thinks power is won?</li><li><strong>Context and ideas</strong> · Which duties would the couple need to set aside to get what they want? How might those duties change the audience’s view of their ambition?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202017%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202017%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-specimen">
       <summary>AQA specimen · set 1 · Lady Macbeth’s power</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this speech, explain how far you think Shakespeare presents Lady Macbeth as a powerful woman.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this speech</li><li>how Shakespeare presents Lady Macbeth in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>The raven himself is hoarse
+      <p>Act 1, Scene 5 · 8702/1, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this speech, explain how far you think Shakespeare presents Lady Macbeth as a powerful woman.</p><p>Write about:</p><ul><li>how Shakespeare presents Lady Macbeth in this speech</li><li>how Shakespeare presents Lady Macbeth in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>The raven himself is hoarse
 That croaks the fatal entrance of Duncan
 Under my battlements. Come, you spirits
 That tend on mortal thoughts, unsex me here,
@@ -720,32 +609,22 @@ And pall thee in the dunnest smoke of hell,
 That my keen knife see not the wound it makes
 Nor heaven peep through the blanket of the dark,
 To cry ‘Hold, hold!’</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=specimen#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · What can Lady Macbeth actually do at this point, and what power is she asking for? Where later in the play would you test the difference?</li><li><strong>Writer’s choices</strong> · What do the commands, bodily images or darkness make you imagine? Do they make her sound powerful, dependent on outside forces, or both?</li><li><strong>Context and ideas</strong> · Why might a character in her position believe she has to reject qualities associated with femininity to get what she wants?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 5 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=specimen#act-1-scene-5"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=specimen#act-1-scene-5" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=specimen#act-1-scene-5">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · What can Lady Macbeth actually do at this point, and what power is she asking for? Where later in the play would you test the difference?</li><li><strong>Writer’s choices</strong> · What do the commands, bodily images or darkness make you imagine? Do they make her sound powerful, dependent on outside forces, or both?</li><li><strong>Context and ideas</strong> · Why might a character in her position believe she has to reject qualities associated with femininity to get what she wants?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/Specimen%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://filestore.aqa.org.uk/resources/english/AQA-87021-SMS.PDF" target="_blank" rel="noopener">Official mark scheme ↗</a>
       </div>
     </details><details class="question" id="exam-specimen-2022">
       <summary>AQA specimen · 2022 format · Attitudes to the supernatural</summary>
-      <div class="question-layout">
-        <div>
-          <p>Act 1, Scene 3 · 8702/2, Question 1 · 34 marks</p>
-          <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
-          <h3>Exam extract</h3>
-          <blockquote class="exam-extract"><pre>BANQUO
+      <p>Act 1, Scene 3 · 8702/2, Question 1 · 34 marks</p>
+      <div class="practice"><p>Starting with this moment in the play, explore how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural.</p><p>Write about:</p><ul><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in this extract</li><li>how Shakespeare presents the attitudes of Macbeth and Banquo towards the supernatural in the play as a whole.</li></ul></div>
+      <h3>Exam extract</h3>
+      <blockquote class="exam-extract"><pre>BANQUO
 But ’tis strange,
 And oftentimes, to win us to our harm,
 The instruments of darkness tell us truths;
@@ -769,20 +648,12 @@ My thought, whose murder yet is but fantastical,
 Shakes so my single state of man that function
 Is smothered in surmise, and nothing is,
 But what is not.</pre></blockquote>
-          <p><a href="macbeth-text.html?exam=specimen-2022#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
-          <details class="marking-notes">
-            <summary>Thinking prompts</summary>
-            <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
-            <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
-          </details>
-        </div>
-        <details class="question-reader">
-          <summary>Read Act 1, Scene 3 in the text pane</summary>
-          <iframe title="Macbeth full text" loading="lazy"
-                  data-src="macbeth-text.html?pane=1&amp;exam=specimen-2022#act-1-scene-3"></iframe>
-          <noscript><p><a href="macbeth-text.html?exam=specimen-2022#act-1-scene-3" target="_blank" rel="noopener">Open the full text in a new tab</a></p></noscript>
-        </details>
-      </div>
+      <p><a href="macbeth-text.html?exam=specimen-2022#act-1-scene-3">Jump to the highlighted passage in the full text</a></p>
+      <details class="marking-notes">
+        <summary>Thinking prompts</summary>
+        <p>These questions draw on what AQA rewards. Start with the one that helps you notice something in the text.</p>
+        <ul><li><strong>Your interpretation</strong> · The same news reaches Macbeth and Banquo. What does each treat as evidence, and what does each suspect? When is that difference most important later?</li><li><strong>Writer’s choices</strong> · What can the audience hear in Macbeth’s asides that Banquo cannot? How does that private reaction sit beside Banquo’s warning?</li><li><strong>Context and ideas</strong> · If the witches’ words can be understood as a temptation, where do you see each man still making a choice?</li><li><strong>Expression</strong> · Read one sentence aloud. Where might a different word, a shorter sentence or clearer punctuation make your meaning easier to follow?</li></ul>
+      </details>
       <div class="actions references">
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/Specimen%20%282022%29%20QP.pdf" target="_blank" rel="noopener">Original question paper ↗</a>
         <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/Specimen%20%282022%29%20MS.pdf" target="_blank" rel="noopener">Official mark scheme ↗</a>
@@ -855,13 +726,6 @@ function showLinkedQuestion() {
 }
 addEventListener('hashchange', showLinkedQuestion);
 showLinkedQuestion();
-
-for (const pane of document.querySelectorAll('.question-reader')) {
-  pane.addEventListener('toggle', () => {
-    const reader = pane.querySelector('iframe');
-    if (pane.open && !reader.hasAttribute('src')) reader.src = reader.dataset.src;
-  });
-}
 </script>
 </body>
 </html>
