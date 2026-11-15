@@ -76,7 +76,7 @@ def build_past_papers():
       <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
       <h1>Past papers</h1>
     </div>
-    <a href="./">← Revision checklist</a>
+    <a href="maths.html">← Maths checklist</a>
   </header>
   <main class="paper-list">
     <p>PDF links open in a new tab. <a href="#older-papers">Jump to older specifications</a></p>

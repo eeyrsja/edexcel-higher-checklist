@@ -464,7 +464,7 @@ EDEXCEL_TEMPLATE = """<!DOCTYPE html>
     <div class="hero-progress">
       <p class="prog-label" id="progText">0 of __N_TOPICS__ topics complete</p>
       <div class="prog-track" role="progressbar" aria-label="Revision progress" aria-valuemin="0" aria-valuemax="__N_TOPICS__" aria-valuenow="0"><div class="prog-fill" id="progFill"></div></div>
-      <a class="past-papers-link" href="past-papers.html">Past papers →</a>
+      <a class="past-papers-link" href="./">All subjects</a> · <a class="past-papers-link" href="past-papers.html">Past papers →</a>
     </div>
   </header>
   <div class="workspace">
@@ -899,7 +899,7 @@ def build_page(spec_map, by_video, all_files, descriptions, papers_by_topic=None
         .replace("__PDF_URL__", CHECKLIST_URL)
     )
 
-    out = ROOT / "docs" / "index.html"
+    out = ROOT / "docs" / "maths.html"
     out.write_text(page, encoding="utf-8")
     print(f"Built {out.relative_to(ROOT)} with {n_topics} topics")
 
