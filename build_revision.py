@@ -83,7 +83,7 @@ def external(label, url):
     return f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(label)} ↗</a>'
 
 
-def page(filename, title, subtitle, navigation, body, script=""):
+def page(filename, title, subtitle, navigation, body, script="", css=""):
     nav = "".join(f'<a href="{url}">{label}</a>' for label, url in navigation)
     menu = f'<nav aria-label="Navigation">{nav}</nav>' if nav else ""
     legacy_redirect = """
@@ -102,14 +102,14 @@ def page(filename, title, subtitle, navigation, body, script=""):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>{legacy_redirect}
-<style>{EDEXCEL_CSS}{CSS}</style>
+<style>{EDEXCEL_CSS}{CSS}{css}</style>
 </head>
 <body>
 <div class="wrap hub">
   <header class="hero">
     <div class="hero-title">
       <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
-      <div><h1>{title}</h1><p>{subtitle}</p></div>
+      <div><h1>{title}</h1>{f"<p>{subtitle}</p>" if subtitle else ""}</div>
     </div>
   </header>
 {menu}
@@ -335,7 +335,7 @@ def build_english():
 
 
 def build_home():
-    page("index.html", "GCSE Revision", "Choose a subject", (), """
+    page("index.html", "GCSE Revision", "", (), """
       <div class="cards">
         <article class="tile">
           <h2>Edexcel Higher GCSE Maths</h2>
@@ -347,7 +347,42 @@ def build_home():
           <p>Topic revision, essay practice and past questions.</p>
           <div class="actions"><a href="macbeth.html">Macbeth</a><a href="frankenstein.html">Frankenstein</a><a href="english.html">Exam guide and papers</a></div>
         </article>
+        <article class="tile">
+          <h2>Take a break</h2>
+          <p>A quick game of timing.</p>
+          <div class="actions"><a href="take-a-break.html">Play Hit the Gap</a></div>
+        </article>
       </div>""")
+
+
+def build_break():
+    game_script = (ROOT / "break_game.js").read_text(encoding="utf-8")
+    game_css = """
+        .break-game{max-width:590px;margin:auto;padding:clamp(16px,4vw,28px)}
+        .game-scores{display:flex;justify-content:space-between;gap:12px;margin:0 0 12px;font-variant-numeric:tabular-nums}
+        .game-scores div{display:flex;gap:8px;align-items:baseline}
+        .game-scores dd{margin:0;font-size:21px;font-weight:750}
+        .game-button{display:block;width:100%;padding:14px 0 0;overflow:hidden;border:1px solid #cbdedb;
+          border-radius:12px;background:#f3f8f6;color:var(--ink);cursor:pointer;touch-action:manipulation}
+        .game-track{display:block;position:relative;height:80px;margin:0 13px 12px;background:#e6eeeb;border-radius:7px}
+        .game-gap{position:absolute;left:var(--gap-left,40%);width:var(--gap-width,20%);inset-block:0;
+          background:#9cdec6;border-inline:2px solid #26866d}
+        .game-needle{position:absolute;left:var(--position,0%);inset-block:9px;width:5px;
+          transform:translateX(-50%);background:#192e3c;border-radius:3px}
+        .game-action{display:block;background:#dbede6;padding:10px;font-weight:750}
+        .game-status{min-height:1.6em;margin-top:10px!important}
+"""
+    page("take-a-break.html", "Hit the Gap", "", (("← Back to home", "./"),), """
+
+      <section class="panel break-game" aria-label="Hit the Gap game">
+        <p id="game-rule">Tap when the dark line is inside the green gap.</p>
+        <dl class="game-scores"><div><dt>Score</dt><dd id="score">0</dd></div><div><dt>Best</dt><dd id="best">0</dd></div></dl>
+        <button class="game-button" id="game-button" type="button" aria-describedby="game-rule">
+          <span class="game-track" aria-hidden="true"><span class="game-gap"></span><span class="game-needle"></span></span>
+          <span class="game-action" id="game-action">Start</span>
+        </button>
+        <p class="game-status" id="game-status" role="status"></p>
+      </section>""", f"<script>{game_script}</script>", css=game_css)
 
 
 if __name__ == "__main__":
@@ -355,3 +390,4 @@ if __name__ == "__main__":
     build_past_papers()
     build_home()
     build_english()
+    build_break()
