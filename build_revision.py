@@ -356,7 +356,7 @@ def build_home():
         <article class="tile">
           <h2>AQA English Literature</h2>
           <p>Topic revision, essay practice and past questions.</p>
-          <div class="actions"><a href="macbeth.html">Macbeth</a><a href="frankenstein.html">Frankenstein</a><a href="english.html">All texts and past papers</a></div>
+          <div class="actions"><a href="macbeth.html">Macbeth</a><a href="frankenstein.html">Frankenstein</a><a href="an-inspector-calls.html">An Inspector Calls</a><a href="love-and-relationships.html">Love and Relationships</a><a href="english.html">All texts and past papers</a></div>
         </article>
         <article class="tile">
           <h2>Take a break</h2>
