@@ -6,6 +6,7 @@ from urllib.parse import quote
 
 from build import EDEXCEL_CSS, ROOT, main as build_maths
 from build_past_papers import build_past_papers
+from build_paper2 import build_paper2
 from english_practice import PRACTICE
 from english_reader import SOURCES, locate_extract, read_sections, reading_anchor, reading_blocks
 from english_data import AQA, EXAMS, PMT_NOTES, TEXTS, paper_links
@@ -304,13 +305,23 @@ def build_english():
               {external("Question paper", paper)} {external("Mark scheme", scheme)}
             </div>"""
         archive.append(f'<div class="question"><h3>{heading}</h3>{cards}</div>')
-    page("english.html", "AQA English Literature", "GCSE 8702 · Macbeth and Frankenstein",
-         (("All subjects", "./"), ("How it’s marked", "#marking"), ("Past papers", "#past-papers")),
+    page("english.html", "AQA English Literature", "GCSE 8702",
+         (("All subjects", "./"), ("Paper 1", "#paper-1"), ("Paper 2", "#paper-2"), ("Past papers", "#past-papers")),
          f"""
+      <section id="paper-1"><h2>Paper 1 · Shakespeare and the novel</h2>
       <div class="cards">
-        <article class="tile"><h2><a href="macbeth.html">Macbeth</a></h2><p>William Shakespeare · 34 marks</p></article>
-        <article class="tile"><h2><a href="frankenstein.html">Frankenstein</a></h2><p>Mary Shelley · 1831 edition · 30 marks</p></article>
+        <article class="tile"><h3><a href="macbeth.html">Macbeth</a></h3><p>William Shakespeare · 34 marks</p></article>
+        <article class="tile"><h3><a href="frankenstein.html">Frankenstein</a></h3><p>Mary Shelley · 1831 edition · 30 marks</p></article>
       </div>
+      </section>
+      <section id="paper-2">
+        <h2>Paper 2 · Modern texts and poetry</h2>
+        <p>The full paper lasts 2 hours 15 minutes. It also includes unseen poetry in Section C.</p>
+        <div class="cards">
+          <article class="tile"><h3><a href="an-inspector-calls.html">An Inspector Calls</a></h3><p>Section A · 30 marks + 4 for written accuracy and expression.</p></article>
+          <article class="tile"><h3><a href="love-and-relationships.html">Love and Relationships</a></h3><p>Section B · 30 marks. Compare the printed poem with another from the cluster.</p></article>
+        </div>
+      </section>
       <section id="marking">
         <h2>How Paper 1 is marked</h2>
         <div class="panel">
@@ -328,7 +339,7 @@ def build_english():
         </div>
       </section>
       <section id="past-papers">
-        <h2>Past papers and specimens</h2>
+        <h2>Paper 1 past papers and specimens</h2>
         <p>For November 2021 and June 2022, use Paper 2 for Macbeth and Paper 1N for Frankenstein. The 2022 specimen reuses the June 2018 questions from both texts.</p>
         <div class="questions">{"".join(archive)}</div>
       </section>""")
@@ -345,7 +356,7 @@ def build_home():
         <article class="tile">
           <h2>AQA English Literature</h2>
           <p>Topic revision, essay practice and past questions.</p>
-          <div class="actions"><a href="macbeth.html">Macbeth</a><a href="frankenstein.html">Frankenstein</a><a href="english.html">Exam guide and papers</a></div>
+          <div class="actions"><a href="macbeth.html">Macbeth</a><a href="frankenstein.html">Frankenstein</a><a href="english.html">All texts and past papers</a></div>
         </article>
         <article class="tile">
           <h2>Take a break</h2>
@@ -390,4 +401,5 @@ if __name__ == "__main__":
     build_past_papers()
     build_home()
     build_english()
+    build_paper2(page, external)
     build_break()

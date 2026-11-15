@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Love and Relationships</title>
+<style>
+:root{--ink:#192e3c;--muted:#63747d;--line:#dde5e5;--teal:#087f74}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#f5f7f6;color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+button,input{font:inherit}
+button,a,input,summary{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid #079b8d;outline-offset:4px}
+.wrap{max-width:1440px;padding:24px 36px 48px;margin:auto}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(175px,230px);
+  align-items:center;
+  gap:20px 32px;
+  padding:24px 28px;
+  border:1px solid #cfdfdc;
+  border-radius:16px;
+  background:linear-gradient(115deg,#fbfdfb,#e9f5f1 70%,#e7f1f8);
+}
+.hero-title{display:flex;align-items:center;gap:14px}
+.hero-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
+.eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
+.hero h1{font-size:clamp(25px,3.4vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0;font-weight:750}
+.hero-progress{padding-left:22px;border-left:1px solid #cbdedb}
+.past-papers-link{display:inline-block;margin-top:8px;font-weight:650}
+.prog-label{color:#30565a;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;margin:0 0 7px}
+.prog-track{height:6px;background:#c8dddb;border-radius:9px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:#087f74;border-radius:9px;transition:width .25s}
+.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;margin-top:24px;align-items:start}
+.sidebar{position:sticky;top:26px;max-height:calc(100vh - 52px);overflow:auto;padding:6px 1px}
+.eyebrow{color:var(--muted);margin:0 0 13px}
+.jump{display:flex;flex-direction:column;gap:6px}
+.jump a{display:grid;grid-template-columns:25px 1fr auto;align-items:center;gap:9px;text-decoration:none;color:#4d626d;padding:11px 10px;border:1px solid transparent;border-radius:8px;font-size:12px;font-weight:600;line-height:1.4}
+.jump a:hover{background:#eaf0ee}
+.jump a.active{color:#1e534a;background:#e6f0eb;border-color:#d2e3da}
+.nav-num{color:var(--sec);font-size:11px;font-variant-numeric:tabular-nums}
+.nav-count{font-size:10px;color:#687e83;font-weight:500}
+.sidebar-resources{margin-top:18px;padding:14px 10px 0;border-top:1px solid var(--line)}
+.sidebar-resources summary{cursor:pointer;color:#4d626d;font-size:12px;font-weight:650}
+.sidebar-resources a{display:block;margin:11px 0;font-size:12px;color:#4d626d;text-decoration:none}
+.sidebar-resources a:hover{text-decoration:underline;color:var(--teal)}
+.save-note{margin:25px 10px 0;color:#6a7d81;font-size:11px;line-height:1.7}
+.save-note b{display:block;color:#52686d;font-weight:600}
+main{min-width:0}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:12px 0;background:#f5f7f6;border-bottom:1px solid var(--line)}
+.search{flex:1;position:relative;min-width:0}
+.search svg{position:absolute;top:50%;left:14px;transform:translateY(-50%);color:#6d8088;pointer-events:none}
+.search input{width:100%;height:44px;background:#fff;border:1px solid #d2dedd;border-radius:8px;padding:10px 48px 10px 41px;color:var(--ink);font-size:13px}
+.search input:focus{outline:2px solid #76b8aa;outline-offset:1px}
+.search kbd{position:absolute;right:13px;top:12px;border:1px solid #dce4e3;border-radius:4px;color:#7a8b90;font:11px/18px inherit;padding:0 5px;pointer-events:none}
+.tools{display:flex;gap:7px}
+.btn{cursor:pointer;background:#fff;border:1px solid #d2dedd;color:#455e69;padding:11px 13px;border-radius:8px;font-size:12px;white-space:nowrap}
+.btn:hover{background:#edf3f0;border-color:#a8bdb6}
+.btn.on{background:#1e534a;color:#fff;border-color:#1e534a}
+.btn.danger{background:transparent;border-color:transparent;color:#687c82}
+.btn.danger:hover{background:#fceeee;color:#a23636}
+.list-intro{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin:25px 0 9px}
+.list-intro h2{font-size:20px;letter-spacing:-.5px;margin:0;font-weight:700}
+.result-count{color:var(--muted);font-size:12px}
+.legend{margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:16px;color:var(--muted);font-size:12px}
+.legend summary{cursor:pointer;width:fit-content}
+.legend-content{display:flex;flex-wrap:wrap;gap:14px 20px;padding-top:14px;font-size:11px;align-items:center}
+.legend-content>span{display:flex;align-items:center;gap:6px}
+.s-num{--sec:#ad6851}.s-alg{--sec:#397b9c}.s-geo{--sec:#30806e}.s-stat{--sec:#9a762d}.s-halg{--sec:#79649b}
+.sec{margin:28px 0 0;scroll-margin-top:20px}
+.sec-head{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.sec-head h2{font-size:17px;letter-spacing:-.25px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px}
+.sec-head h2:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sec,#7d9098);flex:none}
+.sec-meta{margin-left:auto;font-size:11px;color:var(--muted);text-align:right}
+.sec-done{font-weight:650;color:var(--teal)}
+.topics{list-style:none;padding:0;margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.topic{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:14px;margin:0;padding:0 18px;border-bottom:1px solid #e8eded;scroll-margin-top:100px}
+.topic:last-child{border-bottom:0}
+.topic:hover{background:#fafcfb}
+.topic input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal);margin:15px 0 0;cursor:pointer}
+.study>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:8px 2px;cursor:pointer;list-style:none}
+.study>summary::-webkit-details-marker{display:none}
+.tname{font-size:14px;font-weight:650;line-height:1.5}
+.study-action{display:inline-flex;align-items:center;gap:8px;flex:none;padding:4px 8px;border:1px solid #dce7e1;border-radius:6px;color:#326357;font-size:12px;font-weight:650}
+.study-action::after{content:"";width:6px;height:6px;border:solid currentColor;border-width:0 1px 1px 0;transform:rotate(45deg);margin:0 2px 3px}
+.study[open] .study-action::after{transform:rotate(225deg);margin:3px 2px 0}
+.study[open] .study-action,.study>summary:hover .study-action{background:#e7f2ec;border-color:#cbded3}
+.study-body{margin:0 0 14px;padding:14px 16px;border:1px solid #dfeae5;border-radius:8px;background:#f6faf8}
+.study-description{margin:0 0 12px;color:#435e56;font-size:13px}
+.study-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.study-group{min-width:0;padding:12px;border:1px solid #e0eae5;border-radius:7px;background:#fff}
+.study-group h3{margin:0 0 8px;font-size:14px}
+.resource-group+.resource-group{margin-top:10px}
+.resource-label{display:block;margin-bottom:4px;font-size:11px;color:#52686d;font-weight:650}
+.resource-links{display:flex;flex-wrap:wrap;gap:5px}
+.pill{display:inline-block;text-decoration:none;border-radius:5px;font-size:11px;font-weight:600;line-height:1.5;padding:5px 8px;border:1px solid transparent;overflow-wrap:anywhere;transition:background .15s}
+.pill:hover{filter:brightness(.95);text-decoration:underline;text-underline-offset:2px}
+.pill .sfx{font-weight:400}
+.pill.q{color:#285e8e;background:#edf4fa;border-color:#dce8f2}
+.pill.t{color:#286b52;background:#edf6ef;border-color:#dcebdd}
+.pill.a{color:#70578f;background:#f4eff8;border-color:#e7def1}
+.pill.watch{color:#8e3034;background:#fff1f1;border-color:#f0d6d8}
+.watch>span[aria-hidden]{margin-right:3px;font-size:9px}
+.chapter-time{margin-left:3px;font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.video-dock{position:fixed;inset:auto 16px max(16px,env(safe-area-inset-bottom)) auto;z-index:11;width:min(480px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);box-shadow:0 12px 40px #162d3970}
+.video-head,.video-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 13px;font-size:12px}
+.video-head h2{margin:0;font-size:14px;line-height:1.35}
+.video-head button{flex:none;padding:4px 10px;font-size:18px;line-height:1.25}
+.video-dock iframe{display:block;width:100%;min-height:200px;aspect-ratio:16/9;border:0;background:#162d39}
+.video-foot a{font-weight:650}
+.pill.miss{color:#92632c;background:#fff8e9;border:1px dashed #d7bd8b}
+.topic.done{background:#f1f8f4}
+.topic.done .tname{color:#658178;text-decoration:line-through;text-decoration-color:#a6c5b5}
+.empty-state{padding:45px 24px;text-align:center;border:1px dashed #c9d8d2;border-radius:12px;background:#fff;color:var(--muted)}
+.empty-state h3{font-size:17px;color:var(--ink);margin:0 0 7px}
+.empty-state p{margin:0;font-size:13px}
+.coverage{border-top:1px solid var(--line);padding-top:28px;margin-top:40px}
+.cov-note{font-size:12px;color:var(--muted);line-height:1.8}
+.cov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin:18px 0}
+.cov-box,.cov-details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.cov-box h3{font-size:13px;margin:0 0 10px}
+.cov-box ul,.speclist{list-style:none;padding:0;margin:0}
+.cov-box li{font-size:12px;padding:8px 0;border-top:1px solid #e9eeee;color:#5b7078}
+.gapbox{border-top:3px solid #d3b877}.extrabox{border-top:3px solid #92b9cb}
+.gap-resources{margin-top:8px}
+.cov-details summary{font-size:12px;font-weight:600;cursor:pointer}
+.speclist{max-height:540px;overflow:auto;margin-top:15px}
+.speclist li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;color:#5b7078}
+.speclist b{color:var(--ink);font-family:ui-monospace,monospace}
+.sl-links a{display:inline-block;margin:4px 12px 0 0}.gaptag{color:#946b2f}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:10px;line-height:1.8}
+footer code{font-size:10px}
+@media(max-width:1100px){.wrap{padding:24px}.workspace{grid-template-columns:175px minmax(0,1fr);gap:22px}}
+@media(max-width:760px){html{scroll-padding-top:145px}.wrap{padding:18px 16px 32px}.hero{padding:18px 20px;column-gap:20px}.hero-progress{padding-left:16px}.workspace{display:flex;flex-direction:column;gap:14px;margin-top:20px}.sidebar{position:static;max-height:none;width:100%;padding:0;overflow:visible}.sidebar>.eyebrow,.sidebar-resources,.save-note{display:none}.jump{flex-direction:row;flex-wrap:wrap;gap:5px}.jump a{display:flex;padding:7px 10px;font-size:11px;background:#fff;border-color:var(--line);gap:7px}.nav-count{display:none}main{width:100%}.toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}.search{flex-basis:100%}.search kbd{display:none}.btn{padding:8px 11px}.tools{width:100%}.list-intro{margin-top:20px}.list-intro h2{font-size:18px}.sec-head{align-items:baseline;flex-wrap:wrap;gap:5px}.sec-head h2{font-size:16px}.sec-meta{font-size:10px}.topic{padding:0 12px;column-gap:10px;scroll-margin-top:150px}.study-body{padding:10px}.study-group{padding:10px}.coverage .sec-meta{margin-left:18px;text-align:left}}
+@media(max-width:760px){.sidebar .sidebar-resources{display:block;margin:12px 0 0;padding:8px 0 0}.sidebar-resources a{font-size:11px}}
+@media(max-width:620px){
+  .hero{grid-template-columns:1fr;gap:12px;padding:16px}
+  .hero-title{gap:10px}
+  .hero-logo{width:29px;height:29px}
+  .hero-progress{padding:10px 0 0;border-left:0;border-top:1px solid #cbdedb}
+}
+@media print{.video-dock{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{body{background:#fff;font-size:11px}.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero-progress{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
+
+.hub{max-width:960px}
+.hub nav{display:flex;gap:10px 18px;flex-wrap:wrap;margin:16px 0}
+.hub nav a,.actions a{font-weight:650}
+.hub main{margin-top:24px}
+.hub main > section{margin-top:26px}
+.hub h2{font-size:22px;margin:0 0 10px;line-height:1.25}
+.hub h3{font-size:16px;margin:0 0 6px}
+.hub p{margin:0 0 10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.tile,.panel,.question,.topic-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.tile p,.question p,.muted{color:#4d626d}
+.actions{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center}
+.questions{display:grid;gap:8px}
+.question{padding:12px 14px}
+.question h3{margin:0 0 4px}
+.topic-card{margin-bottom:10px}
+.topic-card summary,.panel summary{cursor:pointer;font-size:16px;font-weight:700}
+.topic-card[open] summary,.panel[open] summary{margin-bottom:10px}
+.hub .hero p{margin:7px 0 0}
+.hub .hero{grid-template-columns:1fr}
+.practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
+.plot{margin:0;padding-left:22px}
+.plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
+.question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
+.question[open]>summary{margin-bottom:8px}
+.marking-notes{margin:12px 0;color:var(--ink)}
+.marking-notes summary{cursor:pointer;font-weight:650}
+.marking-notes li{margin:7px 0}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
+.reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
+.reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
+.reader-controls input,.reader-controls select{width:100%;padding:8px;border:1px solid #9eb5b9;
+  background:#fff;color:var(--ink);border-radius:6px;font:inherit}
+.text-results{padding-left:20px;margin-top:6px}
+.text-results li{margin-bottom:6px}
+.text-results span{display:block;color:var(--muted)}
+.reading-section{padding:18px 0;border-top:1px solid var(--line)}
+.reading-copy{max-width:70ch;font:17px/1.65 Georgia,serif}
+.reading-copy pre{font:inherit;white-space:pre-wrap;margin:0 0 12px}
+.reading-copy p:target,.reading-copy pre:target{background:#e3f3ee}
+.reading-copy :is(p,pre){scroll-margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap hub">
+  <header class="hero">
+    <div class="hero-title">
+      <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+      <div><h1>Love and Relationships</h1><p>AQA Paper 2, Section B · Anthology poetry</p></div>
+    </div>
+  </header>
+<nav aria-label="Navigation"><a href="./">All subjects</a><a href="english.html">English Literature</a><a href="#questions">Exam questions</a><a href="#poems">All 15 poems</a></nav>
+  <main>
+      <div class="actions">
+        <a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF" target="_blank" rel="noopener">AQA anthology ↗</a>
+        <a href="https://www.physicsandmathstutor.com/english-revision/gcse-aqa/love-and-relationships/" target="_blank" rel="noopener">PMT poetry notes ↗</a>
+        <a href="https://www.aqa.org.uk/subjects/english/gcse/english-8702/specification/subject-content/modern-texts-and-poetry" target="_blank" rel="noopener">AQA set texts and anthology ↗</a>
+      </div>
+      <section id="questions">
+        <h2>Past and specimen questions</h2>
+        <p>AQA prints one named poem. Compare it with another poem from this cluster, using what you remember. The tasks below are summaries. For the exact wording, use the question paper link.</p>
+        <ul class="exam-index" aria-label="Jump to an exam series"><li><a href="#exam-2025">June 2025</a></li><li><a href="#exam-2024">June 2024</a></li><li><a href="#exam-2023">June 2023</a></li><li><a href="#exam-2022">June 2022</a></li><li><a href="#exam-2021">November 2021</a></li><li><a href="#exam-2020">November 2020</a></li><li><a href="#exam-2019">June 2019</a></li><li><a href="#exam-2018">June 2018</a></li><li><a href="#exam-2017">June 2017</a></li><li><a href="#exam-specimen">AQA specimen · set 1</a></li><li><a href="#exam-specimen-2022">AQA specimen · 2022 format</a></li></ul><div class="questions"><details class="question" id="exam-2025">
+          <summary>June 2025 · Follower · feelings about growing up</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Follower</em> and one other poem from Love and Relationships, compare how the poets explore feelings about growing up.</p>
+      <div class="actions">
+        <a href="#poem-9">Read Follower</a>
+        <a href="#poem-7">Possible comparison · Walking Away</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Both poets look back at childhood from adulthood. How do the reversal at the end of Follower and the parent’s final reflection in Walking Away make growing up feel different?</p>
+      <p><strong>One possible argument</strong> · Both poets treat growing up as a shift in dependence. Heaney’s ending reverses who follows whom, while Day Lewis measures parental love by the willingness to let a child leave.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202025%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202025%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2024">
+          <summary>June 2024 · Neutral Tones · powerful feelings about love</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Neutral Tones</em> and one other poem from Love and Relationships, compare how the poets explore powerful feelings about love.</p>
+      <div class="actions">
+        <a href="#poem-4">Read Neutral Tones</a>
+        <a href="#poem-3">Possible comparison · Sonnet 29 – ‘I think of thee!’</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Hardy’s bleak memory makes love feel injurious; Barrett Browning’s expanding vines make it feel consuming. How do the endings complicate the idea that powerful love is always desirable?</p>
+      <p><strong>One possible argument</strong> · Both poems make love difficult to escape. Hardy’s circular return to the pond suggests lasting injury, while Barrett Browning’s sonnet turns obsessive thought into a demand for closeness.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202024%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202024%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2023">
+          <summary>June 2023 · Before You Were Mine · relationships between parents and children</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Before You Were Mine</em> and one other poem from Love and Relationships, compare how the poets explore relationships between parents and children.</p>
+      <div class="actions">
+        <a href="#poem-11">Read Before You Were Mine</a>
+        <a href="#poem-9">Possible comparison · Follower</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Duffy imagines a parent’s life before the child, while Heaney looks up to a parent and later reverses their roles. What does each time shift change about the speaker’s view?</p>
+      <p><strong>One possible argument</strong> · Both poems reshape a parent through memory. Duffy imagines the freedom her mother had before parenthood, while Heaney uses a reversal to reconsider his own dependence.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202023%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202023%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2022">
+          <summary>June 2022 · Sonnet 29 – ‘I think of thee!’ · the power of love</summary>
+
+      <p>8702/1P · Question 01 · 30 marks</p>
+      <p class="practice">Using <em>Sonnet 29 – ‘I think of thee!’</em> and one other poem from Love and Relationships, compare how the poets explore the power of love.</p>
+      <div class="actions">
+        <a href="#poem-3">Read Sonnet 29 – ‘I think of thee!’</a>
+        <a href="#poem-12">Possible comparison · Winter Swans</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>One speaker longs to replace thoughts with presence; the other finds closeness after silence. Where do natural images show love changing what the speakers do?</p>
+      <p><strong>One possible argument</strong> · Both poets show love changing what the lovers do. Barrett Browning’s speaker asks for contact outright, while Sheers lets the change emerge through movement and touch.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202022%20QP%20-%201P.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202022%20MS%20-%201P.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2021">
+          <summary>November 2021 · The Farmer’s Bride · strong feelings in romantic relationships</summary>
+
+      <p>8702/1P · Question 01 · 30 marks</p>
+      <p class="practice">Using <em>The Farmer’s Bride</em> and one other poem from Love and Relationships, compare how the poets explore strong feelings in romantic relationships.</p>
+      <div class="actions">
+        <a href="#poem-6">Read The Farmer’s Bride</a>
+        <a href="#poem-2">Possible comparison · Porphyria’s Lover</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Both poems give a man the speaking voice while a woman’s experience is mediated through it. How does each poet give the reader reason to question what the man calls love?</p>
+      <p><strong>One possible argument</strong> · Both poems let a male speaker talk about love while exposing a woman’s vulnerability. Mew leaves fear visible through the farmer’s account, while Browning’s speaker insists on an interpretation the reader has reason to doubt.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202021%20QP%20-%201P.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202021%20MS%20-%201P.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2020">
+          <summary>November 2020 · Walking Away · family relationships</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Walking Away</em> and one other poem from Love and Relationships, compare how the poets explore family relationships.</p>
+      <div class="actions">
+        <a href="#poem-7">Read Walking Away</a>
+        <a href="#poem-10">Possible comparison · Mother, any distance</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Both poems link love to letting go. How do the orbit image in Walking Away and the measuring tape in Mother, any distance give separation a different emotional shape?</p>
+      <p><strong>One possible argument</strong> · Both poems join affection with separation. The father in Walking Away accepts that love requires letting go, while the child in Mother, any distance ends poised between support and independence.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202020%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202020%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2019">
+          <summary>June 2019 · Winter Swans · romantic feelings</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Winter Swans</em> and one other poem from Love and Relationships, compare how the poets explore romantic feelings.</p>
+      <div class="actions">
+        <a href="#poem-12">Read Winter Swans</a>
+        <a href="#poem-4">Possible comparison · Neutral Tones</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>A shared landscape reflects distance in both poems. How does the movement towards contact in Winter Swans differ from the way Hardy returns to the landscape in memory?</p>
+      <p><strong>One possible argument</strong> · Both poets give a landscape emotional force. Sheers lets the walk open a route back to intimacy, while Hardy makes a past scene return as evidence of disillusionment.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202019%20QP.pdf#page=18" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202019%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2018">
+          <summary>June 2018 · Singh Song! · romantic love</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Singh Song!</em> and one other poem from Love and Relationships, compare how the poets explore romantic love.</p>
+      <div class="actions">
+        <a href="#poem-13">Read Singh Song!</a>
+        <a href="#poem-3">Possible comparison · Sonnet 29 – ‘I think of thee!’</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>The shopkeeper values private time over business, while the sonnet speaker values presence over imagination. How does each voice make the beloved seem more valuable than the alternative?</p>
+      <p><strong>One possible argument</strong> · Both poems place the beloved above an alternative measure of value. Nagra uses the shop’s language of price, while Barrett Browning distinguishes the lover’s presence from the speaker’s thoughts.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202018%20QP.pdf#page=18" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202018%20MS.pdf#page=38" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2017">
+          <summary>June 2017 · Mother, any distance · growing up</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Mother, any distance</em> and one other poem from Love and Relationships, compare how the poets explore growing up.</p>
+      <div class="actions">
+        <a href="#poem-10">Read Mother, any distance</a>
+        <a href="#poem-7">Possible comparison · Walking Away</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Both poets use images of distance. What difference does it make that Armitage writes from the child’s viewpoint while Day Lewis writes from the parent’s?</p>
+      <p><strong>One possible argument</strong> · Both poems measure growing up through physical distance. Armitage emphasises the child’s uncertainty at the threshold, while Day Lewis looks back at a separation the parent has learned to interpret.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202017%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202017%20MS.pdf#page=39" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-specimen">
+          <summary>AQA specimen · set 1 · Follower · attitudes towards a parent</summary>
+
+      <p>8702/2 · Question 25 · 30 marks</p>
+      <p class="practice">Using <em>Follower</em> and one other poem from Love and Relationships, compare how the poets explore attitudes towards a parent.</p>
+      <div class="actions">
+        <a href="#poem-9">Read Follower</a>
+        <a href="#poem-11">Possible comparison · Before You Were Mine</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Heaney remembers trying to follow a skilled father; Duffy imagines looking back at a mother’s lost freedom. Where does admiration sit alongside guilt or discomfort in each poem?</p>
+      <p><strong>One possible argument</strong> · Heaney and Duffy both admire a parent while reconsidering what the child’s presence means, but Heaney stages a reversal in dependence while Duffy imagines a life the child never witnessed.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/Specimen%20QP.pdf#page=17" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/Specimen%20MS.pdf#page=39" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-specimen-2022">
+          <summary>AQA specimen · 2022 format · Singh Song! · romantic love</summary>
+
+      <p>8702/1P · Question 01 · 30 marks</p>
+      <p class="practice">Using <em>Singh Song!</em> and one other poem from Love and Relationships, compare how the poets explore romantic love.</p>
+      <div class="actions">
+        <a href="#poem-13">Read Singh Song!</a>
+        <a href="#poem-3">Possible comparison · Sonnet 29 – ‘I think of thee!’</a>
+      </div>
+      <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>The shopkeeper values private time over business, while the sonnet speaker values presence over imagination. How does each voice make the beloved seem more valuable than the alternative?</p>
+      <p><strong>One possible argument</strong> · Both poems place the beloved above an alternative measure of value. Nagra uses the shop’s language of price, while Barrett Browning distinguishes the lover’s presence from the speaker’s thoughts.</p>
+    </details>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/Specimen%20%282022%29%20QP%20-%201P.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/Specimen%20%282022%29%20MS%20-%201P.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details></div>
+      </section>
+      <section id="poems">
+        <h2>All 15 poems</h2>
+        <p>Open a poem for a revision prompt and its page in the official anthology. Six public domain poems are also printed here.</p>
+        <ul class="exam-index" aria-label="Jump to a poem"><li><a href="#poem-0">When We Two Parted</a></li><li><a href="#poem-1">Love’s Philosophy</a></li><li><a href="#poem-2">Porphyria’s Lover</a></li><li><a href="#poem-3">Sonnet 29 – ‘I think of thee!’</a></li><li><a href="#poem-4">Neutral Tones</a></li><li><a href="#poem-5">Letters from Yorkshire</a></li><li><a href="#poem-6">The Farmer’s Bride</a></li><li><a href="#poem-7">Walking Away</a></li><li><a href="#poem-8">Eden Rock</a></li><li><a href="#poem-9">Follower</a></li><li><a href="#poem-10">Mother, any distance</a></li><li><a href="#poem-11">Before You Were Mine</a></li><li><a href="#poem-12">Winter Swans</a></li><li><a href="#poem-13">Singh Song!</a></li><li><a href="#poem-14">Climbing My Grandfather</a></li></ul>
+        <details class="topic-card" id="poem-0">
+          <summary>When We Two Parted · Lord Byron</summary>
+          <p>Secrecy, betrayal and grief. Notice how the ending returns to the silence and tears of the opening.</p>
+<blockquote class="exam-extract"><pre>When we two parted
+In silence and tears,
+Half broken-hearted
+To sever for years,
+Pale grew thy cheek and cold,
+Colder thy kiss;
+Truly that hour foretold
+Sorrow to this.
+
+The dew of the morning
+Sank chill on my brow –
+It felt like the warning
+Of what I feel now.
+Thy vows are all broken,
+And light is thy fame;
+I hear thy name spoken,
+And share in its shame.
+
+They name thee before me,
+A knell in mine ear;
+A shudder comes o&#x27;er me –
+Why wert thou so dear?
+They know not I knew thee,
+Who knew thee too well –
+Long, long shall I rue thee,
+Too deeply to tell.
+
+In secret we met –
+In silence I grieve,
+That thy heart could forget,
+Thy spirit deceive.
+If I should meet thee
+After long years,
+How should I greet thee? –
+With silence and tears.</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=3" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-1">
+          <summary>Love’s Philosophy · Percy Bysshe Shelley</summary>
+          <p>Desire and persuasion. Do the natural pairings make the speaker’s argument convincing, or show how much he wants it to be?</p>
+<blockquote class="exam-extract"><pre>The fountains mingle with the river
+And the rivers with the Ocean,
+The winds of Heaven mix for ever
+With a sweet emotion;
+Nothing in the world is single;
+All things by a law divine
+In one another&#x27;s being mingle —
+Why not I with thine?
+
+See the mountains kiss high Heaven,
+And the waves clasp one another;
+No sister-flower would be forgiven
+If it disdain&#x27;d its brother:
+And the sunlight clasps the earth,
+And the moonbeams kiss the sea —
+What are all these kisses worth,
+If thou kiss not me?</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=4" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-2">
+          <summary>Porphyria’s Lover · Robert Browning</summary>
+          <p>Possession and control. What should you question about the speaker’s account of Porphyria’s feelings?</p>
+<blockquote class="exam-extract"><pre>The rain set early in to-night,
+         The sullen wind was soon awake,
+It tore the elm-tops down for spite,
+         and did its worst to vex the lake:
+         I listened with heart fit to break.
+When glided in Porphyria; straight
+         She shut the cold out and the storm,
+And kneeled and made the cheerless grate
+         Blaze up, and all the cottage warm;
+         Which done, she rose, and from her form
+Withdrew the dripping cloak and shawl,
+         And laid her soiled gloves by, untied
+Her hat and let the damp hair fall,
+         And, last, she sat down by my side
+         And called me. When no voice replied,
+She put my arm about her waist,
+         And made her smooth white shoulder bare,
+And all her yellow hair displaced,
+         And, stooping, made my cheek lie there,
+         And spread o’er all her yellow hair,
+Murmuring how she loved me – she
+         Too weak, for all her heart’s endeavour,
+To set its struggling passion free
+         From pride, and vainer ties dissever,
+         And give herself to me for ever.
+But passion sometimes would prevail,
+         Nor could tonight’s gay feast restrain
+A sudden thought of one so pale
+         For love of her, and all in vain:
+         So, she was come through wind and rain.
+Be sure I looked up at her eyes
+         Happy and proud; at last I knew
+Porphyria worshipped me: surprise
+         Made my heart swell, and still it grew
+         While I debated what to do.
+That moment she was mine, mine, fair,
+         Perfectly pure and good: I found
+A thing to do, and all her hair
+         In one long yellow string I wound
+         Three times her little throat around,
+And strangled her. No pain felt she;
+         I am quite sure she felt no pain.
+As a shut bud that holds a bee,
+         I warily oped her lids: again
+         Laughed the blue eyes without a stain.
+And I untightened next the tress
+         About her neck; her cheek once more
+Blushed bright beneath my burning kiss:
+      I propped her head up as before,
+      Only, this time my shoulder bore
+Her head, which droops upon it still:
+      The smiling rosy little head,
+So glad it has its utmost will,
+      That all it scorned at once is fled,
+      And I, its love, am gained instead!
+Porphyria’s love: she guessed not how
+      Her darling one wish would be heard.
+And thus we sit together now,
+      And all night long we have not stirred,
+      And yet God has not said a word!</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=5" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-3">
+          <summary>Sonnet 29 – ‘I think of thee!’ · Elizabeth Barrett Browning</summary>
+          <p>Desire and presence. Track what happens when the speaker imagines thoughts as vines and asks for the real person instead.</p>
+<blockquote class="exam-extract"><pre>I think of thee! – my thoughts do twine and bud
+About thee, as wild vines, about a tree,
+Put out broad leaves, and soon there &#x27;s nought to see
+Except the straggling green which hides the wood.
+Yet, O my palm-tree, be it understood
+I will not have my thoughts instead of thee
+Who art dearer, better! Rather, instantly
+Renew thy presence; as a strong tree should,
+Rustle thy boughs and set thy trunk all bare,
+And let these bands of greenery which insphere thee
+Drop heavily down, – burst, shattered, everywhere!
+Because, in this deep joy to see and hear thee
+And breathe within thy shadow a new air,
+I do not think of thee – I am too near thee.</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=7" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-4">
+          <summary>Neutral Tones · Thomas Hardy</summary>
+          <p>Disillusionment and memory. How does the winter setting change when it returns at the end?</p>
+<blockquote class="exam-extract"><pre>We stood by a pond that winter day,
+And the sun was white, as though chidden of God,
+And a few leaves lay on the starving sod;
+       – They had fallen from an ash, and were grey.
+
+Your eyes on me were as eyes that rove
+Over tedious riddles of years ago;
+And some words played between us to and fro
+      On which lost the more by our love.
+
+The smile on your mouth was the deadest thing
+Alive enough to have strength to die;
+And a grin of bitterness swept thereby
+       Like an ominous bird a-wing…
+
+Since then, keen lessons that love deceives,
+And wrings with wrong, have shaped to me
+Your face, and the God curst sun, and a tree,
+       And a pond edged with greyish leaves.</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=8" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-5">
+          <summary>Letters from Yorkshire · Maura Dooley</summary>
+          <p>Distance and connection. How do the two kinds of work in the poem help you understand what the letters bridge?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=9" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-6">
+          <summary>The Farmer’s Bride · Charlotte Mew</summary>
+          <p>Fear, desire and unequal power. What does the farmer’s account reveal that he himself may fail to see?</p>
+<blockquote class="exam-extract"><pre>Three Summers since I chose a maid,
+Too young maybe – but more’s to do
+At harvest-time than bide and woo.
+ When us was wed she turned afraid
+Of love and me and all things human;
+Like the shut of a winter’s day
+Her smile went out, and ’twasn’t a woman –
+ More like a little frightened fay.
+   One night, in the Fall, she runned away.
+
+‘Out ’mong the sheep, her be,’ they said,
+Should properly have been abed;
+But sure enough she wasn’t there
+Lying awake with her wide brown stare.
+ So over seven-acre field and up-along across the down
+We chased her, flying like a hare
+Before our lanterns. To Church-Town
+ All in a shiver and a scare
+We caught her, fetched her home at last
+ And turned the key upon her, fast.
+
+She does the work about the house
+As well as most, but like a mouse:
+  Happy enough to chat and play
+  With birds and rabbits and such as they,
+  So long as men-folk keep away.
+‘Not near, not near!’ her eyes beseech
+When one of us comes within reach.
+  The women say that beasts in stall
+  Look round like children at her call.
+  I’ve hardly heard her speak at all.
+
+Shy as a leveret, swift as he,
+Straight and slight as a young larch tree,
+Sweet as the first wild violets, she,
+To her wild self. But what to me?
+
+The short days shorten and the oaks are brown,
+ The blue smoke rises to the low grey sky,
+One leaf in the still air falls slowly down,
+ A magpie’s spotted feathers lie
+On the black earth spread white with rime,
+The berries redden up to Christmas-time.
+ What’s Christmas-time without there be
+ Some other in the house than we!
+She sleeps up in the attic there
+ Alone, poor maid. ’Tis but a stair
+Betwixt us. Oh! my God! the down,
+The soft young down of her, the brown,
+The brown of her – her eyes, her hair, her hair!</pre></blockquote>
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=10" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-7">
+          <summary>Walking Away · Cecil Day Lewis</summary>
+          <p>Parenthood and separation. Why does the child’s movement away come back to the parent so many years later?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=12" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-8">
+          <summary>Eden Rock · Charles Causley</summary>
+          <p>Family, memory and loss. What do the ordinary picnic details do to the uncertainty of the final crossing?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=13" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-9">
+          <summary>Follower · Seamus Heaney</summary>
+          <p>Admiration and changing dependence. Who follows whom at the beginning and the end?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=14" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-10">
+          <summary>Mother, any distance · Simon Armitage</summary>
+          <p>Attachment and independence. Could the measuring tape represent freedom as well as restraint?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=15" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-11">
+          <summary>Before You Were Mine · Carol Ann Duffy</summary>
+          <p>Memory and a parent’s independence. How does the daughter’s imagined version of her mother’s past complicate the title?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=16" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-12">
+          <summary>Winter Swans · Owen Sheers</summary>
+          <p>Conflict and reconciliation. Where does the movement of the swans start to change the way the couple move?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=17" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-13">
+          <summary>Singh Song! · Daljit Nagra</summary>
+          <p>Romantic love and private identity. What does the contrast between the shop and the couple’s private world say about what they value?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=18" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details><details class="topic-card" id="poem-14">
+          <summary>Climbing My Grandfather · Andrew Waterhouse</summary>
+          <p>Family attachment and discovery. Why might the extended climbing image make the speaker’s closeness feel earned?</p>
+
+          <div class="actions"><a href="https://filestore.aqa.org.uk/resources/english/AQA-8702-TG-POEMS.PDF#page=20" target="_blank" rel="noopener">Read in the AQA anthology ↗</a></div>
+        </details>
+      </section></main>
+</div>
+<script>
+function openLinkedDetails() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (target instanceof HTMLDetailsElement) target.open = true;
+}
+addEventListener('hashchange', openLinkedDetails);
+openLinkedDetails();
+</script>
+</body>
+</html>

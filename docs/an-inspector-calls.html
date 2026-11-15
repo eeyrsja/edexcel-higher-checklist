@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An Inspector Calls</title>
+<style>
+:root{--ink:#192e3c;--muted:#63747d;--line:#dde5e5;--teal:#087f74}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:#f5f7f6;color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--teal)}
+button,input{font:inherit}
+button,a,input,summary{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid #079b8d;outline-offset:4px}
+.wrap{max-width:1440px;padding:24px 36px 48px;margin:auto}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(175px,230px);
+  align-items:center;
+  gap:20px 32px;
+  padding:24px 28px;
+  border:1px solid #cfdfdc;
+  border-radius:16px;
+  background:linear-gradient(115deg,#fbfdfb,#e9f5f1 70%,#e7f1f8);
+}
+.hero-title{display:flex;align-items:center;gap:14px}
+.hero-logo{display:block;width:36px;height:36px;object-fit:contain;flex:none}
+.eyebrow{font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
+.hero h1{font-size:clamp(25px,3.4vw,40px);line-height:1.12;letter-spacing:-.035em;margin:0;font-weight:750}
+.hero-progress{padding-left:22px;border-left:1px solid #cbdedb}
+.past-papers-link{display:inline-block;margin-top:8px;font-weight:650}
+.prog-label{color:#30565a;font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;margin:0 0 7px}
+.prog-track{height:6px;background:#c8dddb;border-radius:9px;overflow:hidden}
+.prog-fill{height:100%;width:0;background:#087f74;border-radius:9px;transition:width .25s}
+.workspace{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;margin-top:24px;align-items:start}
+.sidebar{position:sticky;top:26px;max-height:calc(100vh - 52px);overflow:auto;padding:6px 1px}
+.eyebrow{color:var(--muted);margin:0 0 13px}
+.jump{display:flex;flex-direction:column;gap:6px}
+.jump a{display:grid;grid-template-columns:25px 1fr auto;align-items:center;gap:9px;text-decoration:none;color:#4d626d;padding:11px 10px;border:1px solid transparent;border-radius:8px;font-size:12px;font-weight:600;line-height:1.4}
+.jump a:hover{background:#eaf0ee}
+.jump a.active{color:#1e534a;background:#e6f0eb;border-color:#d2e3da}
+.nav-num{color:var(--sec);font-size:11px;font-variant-numeric:tabular-nums}
+.nav-count{font-size:10px;color:#687e83;font-weight:500}
+.sidebar-resources{margin-top:18px;padding:14px 10px 0;border-top:1px solid var(--line)}
+.sidebar-resources summary{cursor:pointer;color:#4d626d;font-size:12px;font-weight:650}
+.sidebar-resources a{display:block;margin:11px 0;font-size:12px;color:#4d626d;text-decoration:none}
+.sidebar-resources a:hover{text-decoration:underline;color:var(--teal)}
+.save-note{margin:25px 10px 0;color:#6a7d81;font-size:11px;line-height:1.7}
+.save-note b{display:block;color:#52686d;font-weight:600}
+main{min-width:0}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:10px;padding:12px 0;background:#f5f7f6;border-bottom:1px solid var(--line)}
+.search{flex:1;position:relative;min-width:0}
+.search svg{position:absolute;top:50%;left:14px;transform:translateY(-50%);color:#6d8088;pointer-events:none}
+.search input{width:100%;height:44px;background:#fff;border:1px solid #d2dedd;border-radius:8px;padding:10px 48px 10px 41px;color:var(--ink);font-size:13px}
+.search input:focus{outline:2px solid #76b8aa;outline-offset:1px}
+.search kbd{position:absolute;right:13px;top:12px;border:1px solid #dce4e3;border-radius:4px;color:#7a8b90;font:11px/18px inherit;padding:0 5px;pointer-events:none}
+.tools{display:flex;gap:7px}
+.btn{cursor:pointer;background:#fff;border:1px solid #d2dedd;color:#455e69;padding:11px 13px;border-radius:8px;font-size:12px;white-space:nowrap}
+.btn:hover{background:#edf3f0;border-color:#a8bdb6}
+.btn.on{background:#1e534a;color:#fff;border-color:#1e534a}
+.btn.danger{background:transparent;border-color:transparent;color:#687c82}
+.btn.danger:hover{background:#fceeee;color:#a23636}
+.list-intro{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin:25px 0 9px}
+.list-intro h2{font-size:20px;letter-spacing:-.5px;margin:0;font-weight:700}
+.result-count{color:var(--muted);font-size:12px}
+.legend{margin:0 0 22px;border-bottom:1px solid var(--line);padding-bottom:16px;color:var(--muted);font-size:12px}
+.legend summary{cursor:pointer;width:fit-content}
+.legend-content{display:flex;flex-wrap:wrap;gap:14px 20px;padding-top:14px;font-size:11px;align-items:center}
+.legend-content>span{display:flex;align-items:center;gap:6px}
+.s-num{--sec:#ad6851}.s-alg{--sec:#397b9c}.s-geo{--sec:#30806e}.s-stat{--sec:#9a762d}.s-halg{--sec:#79649b}
+.sec{margin:28px 0 0;scroll-margin-top:20px}
+.sec-head{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.sec-head h2{font-size:17px;letter-spacing:-.25px;font-weight:700;margin:0;display:flex;align-items:center;gap:10px}
+.sec-head h2:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sec,#7d9098);flex:none}
+.sec-meta{margin-left:auto;font-size:11px;color:var(--muted);text-align:right}
+.sec-done{font-weight:650;color:var(--teal)}
+.topics{list-style:none;padding:0;margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.topic{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:14px;margin:0;padding:0 18px;border-bottom:1px solid #e8eded;scroll-margin-top:100px}
+.topic:last-child{border-bottom:0}
+.topic:hover{background:#fafcfb}
+.topic input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal);margin:15px 0 0;cursor:pointer}
+.study>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:8px 2px;cursor:pointer;list-style:none}
+.study>summary::-webkit-details-marker{display:none}
+.tname{font-size:14px;font-weight:650;line-height:1.5}
+.study-action{display:inline-flex;align-items:center;gap:8px;flex:none;padding:4px 8px;border:1px solid #dce7e1;border-radius:6px;color:#326357;font-size:12px;font-weight:650}
+.study-action::after{content:"";width:6px;height:6px;border:solid currentColor;border-width:0 1px 1px 0;transform:rotate(45deg);margin:0 2px 3px}
+.study[open] .study-action::after{transform:rotate(225deg);margin:3px 2px 0}
+.study[open] .study-action,.study>summary:hover .study-action{background:#e7f2ec;border-color:#cbded3}
+.study-body{margin:0 0 14px;padding:14px 16px;border:1px solid #dfeae5;border-radius:8px;background:#f6faf8}
+.study-description{margin:0 0 12px;color:#435e56;font-size:13px}
+.study-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.study-group{min-width:0;padding:12px;border:1px solid #e0eae5;border-radius:7px;background:#fff}
+.study-group h3{margin:0 0 8px;font-size:14px}
+.resource-group+.resource-group{margin-top:10px}
+.resource-label{display:block;margin-bottom:4px;font-size:11px;color:#52686d;font-weight:650}
+.resource-links{display:flex;flex-wrap:wrap;gap:5px}
+.pill{display:inline-block;text-decoration:none;border-radius:5px;font-size:11px;font-weight:600;line-height:1.5;padding:5px 8px;border:1px solid transparent;overflow-wrap:anywhere;transition:background .15s}
+.pill:hover{filter:brightness(.95);text-decoration:underline;text-underline-offset:2px}
+.pill .sfx{font-weight:400}
+.pill.q{color:#285e8e;background:#edf4fa;border-color:#dce8f2}
+.pill.t{color:#286b52;background:#edf6ef;border-color:#dcebdd}
+.pill.a{color:#70578f;background:#f4eff8;border-color:#e7def1}
+.pill.watch{color:#8e3034;background:#fff1f1;border-color:#f0d6d8}
+.watch>span[aria-hidden]{margin-right:3px;font-size:9px}
+.chapter-time{margin-left:3px;font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.video-dock{position:fixed;inset:auto 16px max(16px,env(safe-area-inset-bottom)) auto;z-index:11;width:min(480px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);box-shadow:0 12px 40px #162d3970}
+.video-head,.video-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 13px;font-size:12px}
+.video-head h2{margin:0;font-size:14px;line-height:1.35}
+.video-head button{flex:none;padding:4px 10px;font-size:18px;line-height:1.25}
+.video-dock iframe{display:block;width:100%;min-height:200px;aspect-ratio:16/9;border:0;background:#162d39}
+.video-foot a{font-weight:650}
+.pill.miss{color:#92632c;background:#fff8e9;border:1px dashed #d7bd8b}
+.topic.done{background:#f1f8f4}
+.topic.done .tname{color:#658178;text-decoration:line-through;text-decoration-color:#a6c5b5}
+.empty-state{padding:45px 24px;text-align:center;border:1px dashed #c9d8d2;border-radius:12px;background:#fff;color:var(--muted)}
+.empty-state h3{font-size:17px;color:var(--ink);margin:0 0 7px}
+.empty-state p{margin:0;font-size:13px}
+.coverage{border-top:1px solid var(--line);padding-top:28px;margin-top:40px}
+.cov-note{font-size:12px;color:var(--muted);line-height:1.8}
+.cov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin:18px 0}
+.cov-box,.cov-details{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.cov-box h3{font-size:13px;margin:0 0 10px}
+.cov-box ul,.speclist{list-style:none;padding:0;margin:0}
+.cov-box li{font-size:12px;padding:8px 0;border-top:1px solid #e9eeee;color:#5b7078}
+.gapbox{border-top:3px solid #d3b877}.extrabox{border-top:3px solid #92b9cb}
+.gap-resources{margin-top:8px}
+.cov-details summary{font-size:12px;font-weight:600;cursor:pointer}
+.speclist{max-height:540px;overflow:auto;margin-top:15px}
+.speclist li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;color:#5b7078}
+.speclist b{color:var(--ink);font-family:ui-monospace,monospace}
+.sl-links a{display:inline-block;margin:4px 12px 0 0}.gaptag{color:#946b2f}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:10px;line-height:1.8}
+footer code{font-size:10px}
+@media(max-width:1100px){.wrap{padding:24px}.workspace{grid-template-columns:175px minmax(0,1fr);gap:22px}}
+@media(max-width:760px){html{scroll-padding-top:145px}.wrap{padding:18px 16px 32px}.hero{padding:18px 20px;column-gap:20px}.hero-progress{padding-left:16px}.workspace{display:flex;flex-direction:column;gap:14px;margin-top:20px}.sidebar{position:static;max-height:none;width:100%;padding:0;overflow:visible}.sidebar>.eyebrow,.sidebar-resources,.save-note{display:none}.jump{flex-direction:row;flex-wrap:wrap;gap:5px}.jump a{display:flex;padding:7px 10px;font-size:11px;background:#fff;border-color:var(--line);gap:7px}.nav-count{display:none}main{width:100%}.toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}.search{flex-basis:100%}.search kbd{display:none}.btn{padding:8px 11px}.tools{width:100%}.list-intro{margin-top:20px}.list-intro h2{font-size:18px}.sec-head{align-items:baseline;flex-wrap:wrap;gap:5px}.sec-head h2{font-size:16px}.sec-meta{font-size:10px}.topic{padding:0 12px;column-gap:10px;scroll-margin-top:150px}.study-body{padding:10px}.study-group{padding:10px}.coverage .sec-meta{margin-left:18px;text-align:left}}
+@media(max-width:760px){.sidebar .sidebar-resources{display:block;margin:12px 0 0;padding:8px 0 0}.sidebar-resources a{font-size:11px}}
+@media(max-width:620px){
+  .hero{grid-template-columns:1fr;gap:12px;padding:16px}
+  .hero-title{gap:10px}
+  .hero-logo{width:29px;height:29px}
+  .hero-progress{padding:10px 0 0;border-left:0;border-top:1px solid #cbdedb}
+}
+@media print{.video-dock{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{body{background:#fff;font-size:11px}.sidebar,.toolbar,.legend,.empty-state,footer{display:none}.wrap{padding:0;max-width:none}.hero{background:#fff;color:#000;border:1px solid #aaa;display:block;padding:16px}.hero-progress{display:none}.workspace{display:block}.topic{break-inside:avoid;padding:0 10px}.study-action{display:none}.topics{overflow:visible}.sec{break-inside:auto}.sec-head{break-after:avoid}.speclist{max-height:none;overflow:visible}}
+
+.hub{max-width:960px}
+.hub nav{display:flex;gap:10px 18px;flex-wrap:wrap;margin:16px 0}
+.hub nav a,.actions a{font-weight:650}
+.hub main{margin-top:24px}
+.hub main > section{margin-top:26px}
+.hub h2{font-size:22px;margin:0 0 10px;line-height:1.25}
+.hub h3{font-size:16px;margin:0 0 6px}
+.hub p{margin:0 0 10px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px}
+.tile,.panel,.question,.topic-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.tile p,.question p,.muted{color:#4d626d}
+.actions{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center}
+.questions{display:grid;gap:8px}
+.question{padding:12px 14px}
+.question h3{margin:0 0 4px}
+.topic-card{margin-bottom:10px}
+.topic-card summary,.panel summary{cursor:pointer;font-size:16px;font-weight:700}
+.topic-card[open] summary,.panel[open] summary{margin-bottom:10px}
+.hub .hero p{margin:7px 0 0}
+.hub .hero{grid-template-columns:1fr}
+.practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
+.plot{margin:0;padding-left:22px}
+.plot li{padding:4px 0}
+.exam-index{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px;padding:0;list-style:none}
+.exam-extract{margin:12px 0;padding:12px 14px;border-left:3px solid #83b9ae;background:#f3f7f6}
+.exam-extract p,.exam-extract pre{font:16px/1.6 Georgia,serif;margin:0 0 9px}
+.exam-extract pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.exam-extract :last-child{margin-bottom:0}
+.exam-match{background:#ccece6;color:inherit}
+.personal-highlight{background:#ffe59c;color:inherit}
+.exam-match.personal-highlight{background:#ffe59c;text-decoration:underline;text-decoration-color:#087f74}
+.reader-tools{display:flex;flex-wrap:wrap;gap:6px 9px;margin-top:8px}
+.reader-tools button,.bookmark-toggle{padding:3px 8px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--teal);cursor:pointer}
+.reader-section-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+#saved-bookmarks{margin:5px 0;padding-left:18px;max-height:85px;overflow:auto}
+.exam-match,.reading-section{scroll-margin-top:50px}
+html:has(.reader-panel){scroll-padding-top:185px}
+@media(max-width:500px){html:has(.reader-panel){scroll-padding-top:235px}}
+.question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
+.question[open]>summary{margin-bottom:8px}
+.marking-notes{margin:12px 0;color:var(--ink)}
+.marking-notes summary{cursor:pointer;font-weight:650}
+.marking-notes li{margin:7px 0}
+.reader-panel{position:sticky;top:0;z-index:1}
+.reader-panel .text-results{max-height:125px;overflow:auto}
+.question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
+.reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
+.reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
+.reader-controls input,.reader-controls select{width:100%;padding:8px;border:1px solid #9eb5b9;
+  background:#fff;color:var(--ink);border-radius:6px;font:inherit}
+.text-results{padding-left:20px;margin-top:6px}
+.text-results li{margin-bottom:6px}
+.text-results span{display:block;color:var(--muted)}
+.reading-section{padding:18px 0;border-top:1px solid var(--line)}
+.reading-copy{max-width:70ch;font:17px/1.65 Georgia,serif}
+.reading-copy pre{font:inherit;white-space:pre-wrap;margin:0 0 12px}
+.reading-copy p:target,.reading-copy pre:target{background:#e3f3ee}
+.reading-copy :is(p,pre){scroll-margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap hub">
+  <header class="hero">
+    <div class="hero-title">
+      <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+      <div><h1>An Inspector Calls</h1><p>J. B. Priestley · AQA Paper 2, Section A</p></div>
+    </div>
+  </header>
+<nav aria-label="Navigation"><a href="./">All subjects</a><a href="english.html">English Literature</a><a href="#questions">Exam questions</a><a href="#acts">Acts</a></nav>
+  <main>
+      <div class="actions">
+        <a href="https://www.concordtheatricals.co.uk/s/12689/an-inspector-calls" target="_blank" rel="noopener">Script and publisher preview ↗</a>
+        <a href="https://www.physicsandmathstutor.com/english-revision/gcse-aqa/an-inspector-calls/" target="_blank" rel="noopener">PMT revision notes ↗</a>
+        <a href="https://www.aqa.org.uk/subjects/english/gcse/english-8702/specification/subject-content/modern-texts-and-poetry" target="_blank" rel="noopener">AQA set texts and anthology ↗</a>
+      </div>
+      <section id="questions">
+        <h2>Past and specimen questions</h2>
+        <p>Choose one whole-play essay. The paper gives you two options without a printed extract. The tasks below are summaries. The PDF links go to the original questions and marking criteria.</p>
+        <ul class="exam-index" aria-label="Jump to an exam series"><li><a href="#exam-2025">June 2025</a></li><li><a href="#exam-2024">June 2024</a></li><li><a href="#exam-2023">June 2023</a></li><li><a href="#exam-2022">June 2022</a></li><li><a href="#exam-2021">November 2021</a></li><li><a href="#exam-2020">November 2020</a></li><li><a href="#exam-2019">June 2019</a></li><li><a href="#exam-2018">June 2018</a></li><li><a href="#exam-2017">June 2017</a></li><li><a href="#exam-specimen">AQA specimen · set 1</a></li><li><a href="#exam-specimen-2022">AQA specimen · 2022 format</a></li></ul><div class="questions"><details class="question" id="exam-2025">
+          <summary>June 2025 · Gerald and Sheila or Power</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Gerald and Sheila</h3>
+          <p class="practice">How does their engagement change during the play?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare the celebration and the returned ring with Gerald offering it again. Is the ending a reconciliation, or do the two now want different things?</p>
+      <p><strong>One possible argument</strong> · The engagement begins as reassurance of social and family stability, but Sheila’s refusal to settle the question at the end shows how differently the two understand what has happened.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Power</h3>
+          <p class="practice">How does Priestley show who has power and how it is used?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Consider how employers, customers and charity committees exercise different kinds of power. What changes when the Inspector takes control of the room?</p>
+      <p><strong>One possible argument</strong> · Priestley makes institutional power visible through Eva’s limited options, then shifts the power onstage to a visitor who controls what the family can see and when.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202025%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202025%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2024">
+          <summary>June 2024 · Mrs Birling and class or The Inspector and social change</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Mrs Birling and class</h3>
+          <p class="practice">What does Mrs Birling reveal about social class?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare how she judges Eva’s use of the Birling name with how she responds to Eric. Is class a principle for her, or a means of protecting her position?</p>
+      <p><strong>One possible argument</strong> · Mrs Birling’s authority rests on social distinction, but the revelation about Eric exposes the limits of the moral judgements she makes on that basis.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · The Inspector and social change</h3>
+          <p class="practice">How does the Inspector make the case for a different society?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare his questioning of individuals with his final address. What can the audience take from the final phone call even if his identity remains uncertain?</p>
+      <p><strong>One possible argument</strong> · The Inspector turns an apparently private investigation into a public argument about responsibility, and the final call keeps that argument alive after he leaves.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202024%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202024%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2023">
+          <summary>June 2023 · Women’s lives or Generational responses</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Women’s lives</h3>
+          <p class="practice">What does the play suggest about the positions and choices available to women?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare Eva’s limited choices with Sheila’s growing independence. Where does class make a greater difference than gender alone can explain?</p>
+      <p><strong>One possible argument</strong> · Priestley shows that women’s choices are constrained by both class and gender: Sheila can come to recognise injustice, while Eva’s efforts to resist have material consequences.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Generational responses</h3>
+          <p class="practice">How do older and younger characters respond differently to the Inspector?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare the family’s reactions after the Inspector leaves. Does Gerald fit neatly into either group, and what does that do to your argument?</p>
+      <p><strong>One possible argument</strong> · Sheila and Eric accept moral responsibility independently of the Inspector’s official status, while their parents are more willing to treat the absence of proof as absolution.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202023%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202023%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2022">
+          <summary>June 2022 · Eric and society or Inequality and tragedy</summary>
+<p>8702/1M · Choose one question · 30 marks</p><section>
+          <h3>Question 01 · Eric and society</h3>
+          <p class="practice">What does Eric learn about society during the evening?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Look at how Eric talks about money, his parents and Eva after the revelations. Which change shows a broader understanding, and which might be personal remorse?</p>
+      <p><strong>One possible argument</strong> · Eric begins to see why having money and status gives him obligations, although his new awareness arrives too late to help Eva.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Inequality and tragedy</h3>
+          <p class="practice">To what extent does inequality cause the tragedy?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Follow Eva from employment to the charity committee. Which losses of choice come from social position, and where do individual decisions still matter?</p>
+      <p><strong>One possible argument</strong> · The play treats inequality as a system that makes Eva vulnerable to repeated setbacks, while showing the choices through which individuals sustain that system.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202022%20QP%20-%201M.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202022%20MS%20-%201M.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2021">
+          <summary>November 2021 · Gerald and responsibility or An unfair society</summary>
+<p>8702/1M · Choose one question · 30 marks</p><section>
+          <h3>Question 01 · Gerald and responsibility</h3>
+          <p class="practice">What does Gerald’s behaviour reveal about responsibility?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare his account of helping Daisy with his later efforts to establish the Inspector’s identity. Is accepting responsibility the same as admitting what happened?</p>
+      <p><strong>One possible argument</strong> · Gerald shows that taking practical action for somebody can coexist with using power over them, and that telling the truth can fall short of accepting lasting responsibility.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · An unfair society</h3>
+          <p class="practice">How far does Priestley depict a society organised unfairly?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Set the opening celebration against Eva’s situation. Who gets to decide whether she deserves work, shelter or help, and how is that inequality staged?</p>
+      <p><strong>One possible argument</strong> · Eva is repeatedly judged by people insulated from the consequences of their own decisions, making unfairness visible in everyday institutions.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/June%202021%20QP%20-%201M.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/June%202021%20MS%20-%201M.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2020">
+          <summary>November 2020 · Mr Birling and self-interest or Irresponsible men</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Mr Birling and self-interest</h3>
+          <p class="practice">How far is Birling concerned only with his own interests and his family’s?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare Birling’s advice at dinner with what he wants to protect after the inquiry. Is he defending his family, his reputation, or both?</p>
+      <p><strong>One possible argument</strong> · Birling’s desire to protect his family frequently overlaps with his desire to preserve his standing; when those interests conflict, the play tests how generous his concern really is.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Irresponsible men</h3>
+          <p class="practice">How far are the men in the play shown to evade responsibility?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare Birling, Gerald and Eric. Where do they use their position to avoid consequences, and which of them is willing to live with what he has learned?</p>
+      <p><strong>One possible argument</strong> · The men use position, money and reputation to avoid accountability in different ways, but Eric’s response at the end makes the group less uniform.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202020%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202020%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2019">
+          <summary>June 2019 · Selfishness and its effects or Sheila’s lessons</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Selfishness and its effects</h3>
+          <p class="practice">What are the consequences of selfish choices in the play?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Trace two different choices about Eva. How does the order in which Priestley reveals them turn private decisions into a pattern?</p>
+      <p><strong>One possible argument</strong> · Each selfish act can look small when explained in isolation, but the sequence of disclosures shows how the acts accumulate into harm.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Sheila’s lessons</h3>
+          <p class="practice">What does Sheila learn about herself and society?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare Sheila’s response to losing her temper at the shop with her later warnings to the family. How does her role in the dialogue change?</p>
+      <p><strong>One possible argument</strong> · Sheila learns to connect her private behaviour with its social consequences, and her increasing confidence in challenging the family makes that lesson visible onstage.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202019%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202019%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2018">
+          <summary>June 2018 · Eric’s change or Social class</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Eric’s change</h3>
+          <p class="practice">How far do Eric’s attitudes to himself and others change?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare his evasiveness at dinner with his willingness to face responsibility at the end. What can a change in attitude repair, and what can it never undo?</p>
+      <p><strong>One possible argument</strong> · Eric moves from discomfort and evasion towards accepting his part in what happened, although the play leaves the practical value of that change open.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Social class</h3>
+          <p class="practice">Why does social class matter in the play?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Who can order, dismiss or refuse someone, and who cannot answer back? Consider why Priestley places those decisions in a comfortable dining room.</p>
+      <p><strong>One possible argument</strong> · Social class determines who can exercise judgement and who has to endure its effects, and Priestley’s dining-room setting keeps that imbalance in view.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202018%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202018%20MS.pdf#page=11" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-2017">
+          <summary>June 2017 · Mrs Birling or The Inspector’s proposals</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Mrs Birling</h3>
+          <p class="practice">How far does Priestley make Mrs Birling unlikeable?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare her confidence at the charity committee with the revelation that follows her judgement of the father. Can you explain her certainty without endorsing it?</p>
+      <p><strong>One possible argument</strong> · Mrs Birling’s unexamined certainty can repel an audience, especially when her judgement rebounds on her own family.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · The Inspector’s proposals</h3>
+          <p class="practice">What changes to society does the Inspector encourage?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Look at his questioning and final speech. How does the contrast with Birling’s opening advice invite the audience to choose between two ways of living?</p>
+      <p><strong>One possible argument</strong> · The Inspector argues for social improvement by replacing Birling’s ethic of individual self-interest with the idea that choices impose obligations to others.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/June%202017%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/June%202017%20MS.pdf#page=12" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-specimen">
+          <summary>AQA specimen · set 1 · Sheila’s development or Responsibility</summary>
+<p>8702/2 · Choose one question · 30 marks + 4 for accuracy and expression</p><section>
+          <h3>Question 01 · Sheila’s development</h3>
+          <p class="practice">What changes Sheila, and how does Priestley show the change?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare Sheila’s words at the engagement, during the inquiry and after it. How does she move from being questioned to questioning her family?</p>
+      <p><strong>One possible argument</strong> · The investigation changes Sheila from a participant in an engagement celebration into someone who can interrogate the assumptions supporting that celebration.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Responsibility</h3>
+          <p class="practice">How does the play explore responsibility for other people?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Consider why the family’s relief before the final phone call matters. What changes if responsibility depends on proof rather than on what they did?</p>
+      <p><strong>One possible argument</strong> · The ending tests whether responsibility depends on the authority of the person asking the questions, or on the actions already admitted.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/QP/Specimen%20QP.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-2/MS/Specimen%20MS.pdf#page=12" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details><details class="question" id="exam-specimen-2022">
+          <summary>AQA specimen · 2022 format · Eric’s change or Social class</summary>
+<p>8702/1M · Choose one question · 30 marks</p><section>
+          <h3>Question 01 · Eric’s change</h3>
+          <p class="practice">How far do Eric’s attitudes to himself and others change?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Compare his evasiveness at dinner with his willingness to face responsibility at the end. What can a change in attitude repair, and what can it never undo?</p>
+      <p><strong>One possible argument</strong> · Eric moves from discomfort and evasion towards accepting his part in what happened, although the play leaves the practical value of that change open.</p>
+    </details>
+        </section><section>
+          <h3>Question 02 · Social class</h3>
+          <p class="practice">Why does social class matter in the play?</p>
+          <details class="marking-notes">
+      <summary>Thinking prompt and example argument</summary>
+      <p>Who can order, dismiss or refuse someone, and who cannot answer back? Consider why Priestley places those decisions in a comfortable dining room.</p>
+      <p><strong>One possible argument</strong> · Social class determines who can exercise judgement and who has to endure its effects, and Priestley’s dining-room setting keeps that imbalance in view.</p>
+    </details>
+        </section>
+          <div class="actions references">
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/QP/Specimen%20%282022%29%20QP%20-%201M.pdf#page=4" target="_blank" rel="noopener">Original question paper ↗</a>
+            <a href="https://pmt.physicsandmathstutor.com/download/English-Literature/GCSE/Past-Papers/AQA/Paper-1/MS/Specimen%20%282022%29%20MS%20-%201M.pdf#page=10" target="_blank" rel="noopener">Official mark scheme ↗</a>
+          </div>
+        </details></div>
+      </section>
+      <section id="acts">
+        <h2>Read the play by act</h2>
+        <ol class="plot">
+          <li><strong>Act 1</strong> · The engagement dinner gives way to the Inspector’s inquiry. Birling and Sheila describe how their decisions affected Eva.</li>
+          <li><strong>Act 2</strong> · Gerald explains his relationship with Daisy. Mrs Birling defends the charity’s decision, then learns who the father is.</li>
+          <li><strong>Act 3</strong> · Eric describes his actions. After the Inspector leaves, the family argues over what his identity changes. A phone call reopens the inquiry.</li>
+        </ol>
+      </section></main>
+</div>
+<script>
+function openLinkedDetails() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (target instanceof HTMLDetailsElement) target.open = true;
+}
+addEventListener('hashchange', openLinkedDetails);
+openLinkedDetails();
+</script>
+</body>
+</html>
