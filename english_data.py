@@ -15,7 +15,8 @@ EXAMS = (
     ("June 2019", "2019", ("Macbeth as a violent character", "Act 1, Scene 2"), ("How others’ treatment affects the creature", "Chapter 15")),
     ("June 2018", "2018", ("Attitudes to the supernatural", "Act 1, Scene 3"), ("The creature as a victim deserving pity", "Chapter 24")),
     ("June 2017", "2017", ("Ambition", "Act 1, Scene 5"), ("Whether the creature is evil", "Chapter 20")),
-    ("AQA specimen", "specimen", ("Lady Macbeth’s power", "Act 1, Scene 5"), ("Love and acceptance", "Chapter 15")),
+    ("AQA specimen · set 1", "specimen", ("Lady Macbeth’s power", "Act 1, Scene 5"), ("Love and acceptance", "Chapter 15")),
+    ("AQA specimen · 2022 format", "specimen-2022", ("Attitudes to the supernatural", "Act 1, Scene 3"), ("The creature as a victim deserving pity", "Chapter 24")),
 )
 
 TEXTS = {
@@ -34,7 +35,11 @@ TEXTS = {
             ("Ambition and kingship", "Compare Macbeth weighing up Duncan’s murder (1.7) with his fear of Banquo (3.1). His soliloquies show how getting the crown changes what he wants from power.", "How does Shakespeare present ambition as a threat to good kingship?", ("2017", "2025", "2022")),
             ("Lady Macbeth and gender", "Compare Lady Macbeth’s appeal to the spirits (1.5), her challenge to Macbeth (1.7) and her fragmented speech while sleepwalking (5.1). Track who controls each scene.", "How does Shakespeare present changes in Lady Macbeth’s power?", ("specimen", "2024", "2020", "2021")),
             ("Guilt and fear", "Compare Macbeth’s reaction to his bloody hands (2.2) with Lady Macbeth’s imagined bloodstain (5.1). Explain what the recurring image reveals at each point.", "How does Shakespeare use images of blood to show the effects of guilt?", ("2022", "2020", "2021")),
-            ("The supernatural", "Compare Banquo’s caution about the witches (1.3) with Macbeth’s confidence after the apparitions (4.1). Consider how the audience hears a warning where Macbeth hears reassurance.", "How does Shakespeare use the supernatural to test characters’ judgement?", ("2018",)),
+            ("The supernatural", "Compare Banquo’s caution about the witches (1.3) with Macbeth’s confidence after the apparitions (4.1). Consider how the audience hears a warning where Macbeth hears reassurance.", "How does Shakespeare use the supernatural to test characters’ judgement?", ("2018", "specimen-2022")),
+            ("Appearance and reality", "Compare Lady Macbeth’s advice on hiding intent (1.5) with Macbeth’s public performance at the banquet (3.4). Dramatic irony lets the audience see what other characters miss.", "How does Shakespeare use deception to create tension?", ("2024", "2023")),
+            ("Fate and free choice", "Compare Macbeth’s first reaction to the prophecy (1.3) with his deliberate return to the witches (4.1). Consider where he could have acted differently.", "How far does Shakespeare present Macbeth as responsible for his own downfall?", ("2018", "2025")),
+            ("Duncan, Malcolm and good kingship", "Compare Duncan’s trust in others (1.4) with Malcolm testing Macduff’s loyalty (4.3). Consider what the play presents as the duties of a king.", "How does Shakespeare contrast rulers who serve Scotland with rulers who serve themselves?", ("2019", "2023")),
+            ("Macduff, loyalty and grief", "Compare Macduff’s response to his family’s deaths (4.3) with his final confrontation with Macbeth (5.8). Notice how he challenges Malcolm’s idea of what it means to act like a man.", "How does Shakespeare use Macduff to explore courage?", ("2019", "2024")),
             ("Violence and Macbeth’s change", "Compare the Captain praising Macbeth’s fighting (1.2) with Macbeth ordering the deaths of Macduff’s family (4.1). Ask what makes violence seem admirable in one scene and tyrannical in the other.", "How does Shakespeare change the audience’s view of Macbeth’s violence?", ("2019", "2023")),
         ),
     },
@@ -54,7 +59,11 @@ TEXTS = {
             ("Science, ambition and responsibility", "Compare Victor imagining a new species (ch. 4) with his flight from the creature (ch. 5) and Walton’s decision to turn back (ch. 24). Notice how Victor narrates his hopes after knowing the outcome.", "How does Shelley show the difference between discovery and responsibility?", ("2024", "2021")),
             ("Isolation and belonging", "Compare the creature’s effort to approach the De Laceys (ch. 15) with his demand for a companion (ch. 17). Use his own narration to examine how Shelley builds sympathy.", "How does Shelley present isolation as a force that changes people?", ("2023", "2019", "specimen")),
             ("Family and loss", "Compare Victor’s account of family life (ch. 1) with his grief after Elizabeth’s death (ch. 23). Consider how affection also makes characters vulnerable.", "How does Shelley show the importance of family through what characters lose?", ("2025", "2020")),
-            ("The creature, prejudice and revenge", "Compare the creature seeking kindness from the blind De Lacey (ch. 15) with his final account of his actions (ch. 24). Look at the tension between sympathy and responsibility.", "How does Shelley make the reader question who deserves sympathy?", ("2019", "2018", "2017")),
+            ("The creature, prejudice and revenge", "Compare the creature seeking kindness from the blind De Lacey (ch. 15) with his final account of his actions (ch. 24). Look at the tension between sympathy and responsibility.", "How does Shelley make the reader question who deserves sympathy?", ("2019", "2018", "2017", "specimen-2022")),
+            ("Walton and the frame narrative", "Compare Walton’s hopes in Letter 1 with his account of Victor in Letter 4 and his decision to return in Chapter 24. Consider how Shelley uses one explorer to frame another’s story.", "How does Walton’s narration change how the reader judges Victor?", ("2021", "2024")),
+            ("Gothic settings and nature", "Compare the creation scene (ch. 5) with Victor’s encounter on the glacier (ch. 10). Consider how enclosed and vast settings affect the reader differently.", "How does Shelley use settings to create fear or sympathy?", ("2022", "2024")),
+            ("Gender, justice and power", "Compare Justine’s account of her confession (ch. 8) with Victor’s decision about the female creature (ch. 20). Ask who makes decisions and who lives with the consequences.", "How does Shelley show the effects of decisions made on behalf of others?", ("2017", "2020")),
+            ("Education and nature versus nurture", "Compare Victor’s formal studies (ch. 3) with the creature’s education through listening and reading (chs. 13 and 15). Consider how knowledge changes each character’s hopes.", "How does Shelley present education as both a gift and a source of suffering?", ("2019", "specimen")),
             ("Victor and the creature", "Compare their confrontation in the mountains (ch. 10) with Victor destroying the companion (ch. 20). Track how each character justifies what he owes to the other.", "How does Shelley present Victor and the creature as both enemies and alike?", ("2022", "2017", "2021")),
         ),
     },
@@ -63,6 +72,16 @@ TEXTS = {
 
 def paper_links(year, text):
     """Return the question and mark scheme for the text's actual component."""
+    if year == "specimen-2022":
+        if text == "macbeth":
+            base, suffix, component = f"{PMT}/Paper-2", "", "8702/2"
+        else:
+            base, suffix, component = f"{PMT}/Paper-1", "%20-%201N", "8702/1N"
+        return (
+            component,
+            f"{base}/QP/Specimen%20%282022%29%20QP{suffix}.pdf",
+            f"{base}/MS/Specimen%20%282022%29%20MS{suffix}.pdf",
+        )
     if year == "specimen":
         return "8702/1", f"{PMT}/Paper-1/QP/Specimen%20QP.pdf", "https://filestore.aqa.org.uk/resources/english/AQA-87021-SMS.PDF"
     if year == "2024":

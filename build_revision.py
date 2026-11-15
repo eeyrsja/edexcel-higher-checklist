@@ -129,7 +129,7 @@ def build_text(slug, text):
       <section id="topics"><h2>Revise by topic</h2>{"".join(topics)}
         <details class="panel"><summary>Check your answer</summary><ul>{checklist}</ul></details>
       </section>
-      <section id="questions"><h2>Past and specimen questions</h2><div class="questions">{questions}</div></section>"""
+      <section id="questions"><h2>Past and specimen questions</h2><p>The 2022 specimen reuses the June 2018 question in the split paper format.</p><div class="questions">{questions}</div></section>"""
     page(
         f"{slug}.html", text["title"], f'{text["author"]} · {text["section"]}',
         (("All subjects", "./"), ("English Literature", "english.html"), ("Plot", "#plot"),
@@ -143,7 +143,7 @@ def build_english():
 
     archive = []
     for exam in EXAMS:
-        if exam[1] in {"2021", "2022"}:
+        if exam[1] in {"2021", "2022", "specimen-2022"}:
             heading = f'{exam[0]} · papers split by text'
             cards = "".join(question_card(exam, slug) for slug in TEXTS)
         else:
@@ -179,8 +179,8 @@ def build_english():
         </div>
       </section>
       <section id="past-papers">
-        <h2>Past papers</h2>
-        <p>For November 2021 and June 2022, use Paper 2 for Macbeth and Paper 1N for Frankenstein.</p>
+        <h2>Past papers and specimens</h2>
+        <p>For November 2021 and June 2022, use Paper 2 for Macbeth and Paper 1N for Frankenstein. The 2022 specimen reuses the June 2018 questions from both texts.</p>
         <div class="questions">{"".join(archive)}</div>
       </section>""")
 
