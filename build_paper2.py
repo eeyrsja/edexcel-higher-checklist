@@ -11,7 +11,7 @@ from english_paper2 import (
 )
 
 PDF_PAGES = json.loads((ROOT / "paper2_pdf_pages.json").read_text(encoding="utf-8"))
-PUBLIC_POEMS = json.loads((ROOT / "paper2_public_poems.json").read_text(encoding="utf-8"))
+POEM_TEXTS = json.loads((ROOT / "paper2_poems.json").read_text(encoding="utf-8"))
 
 OPEN_LINKED_DETAILS = """<script>
 function openLinkedDetails() {
@@ -107,8 +107,7 @@ def build_paper2(page, external):
 
     poem_cards = []
     for index, (title, author, pdf_page, note) in enumerate(POEMS):
-        text = PUBLIC_POEMS.get(str(index))
-        verse = f'<blockquote class="exam-extract"><pre>{escape(text)}</pre></blockquote>' if text else ""
+        verse = f'<blockquote class="exam-extract"><pre>{escape(POEM_TEXTS[str(index)])}</pre></blockquote>'
         poem_cards.append(f"""<details class="topic-card" id="poem-{index}">
           <summary>{escape(title)} · {escape(author)}</summary>
           <p>{escape(note)}</p>
@@ -130,7 +129,7 @@ def build_paper2(page, external):
       </section>
       <section id="poems">
         <h2>All 15 poems</h2>
-        <p>Open a poem for a revision prompt and its page in the official anthology. Six public domain poems are also printed here.</p>
+        <p>Open a poem to read it in full and find a revision prompt.</p>
         <ul class="exam-index" aria-label="Jump to a poem">{poem_index}</ul>
         {"".join(poem_cards)}
       </section>""", OPEN_LINKED_DETAILS)
