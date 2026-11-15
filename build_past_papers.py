@@ -73,7 +73,7 @@ def build_past_papers():
 <div class="wrap">
   <header class="hero">
     <div class="hero-title">
-      <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+      <img class="hero-logo" src="sjalogo.png?v=2" width="36" height="36" alt="SJA monogram">
       <h1>Past papers</h1>
     </div>
     <a href="maths.html">← Maths checklist</a>

@@ -109,7 +109,7 @@ def page(filename, title, subtitle, navigation, body, script="", css=""):
 <div class="wrap hub">
   <header class="hero">
     <div class="hero-title">
-      <img class="hero-logo" src="sjalogo.png" width="36" height="36" alt="SJA monogram">
+      <img class="hero-logo" src="sjalogo.png?v=2" width="36" height="36" alt="SJA monogram">
       <div><h1>{title}</h1>{f"<p>{subtitle}</p>" if subtitle else ""}</div>
     </div>
   </header>
