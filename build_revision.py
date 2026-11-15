@@ -4,6 +4,8 @@ from html import escape
 
 from build import EDEXCEL_CSS, ROOT, main as build_maths
 from build_past_papers import build_past_papers
+from english_practice import PRACTICE
+from english_reader import SOURCES, read_sections, reading_anchor
 from english_data import AQA, EXAMS, PMT_NOTES, TEXTS, paper_links
 
 CSS = """
@@ -30,6 +32,24 @@ CSS = """
 .practice{border-left:3px solid #83b9ae;padding:8px 12px;margin:12px 0;background:#f0f8f5}
 .plot{margin:0;padding-left:22px}
 .plot li{padding:4px 0}
+.question>summary{cursor:pointer;padding:2px 0;font-weight:700;font-size:16px}
+.question[open]>summary{margin-bottom:8px}
+.marking-notes{margin:12px 0;color:var(--ink)}
+.marking-notes summary{cursor:pointer;font-weight:650}
+.marking-notes li{margin:7px 0}
+.question .references{border-top:1px solid var(--line);padding-top:9px;font-size:13px}
+.reader-controls{display:flex;flex-wrap:wrap;gap:10px 18px}
+.reader-controls label{display:grid;gap:4px;flex:1 1 230px;font-weight:650}
+.reader-controls input,.reader-controls select{width:100%;padding:8px;border:1px solid #9eb5b9;
+  background:#fff;color:var(--ink);border-radius:6px;font:inherit}
+.text-results{padding-left:20px;margin-top:6px}
+.text-results li{margin-bottom:6px}
+.text-results span{display:block;color:var(--muted)}
+.reading-section{padding:18px 0;border-top:1px solid var(--line)}
+.reading-copy{max-width:70ch;font:17px/1.65 Georgia,serif}
+.reading-copy pre{font:inherit;white-space:pre-wrap;margin:0 0 12px}
+.reading-copy p:target,.reading-copy pre:target{background:#e3f3ee}
+.reading-copy :is(p,pre){scroll-margin-top:12px}
 """
 
 SELF_CHECK = (
@@ -44,7 +64,7 @@ def external(label, url):
     return f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(label)} ↗</a>'
 
 
-def page(filename, title, subtitle, navigation, body):
+def page(filename, title, subtitle, navigation, body, script=""):
     nav = "".join(f'<a href="{url}">{label}</a>' for label, url in navigation)
     menu = f'<nav aria-label="Navigation">{nav}</nav>' if nav else ""
     legacy_redirect = """
@@ -75,7 +95,7 @@ def page(filename, title, subtitle, navigation, body):
   </header>
 {menu}
   <main>{body}</main>
-</div>
+</div>{chr(10) + script if script else ""}
 </body>
 </html>
 """
@@ -88,15 +108,61 @@ def question_card(exam, text):
     title, location = macbeth if is_play else frankenstein
     component, paper, scheme = paper_links(year, text)
     number = "1" if is_play else "5" if component == "8702/1N" else "11"
-    label = f'{TEXTS[text]["title"]} · {series}'
-    return f"""<article class="question">
-      <h3>{escape(label)} · {escape(title)}</h3>
-      <p>{location} · {component}, Question {number}</p>
-      <div class="actions">
-        {external(f"Question paper", paper)}
-        {external(f"Mark scheme", scheme)}
+    prompt, scene, ao1, ao2, ao3 = PRACTICE[text]["2018" if year == "specimen-2022" else year]
+    assessment = [("AO1", ao1), ("AO2", ao2), ("AO3", ao3)]
+    if is_play:
+        assessment.append(("AO4", "Check spelling and punctuation. Vary sentence structure for clarity."))
+    notes = "".join(f"<li><strong>{ao}</strong> · {escape(note)}</li>" for ao, note in assessment)
+    passage = "Walton’s continuation" if not is_play and year in {"2018", "specimen-2022"} else location
+    return f"""<details class="question" id="exam-{year}">
+      <summary>{escape(series)} · {escape(title)}</summary>
+      <p>{escape(location)} · {component}, Question {number} · {"34" if is_play else "30"} marks</p>
+      <div class="practice"><strong>Practice task</strong><br>{escape(prompt)}</div>
+      <p>{escape(scene)} Use this passage and evidence from elsewhere in the work.</p>
+      <p><a href="{text}-text.html#{escape(reading_anchor(passage))}">Read {escape(passage)} on this site</a></p>
+      <details class="marking-notes">
+        <summary>Show marking guidance</summary>
+        <ul>{notes}</ul>
+      </details>
+      <div class="actions references">
+        {external("Original question paper", paper)}
+        {external("Official mark scheme", scheme)}
       </div>
-    </article>"""
+    </details>"""
+
+
+def build_reader(slug, text):
+    sections = read_sections(ROOT / "texts" / f"{slug}.txt")
+    options = "".join(f'<option value="{escape(anchor)}">{escape(title)}</option>'
+                      for anchor, title, _ in sections)
+    contents = []
+    for anchor, title, content in sections:
+        blocks = []
+        for block in content.split("\n\n"):
+            if not block.strip():
+                continue
+            if slug == "macbeth":
+                blocks.append(f"<pre>{escape(block.strip())}</pre>")
+            else:
+                blocks.append(f"<p>{escape(' '.join(block.split()))}</p>")
+        contents.append(f'<section class="reading-section" id="{escape(anchor)}">'
+                        f'<h2>{escape(title)}</h2><div class="reading-copy">{"".join(blocks)}</div></section>')
+
+    body = f"""
+      <div class="panel">
+        <div class="reader-controls">
+          <label>Find a word or phrase <input type="search" id="text-search"></label>
+          <label>Jump to a section <select id="text-jump"><option value="">Choose a section</option>{options}</select></label>
+        </div>
+        <p id="text-search-status" role="status"></p>
+        <ol class="text-results" id="text-results"></ol>
+      </div>
+      {"".join(contents)}
+      <footer>Source · {external("Project Gutenberg", SOURCES[slug])}</footer>"""
+    script = (ROOT / "reader.js").read_text(encoding="utf-8")
+    page(f"{slug}-text.html", f'{text["title"]} · Full text', text["author"],
+         (("All subjects", "./"), ("Back to revision", f"{slug}.html"),
+          ("Exam questions", f"{slug}.html#questions")), body, f"<script>{script}</script>")
 
 
 def build_text(slug, text):
@@ -118,34 +184,47 @@ def build_text(slug, text):
     if slug == "macbeth":
         checks += ("Check your spelling, punctuation and sentence clarity for AO4.",)
     checklist = "".join(f"<li>{check}</li>" for check in checks)
-    questions = "".join(f'<div id="exam-{exam[1]}">{question_card(exam, slug)}</div>' for exam in EXAMS)
+    questions = "".join(question_card(exam, slug) for exam in EXAMS)
     body = f"""
       <div class="actions">
-        {external("Read the full text", text["reading"])}
+        <a href="{slug}-text.html">Read and search the full text</a>
         {external("PMT revision notes", PMT_NOTES + slug + "/")}
         {external("BBC guided essay", text["guided"])}
       </div>
+      <section id="questions"><h2>Past and specimen questions</h2><p>Open a question to practise and reveal marking guidance. Tasks are reworded and the guidance is written for this site. The original AQA documents are linked on each card.</p><div class="questions">{questions}</div></section>
       <section id="plot"><h2>Plot at a glance</h2><ol class="plot">{plot}</ol></section>
       <section id="topics"><h2>Revise by topic</h2>{"".join(topics)}
         <details class="panel"><summary>Check your answer</summary><ul>{checklist}</ul></details>
       </section>
-      <section id="questions"><h2>Past and specimen questions</h2><p>The 2022 specimen reuses the June 2018 question in the split paper format.</p><div class="questions">{questions}</div></section>"""
+"""
     page(
         f"{slug}.html", text["title"], f'{text["author"]} · {text["section"]}',
         (("All subjects", "./"), ("English Literature", "english.html"), ("Plot", "#plot"),
          ("Topics", "#topics"), ("Exam questions", "#questions")), body,
+        """<script>
+function showLinkedQuestion() {
+  const question = document.getElementById(location.hash.slice(1));
+  if (question?.matches('details.question')) question.open = true;
+}
+addEventListener('hashchange', showLinkedQuestion);
+showLinkedQuestion();
+</script>""",
     )
 
 
 def build_english():
     for slug, text in TEXTS.items():
         build_text(slug, text)
+        build_reader(slug, text)
 
     archive = []
     for exam in EXAMS:
         if exam[1] in {"2021", "2022", "specimen-2022"}:
             heading = f'{exam[0]} · papers split by text'
-            cards = "".join(question_card(exam, slug) for slug in TEXTS)
+            cards = f"""<div class="actions">
+              <a href="macbeth.html#exam-{exam[1]}">Macbeth · Paper 2, Q1</a>
+              <a href="frankenstein.html#exam-{exam[1]}">Frankenstein · Paper 1N, Q5</a>
+            </div>"""
         else:
             heading = exam[0]
             _, paper, scheme = paper_links(exam[1], "macbeth")
